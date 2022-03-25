@@ -16,7 +16,6 @@ from userbot import (
     BOT_TOKEN,
     BOT_VER,
     LOGS,
-    kyyblacklist,
     bot,
     call_py,
 )
