@@ -9,7 +9,7 @@
 
 
 <p align="center">
-  <img src="https://telegra.ph/file/276d22aac9f400898cd27.jpg">
+  <img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
 </p>
 
 
@@ -36,8 +36,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
-<a href="https://t.me/NastySupportt"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
-<a href="https://t.me/NastyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
+<a href="https://t.me/Diskras"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 ### ғᴏʟʟᴏᴡ ᴍᴇ :
 <p align="left">
@@ -52,4 +52,5 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot)   Suhu - Userbot
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   Skyzu-Userbot
+*   [Mawll](https://t.me/@Ullvpr)     Owner_Veaper
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
