@@ -13,16 +13,6 @@
 </p>
 
 
-## ᴅɪsᴄʟᴀɪᴍᴇʀ
-
-```
-Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
-Bot ini dimaksudkan untuk bersenang-senang sekaligus membantu Anda
-mengelola grup secara efisien dan mengotomatiskan beberapa hal yang membosankan.
-Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
-```
-
-
 ## sᴛʀɪɴɢ sᴇssɪᴏɴ :
 [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-white)](https://replit.com/@rizkyhmdanii16/StringSession)
 
@@ -41,16 +31,16 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 ### ғᴏʟʟᴏᴡ ᴍᴇ :
 <p align="left">
-<a href="https://github.com/muhammadrizky16"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> 
-<a href="https://instagram.com/rizkyhamdanii16_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
+<a href="https://github.com/Rzydx"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> 
+<a href="https://instagram.com/_r_z_y_d_x_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
 
 ##
 
-🔰 **THANKS YOU TO**
+🔥 **THANKS YOU TO**
 *   [Rzydx](https://github.com/Rzydx/Rzydx-Userbot)   Rzydx-Userbot
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot)   Suhu - Userbot
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   Skyzu-Userbot
 *   [Mawll](https://t.me/@Ullvpr)     Owner_Veaper
-*   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
+*   Dan Terima Kasih Kepada Userbot Lainnya Juga 🙏
