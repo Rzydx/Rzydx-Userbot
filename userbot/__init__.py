@@ -122,9 +122,9 @@ while 0 < 6:
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        kyyblacklist = []
+        rzydxblacklist = []
         break
-    kyyblacklist = _BLACKLIST.json()
+    rzydxblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
