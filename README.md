@@ -1,16 +1,16 @@
 <h1 align="center">Rzydx-Userbot</h1>
 
 <p align="center">
+<img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
+</p>
+
+
+<p align="center">
     <a href="https://github.com/Rzydx/Rzydx-Userbot/commits/Rzydx-Userbot"><img src="https://img.shields.io/github/last-commit/Rzydx/Rzydx-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
     <a href="https://github.com/Rzydx/Rzydx-Userbot"> <img src="https://img.shields.io/github/repo-size/Rzydx/Rzydx-Userbot?logo=github&style=for-the-badge" /></a>
     <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
     <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
     </p>
-
-
-<p align="center">
-  <img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
-</p>
 
 
 ## sᴛʀɪɴɢ sᴇssɪᴏɴ :
@@ -22,7 +22,7 @@
 
 <p align="center">
 <a href="https://dashboard.heroku.com/deploy?template=https://github.com/Rzydx/Rzydx-Userbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="215""/</a>  
-<a href="https://telegram.dog/XTZ_HerokuBot?start=bXVoYW1tYWRyaXpreTE2L0t5eS1Vc2VyYm90IEt5eS1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
+<a href="https://telegram.dog/XTZ_HerokuBot?start="><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
 
 
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
