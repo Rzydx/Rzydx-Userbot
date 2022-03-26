@@ -8,9 +8,9 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
 RUN git clone -b Rzydx-Userbot https://github.com/Rzydx/Rzydx-Userbot /home/kyy-Userbot/ \
-    && chmod 777 /home/Rzydx-Userbot \
-    && mkdir /home/Rzydx-Userbot/bin/
-WORKDIR /home/Rzydx-Userbot/
-COPY ./sample_config.env ./config.env* /home/Rzydx-Userbot/
+    && chmod 777 /home/Kyy-Userbot \
+    && mkdir /home/Kyy-Userbot/bin/
+WORKDIR /home/Kyy-Userbot/
+COPY ./sample_config.env ./config.env* /home/Kyy-Userbot/
 RUN pip install -r requirements.txt
 CMD ["python3", "-m", "userbot"]
