@@ -1,7 +1,6 @@
 # Using Python Slim-Buster
 FROM skyzuxzy/skyzu-userbot:buster
 #━━━━━ Userbot Telegram ━━━━━
-#━━━━━ By Skyzuu-Userbot ━━━━━
 #━━━━━ By Rzydx-Userbot ━━━━━
 
 RUN apt-get update && apt-get upgrade -y
@@ -16,7 +15,7 @@ RUN pip install --upgrade pip setuptools
 WORKDIR /root/userbot
 
 #Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/muhammadrizky16/Kyy-Userbot/Kyy-Userbot/requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/Rzydx/Rzydx-Userbot/Rzydx-Userbot/requirements.txt
 
 EXPOSE 80 443
 
