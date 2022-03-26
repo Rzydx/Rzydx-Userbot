@@ -1,3 +1,3 @@
-FROM rzydx/rzydxuserbot:rzydx
+FROM mrismanaziz/man-userbot:slim-buster
 
 CMD [ "bash", "start" ]
