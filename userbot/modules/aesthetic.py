@@ -1,5 +1,5 @@
 from telethon import events
-from userbot.utils import kyy_cmd
+from userbot.utils import rzydx_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 PRINTABLE_ASCII = range(0x21, 0x7F)
