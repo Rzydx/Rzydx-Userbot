@@ -1,3 +1,3 @@
-FROM rzydx/rzydxuserbot:tagname
+FROM rzydx/rzydxuserbot:rzydx
 
-CMD ["python3", "-m", "userbot"]
+CMD [ "bash", "start" ]
