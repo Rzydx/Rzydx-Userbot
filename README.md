@@ -22,8 +22,11 @@
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/Rzydx/TemplateUserbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="215""/</a>  
-<a href="https://telegram.dog/XTZ_HerokuBot?start=Unp5ZHgvVGVtcGxhdGVVc2VyYm90IFJ6eWR4LVVzZXJib3Q"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
-
+<a href="https://telegram.dog/XTZ_HerokuBot?start=Unp5ZHgvUnp5ZHgtVXNlcmJvdCBSenlkeC1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
+<a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
+</div>
+   <h3>Deploy to Heroku </h3>
+<div>
 
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
 <a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
