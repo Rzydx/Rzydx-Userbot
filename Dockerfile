@@ -1,4 +1,4 @@
-FROM rzydx/rzydx-userbot:busterv2
+FROM kyyex/kyy-userbot:busterv2
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     curl \
@@ -7,7 +7,7 @@ RUN apt-get install -y --no-install-recommends \
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
-RUN git clone -b Rzydx-Userbot https://github.com/Rzydx/Rzydx-Userbot /home/Rzydx-Userbot/ \
+RUN git clone -b Rzydx-Userbot https://github.com/Rzydx/Rzydx-Userbot /home/kyy-Userbot/ \
     && chmod 777 /home/Rzydx-Userbot \
     && mkdir /home/Rzydx-Userbot/bin/
 WORKDIR /home/Rzydx-Userbot/
