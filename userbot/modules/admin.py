@@ -34,7 +34,6 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.utils import (
     edit_delete,
     edit_or_reply,
-    kyy_cmd,
 )
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
@@ -323,7 +322,7 @@ async def spider(spdr):
     # If not admin and not creator, return
     if not admin and not creator:
         return await edit_or_reply(spdr, NO_ADMIN)
-    kyy = await edit_or_reply(spdr, "`Sedang melakukan Mute...`")
+    await edit_or_reply(spdr, "`Sedang melakukan Mute...`")
     user, reason = await get_user_from_event(spdr)
     if not user:
         return
