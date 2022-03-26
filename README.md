@@ -27,6 +27,8 @@
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Rzydx/Rzydx-Userbot)
+
 
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
 <a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
