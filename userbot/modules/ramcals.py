@@ -24,6 +24,7 @@ from userbot.utils import edit_delete, edit_or_reply, ram_cmd
 
 NO_ADMIN = "`LU BUKAN ADMIN NGENTOT!!`"
 
+
 def vcmention(user):
     full_name = get_display_name(user)
     if not isinstance(user, types.User):
@@ -45,7 +46,7 @@ def user_list(l, n):
 @ram_cmd(pattern="startvc$")
 @register(pattern=r"^\.cstr$", sudo=True)
 async def start_voice(c):
-    me = await c.client.get_me()
+    await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -63,7 +64,7 @@ async def start_voice(c):
 @ram_cmd(pattern="stopvc$")
 @register(pattern=r"^\.cstp$", sudo=True)
 async def stop_voice(c):
-    me = await c.client.get_me()
+    await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator

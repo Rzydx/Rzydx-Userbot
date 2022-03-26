@@ -106,7 +106,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@ram_cmd(pattern="play(?:\s|$)([\s\S]*)")
+@ram_cmd(pattern="play(?:\\s|$)([\\s\\S]*)")
 @register(pattern=r"^\.cplay(?:\s|$)([\s\S]*)", sudo=True)
 async def vc_play(event):
     title = event.pattern_match.group(1)
@@ -207,7 +207,7 @@ async def vc_play(event):
                 await rambot.edit(f"`{ep}`")
 
 
-@ram_cmd(pattern="vplay(?:\s|$)([\s\S]*)")
+@ram_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)")
 async def vc_vplay(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -249,7 +249,8 @@ async def vc_vplay(event):
             if hm == 0:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
-                pos = add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                pos = add_to_queue(
+                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"💡 **Video Ditambahkan Ke antrian »** `#{pos}`\n\n**🏷 Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n🎧 **Atas permintaan:** {from_user}"
                 await xnxx.delete()
                 await event.client.send_file(
@@ -262,7 +263,13 @@ async def vc_vplay(event):
                         AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
                         stream_type=StreamType().pulse_stream,
                     )
-                    add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                    add_to_queue(
+                        chat_id,
+                        songname,
+                        ytlink,
+                        url,
+                        "Video",
+                        RESOLUSI)
                     await xnxx.edit(
                         f"**🏷 Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar Video`\n🎧 **Atas permintaan:** {from_user}",
                         link_preview=False,
@@ -332,7 +339,8 @@ async def vc_vplay(event):
             if hm == 0:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
-                pos = add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                pos = add_to_queue(
+                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"💡 **Video Ditambahkan Ke antrian »** `#{pos}`\n\n🏷 **Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n🎧 **Atas permintaan:** {from_user}"
                 await xnxx.delete()
                 await event.client.send_file(
@@ -345,7 +353,13 @@ async def vc_vplay(event):
                         AudioVideoPiped(ytlink, HighQualityAudio(), hmmm),
                         stream_type=StreamType().pulse_stream,
                     )
-                    add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                    add_to_queue(
+                        chat_id,
+                        songname,
+                        ytlink,
+                        url,
+                        "Video",
+                        RESOLUSI)
                     caption = f"🏷 **Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar Video`\n🎧 **Atas permintaan:** {from_user}"
                     await xnxx.delete()
                     await event.client.send_file(
@@ -371,7 +385,7 @@ async def vc_end(event):
         await edit_delete(event, "**Lo Gak nyetel apa apa dih Goblok!!**")
 
 
-@ram_cmd(pattern="skip(?:\s|$)([\s\S]*)")
+@ram_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)")
 async def vc_skip(event):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
@@ -430,7 +444,7 @@ async def vc_resume(event):
 @ram_cmd(pattern=r"volume(?: |$)(.*)")
 async def vc_volume(event):
     query = event.pattern_match.group(1)
-    me = await event.client.get_me()
+    await event.client.get_me()
     chat = await event.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -469,7 +483,8 @@ async def vc_playlist(event):
                 hmm = chat_queue[x][0]
                 hmmm = chat_queue[x][2]
                 hmmmm = chat_queue[x][3]
-                PLAYLIST = PLAYLIST + "\n" + f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`"
+                PLAYLIST = PLAYLIST + "\n" + \
+                    f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`"
             await edit_or_reply(event, PLAYLIST, link_preview=False)
     else:
         await edit_delete(event, "**Ga ada streaming goblok!!**")

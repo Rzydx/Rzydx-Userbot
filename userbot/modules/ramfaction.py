@@ -9,8 +9,9 @@ from userbot import CMD_HELP
 from userbot.utils import edit_delete, extract_time, ram_cmd
 from userbot.events import register
 
+
 @ram_cmd(pattern="f(typing|audio|contact|document|game|location|photo|round|sticker|video) ?(.*)")
-@register(pattern="^\.(ctyp|caud|ccon|cdoc|cgm|cloc|cpic|cph|crou|cst|cvid) ?(.*)", sudo=True)
+@register(pattern="^\\.(ctyp|caud|ccon|cdoc|cgm|cloc|cpic|cph|crou|cst|cvid) ?(.*)", sudo=True)
 async def _(e):
     act = e.pattern_match.group(1)
     t = e.pattern_match.group(2)

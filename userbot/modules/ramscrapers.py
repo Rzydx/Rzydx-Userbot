@@ -11,7 +11,6 @@
 import asyncio
 import csv
 import random
-from asyncio import sleep
 from telethon.errors.rpcerrorlist import (
     UserAlreadyParticipantError,
     UserPrivacyRestrictedError,
@@ -19,9 +18,8 @@ from telethon.errors.rpcerrorlist import (
 )
 from telethon.tl.functions.channels import (
     InviteToChannelRequest,
-    EditBannedRequest,
     GetFullChannelRequest)
-from telethon.tl.types import InputPeerUser, ChatBannedRights
+from telethon.tl.types import InputPeerUser
 from telethon.tl import functions
 from telethon.tl.functions.messages import GetFullChatRequest
 from telethon.errors import (
@@ -150,7 +148,7 @@ async def admem(event):
         except UserNotMutualContactError:
             n -= 1
             continue
-            
+
 
 CMD_HELP.update({
     "inviteall":

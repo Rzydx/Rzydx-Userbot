@@ -1,11 +1,10 @@
 from time import sleep
-from userbot import CMD_HELP, CH_SFS, bot
-from userbot.events import register
-from telethon import events
+from userbot import CH_SFS, CMD_HELP
 import asyncio
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot import CMD_HANDLER as cmd
 from userbot.modules.ramcarbon import all_col
+
 
 @ram_cmd(pattern="sange$")
 async def _(event):
@@ -383,6 +382,7 @@ async def _(event):
         event.chat_id, "`MAAF GADULU YA` **😝😜🤪😛** ", reply_to=event.reply_to_msg_id)
     await event.delete()
 
+
 @ram_cmd(pattern=r"(.*)")
 async def _(event):
     if event.fwd_from:
@@ -433,6 +433,7 @@ async def _(event):
     await typew.edit("**YANG GA JAWAB, FIX ATHEISS!!**")
    # Create by myself @ram-ubot
 
+
 @ram_cmd(pattern="gblk(?: |$)(.*)")
 async def _(event):
     typew = await edit_or_reply(event, "WOI GOBLOK!!!")
@@ -449,18 +450,20 @@ async def _(event):
     sleep(2)
     await typew.edit("TINGGALIN AJA YA AJG!!!!")
 
+
 @ram_cmd(pattern="sfs(?: |$)(.*)")
 async def _(event):
     sfs = await edit_or_reply(event, "**KAK AYO SFS SINI HEHE....**")
     sleep(2.5)
     await sfs.edit(f"**INI ADA DISNI** = [TEKAN KAK]({CH_SFS})")
 
+
 @ram_cmd(pattern="wcarbon(?:|$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat_id, f"beberapa warna carbon\n\n{all_col}", reply_to=event.reply_to_msg_id)
     await event.delete()
-    
+
 CMD_HELP.update({
     "memes9":
     f"`{cmd}gabut` ; `{cmd}orgil`\

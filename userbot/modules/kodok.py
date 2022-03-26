@@ -1,6 +1,6 @@
 # Copyright by @danish
 # Recode by @mrismanaziz
-# 
+#
 
 import asyncio
 import os

@@ -26,7 +26,7 @@ from userbot.utils import ram_cmd
 modules = CMD_HELP
 
 
-async def get_readable_time(seconds: int) -> str: 
+async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []

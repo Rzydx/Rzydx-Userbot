@@ -13,7 +13,6 @@ import requests
 from userbot import BOTLOG_CHATID, owner
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
-from userbot.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
 from userbot.utils import edit_or_reply, ram_cmd
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -31,7 +30,7 @@ else:
 """
 
 
-@ram_cmd(pattern="(get|del) var(?: |$)(\w*)")
+@ram_cmd(pattern="(get|del) var(?: |$)(\\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -92,7 +91,7 @@ async def variable(var):
             return True
 
 
-@ram_cmd(pattern="set var (\w*) ([\s\S]*)")
+@ram_cmd(pattern="set var (\\w*) ([\\s\\S]*)")
 async def set_var(var):
     if app is None:
         return await edit_or_reply(
@@ -167,14 +166,15 @@ async def dyno_usage(dyno):
         minutes_remaining = remaining_quota / 60
         hours = math.floor(minutes_remaining / 60)
         minutes = math.floor(minutes_remaining % 60)
-        day = math.floor(hours / 24)
+        math.floor(hours / 24)
 
         """ - User App Used Quota - """
         Apps = result["apps"]
         for apps in Apps:
             if apps.get("app_uuid") == app.id:
                 AppQuotaUsed = apps.get("quota_used") / 60
-                AppPercentage = math.floor(apps.get("quota_used") * 100 / quota)
+                AppPercentage = math.floor(
+                    apps.get("quota_used") * 100 / quota)
                 break
         else:
             AppQuotaUsed = 0
@@ -184,21 +184,21 @@ async def dyno_usage(dyno):
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
         await xx.edit(
-                f"𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡 𝗥𝗔𝗠-𝗨𝗕𝗢𝗧!!\n\n"
-                "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
-                "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗦𝗔𝗔𝗧 𝗜𝗡𝗜 : \n"
-                f"┣•   ▸ {AppHours} ᴊᴀᴍ - {AppMinutes} ᴍᴇɴɪᴛ. \n"
-                f"┣•   ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {AppPercentage}% \n"
-                "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
-                "╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
-                "╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
-                "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗕𝗨𝗟𝗔𝗡 𝗜𝗡𝗜 : \n"
-                f"┣•  ▸ {hours} ᴊᴀᴍ - {minutes} ᴍᴇɴɪᴛ. \n"
-                f"┣•  ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {percentage}%. \n"
-                "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
-                f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {owner} \n"
-                f"• 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 : [𝗥𝗔𝗠-𝗨𝗕𝗢𝗧](https://t.me/RAM_UBOT) \n"
-            )
+            f"𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡 𝗥𝗔𝗠-𝗨𝗕𝗢𝗧!!\n\n"
+            "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
+            "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗦𝗔𝗔𝗧 𝗜𝗡𝗜 : \n"
+            f"┣•   ▸ {AppHours} ᴊᴀᴍ - {AppMinutes} ᴍᴇɴɪᴛ. \n"
+            f"┣•   ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {AppPercentage}% \n"
+            "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
+            "╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
+            "╭✠╼━━━━━━❖━━━━━━━✠╮ \n"
+            "┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗕𝗨𝗟𝗔𝗡 𝗜𝗡𝗜 : \n"
+            f"┣•  ▸ {hours} ᴊᴀᴍ - {minutes} ᴍᴇɴɪᴛ. \n"
+            f"┣•  ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : {percentage}%. \n"
+            "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
+            f"• 𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {owner} \n"
+            f"• 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 : [𝗥𝗔𝗠-𝗨𝗕𝗢𝗧](https://t.me/RAM_UBOT) \n"
+        )
         return True
 
 

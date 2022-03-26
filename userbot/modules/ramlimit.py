@@ -5,7 +5,7 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HANDLER as cmd, CMD_HELP
 from userbot.utils import edit_or_reply, ram_cmd
 from userbot.events import register
 

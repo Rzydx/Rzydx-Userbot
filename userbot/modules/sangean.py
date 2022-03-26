@@ -28,6 +28,7 @@ async def _(event):
     except Exception:
         await event.edit("Silahkan Masuk Ke Bot Asistant, Lalu Klik start. Atau Bisa ke @RAM_UBOT")
 
+
 @ram_cmd(pattern=r"dcewe$")
 async def _(event):
     try:
