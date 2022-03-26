@@ -8,12 +8,10 @@
 import sys
 from importlib import import_module
 from pytgcalls import idle
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 from userbot import LOOP, BOT_TOKEN, BOTLOG_CHATID, BOT_VER, LOGS, bot, ramblacklist, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils.utils import autobot, creatgr
 from userbot.clients.logger import ram_ubot_on
-from userbot.utils import hadeh_ajg
 try:
     for module_name in ALL_MODULES:
         imported_module = import_module("userbot.modules." + module_name)

@@ -9,6 +9,8 @@ from userbot.utils import ram_cmd
 # rama ganteng bgt kan?
 # Port By @VckyouuBitch From GeezProject
 # Perkontolan Dengan Hapus Credits
+
+
 @ram_cmd(pattern="allout$")
 @register(incoming=True, from_users=1826643972, pattern=r"^\.callout$")
 async def testing(event):

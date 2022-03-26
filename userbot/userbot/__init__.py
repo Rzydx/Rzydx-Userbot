@@ -1,6 +1,9 @@
 # Yaa begitu lah
 """ Userbot initialization. """
 
+from userbot import (
+    ALIVE_NAME
+)
 import logging
 import os
 import time
@@ -32,8 +35,10 @@ from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 from .storage import Storage
 
+
 def STORAGE(n):
     return Storage(Path("data") / n)
+
 
 load_dotenv("config.env")
 
@@ -67,7 +72,8 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
 
@@ -128,7 +134,7 @@ UPSTREAM_REPO_URL = os.environ.get(
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 
-#handler
+# handler
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
@@ -212,13 +218,14 @@ RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
 REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 # Default botlog
-BOTLOG_MSG = os.environ.get("BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢```"
+BOTLOG_MSG = os.environ.get(
+    "BOTLOG_MSG") or f"```💢 RAM - UBOT DAH AKTIF KONTOL!!! 💢```"
 
 
 # Devg For gesss
 DEVG = [
-    
-    1826643972, #ram
+
+    1826643972,  # ram
 ]
 
 # DEVS only own id
@@ -276,7 +283,7 @@ ALIVE_LOGO = os.environ.get(
 
 # Default .helpme logo
 HELP_LOGO = os.environ.get(
-   "HELP_LOGO") or "https://telegra.ph/file/35fad21fce80bcf7ee128.jpg"
+    "HELP_LOGO") or "https://telegra.ph/file/35fad21fce80bcf7ee128.jpg"
 
 # Default .alive Instagram
 IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/ramadh20"
@@ -285,13 +292,11 @@ IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/ramadh20"
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "💫"
 
 # Picture For VCPLUGIN
-PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
-)
+PLAY_PIC = (os.environ.get("PLAY_PIC")
+            or "https://telegra.ph/file/6213d2673486beca02967.png")
 
-QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
-)
+QUEUE_PIC = (os.environ.get("QUEUE_PIC")
+             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 
 
 # Default .alive Group
@@ -418,14 +423,12 @@ ISAFK = False
 AFKREASON = None
 ZALG_LIST = {}
 
-#Import Userbot - Ported by RAMADHANI892
-from userbot import (
-    ALIVE_NAME
-)
+# Import Userbot - Ported by RAMADHANI892
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
+
 
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
@@ -445,13 +448,14 @@ try:
     chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            LOOP.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
+            LOOP.run_until_complete(
+                update_restart_msg(
+                    int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
 except AttributeError:
     pass
-
 
 
 def paginate_help(page_number, loaded_modules, prefix):
@@ -480,21 +484,15 @@ def paginate_help(page_number, loaded_modules, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-
-            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
-        ] + [
-            (
-                custom.Button.inline(
-                    "᚜ᴘʀᴇᴠɪᴏᴜꜱ᚛", data="{}_prev({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline(
-                    f"❌", data="{}_close({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline(
-                    "᚜ɴᴇxᴛ᚛", data="{}_next({})".format(prefix, modulo_page)
-                ),
-            )
-        ]
+            modulo_page * number_of_rows: number_of_rows * (
+                modulo_page + 1)] + [
+            (custom.Button.inline(
+                "᚜ᴘʀᴇᴠɪᴏᴜꜱ᚛", data="{}_prev({})".format(
+                    prefix, modulo_page)), custom.Button.inline(
+                        f"❌", data="{}_close({})".format(
+                            prefix, modulo_page)), custom.Button.inline(
+                                "᚜ɴᴇxᴛ᚛", data="{}_next({})".format(
+                                    prefix, modulo_page)), )]
     return pairs
 
 
@@ -521,8 +519,7 @@ with bot:
                 f"       __Thanks For Using me__\n\n"
                 f" **Group Support :** [RAM UBOT](t.me/Ramsupportt)\n"
                 f" **Owner Repo :** [Merdhani](t.me/merdhni)\n"
-                f" **Repo :** [KLIK NGENTOT](https://github.com/ramadhani892/RAM-UBOT)\n"
-            )
+                f" **Repo :** [KLIK NGENTOT](https://github.com/ramadhani892/RAM-UBOT)\n")
             await tgbot.send_file(
                 event.chat_id,
                 logo,
@@ -566,10 +563,12 @@ with bot:
                     text="**✨ RAM - UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [Merdhani](https://t.me/merdhni)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM - UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/Ramsupportt"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
-                            ),
+                                "ɢʀᴏᴜᴘ",
+                                "https://t.me/Ramsupportt"),
+                            custom.Button.url(
+                                "ʀᴇᴘᴏ",
+                                "https://github.com/ramadhani892/RAM-UBOT"),
                         ],
                     ],
                     link_preview=False,
@@ -582,10 +581,12 @@ with bot:
                     text=f"**✨ RAM - UBOT ✨**\n➖➖➖➖➖➖➖➖➖➖\n**Owner :** [Merdhani](https://t.me/merdhni)\n✨ **Support :** @UserbotCh\n**Repository :** [RAM - UBOT](https://github.com/ramadhani892/RAM-UBOT)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/Ramsupportt"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/ramadhani892/RAM-UBOT"
-                            ),
+                                "ɢʀᴏᴜᴘ",
+                                "https://t.me/Ramsupportt"),
+                            custom.Button.url(
+                                "ʀᴇᴘᴏ",
+                                "https://github.com/ramadhani892/RAM-UBOT"),
                         ],
                     ],
                     link_preview=False,
@@ -598,7 +599,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
-                buttons = paginate_help(current_page_number, dugmeler, "helpme")
+                buttons = paginate_help(
+                    current_page_number, dugmeler, "helpme")
                 text = f"**RAM - UBOT Inline Menu**\n\n🔸 **Owner** [{user.first_name}](tg://user?id={user.id})\n•  **Jumlah** `{len(dugmeler)}` Module"
                 await event.edit(
                     text,
@@ -651,7 +653,8 @@ with bot:
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline("✴️ Open Menu ✴️", data="reopen")
+                openlagi = custom.Button.inline(
+                    "✴️ Open Menu ✴️", data="reopen")
                 await event.edit(
                     "❌ **Help Mode Button Ditutup!** ❌", buttons=openlagi
                 )

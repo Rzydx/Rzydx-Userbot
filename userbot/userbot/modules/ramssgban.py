@@ -6,6 +6,7 @@ from userbot import CMD_HANDLER as cmd
 
 # thanks: liualvinas & vckyoubitch
 
+
 @bot.on(ChatAction)
 async def handler(tele):
     if tele.user_joined or tele.user_added:
@@ -100,6 +101,7 @@ async def gben(userbot):
         pass
     return await dark.edit(
         f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `{owner}`\n┣• **Pengguna:** [{user.first_name}](tg://user?id={user.id})\n┣• **Aksi:** `Global Banned`\n╰✠╼━━━━━━❖━━━━━━━✠")
+
 
 @ram_cmd(pattern=r"ungban(?: |$)(.*)")
 @register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)

@@ -1,5 +1,4 @@
 import asyncio
-import os
 from collections import deque
 
 from telethon.errors.rpcerrorlist import MessageIdInvalidError
@@ -8,7 +7,6 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, owner
 
 from userbot.utils import ram_cmd
-
 
 
 @ram_cmd(pattern="(.*)")
