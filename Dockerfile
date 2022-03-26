@@ -1,8 +1,8 @@
-FROM ramadhani892/ramubot:master
+FROM rzydx/rzydxuserbot:master
 # ======================
-#    RAM-UBOT DOCKER
+#    Rzydx-Userbot DOCKER
 #   FROM DOCKERHUB.COM
 # ======================
-RUN git clone -b RAM-UBOT https://github.com/ramadhani892/RAM-UBOT /home/ramagans/
-WORKDIR /home/ramagans/
+RUN git clone -b Rzydx-Userbot https://github.com/Rzydx/Rzydx-Userbot /home/rzydx/
+WORKDIR /home/rzydx/
 CMD ["python3", "-m", "userbot"]
