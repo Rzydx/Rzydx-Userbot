@@ -4,26 +4,26 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import kyy_cmd
+from userbot.utils import rzydx_cmd
 import random
 from userbot import owner
 from telethon.tl.types import InputMessagesFilterVideo
 
 
-@kyy_cmd(pattern="asupan$")
+@rzydx_cmd(pattern="asupan$")
 async def _(event):
     try:
         asupannya = [
             asupan
             async for asupan in event.client.iter_messages(
-                "@AsupanKyyUserbot", filter=InputMessagesFilterVideo
+                "@AsupanRzydxUserbot", filter=InputMessagesFilterVideo
             )
         ]
         aing = await event.client.get_me()
         await event.client.send_file(
             event.chat_id,
             file=random.choice(asupannya),
-            caption=f"ᴀsᴜᴘᴀɴ ʙʏ [{owner}](tg://user?id={aing.id})",
+            caption=f"Bacol By Si Kontol [{owner}](tg://user?id={aing.id})",
         )
         await event.delete()
     except Exception:
