@@ -49,7 +49,7 @@ if not BOTLOG_CHATID:
     bot.loop.run_until_complete(autopilot())
 
 LOGS.info(
-    f"Kalo {user.first_name} Bingung terus butuh Bantuan, Tinggal Tanya Ajah di Grup https://t.me/Diskras")
+    f"Kalo {user.first_name} Bingung terus butuh Bantuan, Tinggal Tanya Ajah di Grup https://t.me/Rzydx_Support")
 LOGS.info(
     f"♨️Rzydx-Userbot♨️ ⚡ V{BOT_VER} [UDAH AKTIF YA KONTOL!]")
 
@@ -57,7 +57,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "♨️ **Rzydx Userbot Udah Aktif Ya Kontol**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5@Rzydx-Userbot\n➠ **Ketik** `.ping` **Buat Ngecheck Bot Lu**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @RzydxProject ")
+            await bot.send_message(BOTLOG_CHATID, "♨️ **Rzydx Userbot Udah Hidup Ya Kontol**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5 @Rzydx-Userbot\n➠ **Ketik** `.ping` **Buat Ngecheck Bot Lu Tod**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @RzydxProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
