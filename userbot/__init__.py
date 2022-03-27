@@ -667,7 +667,7 @@ with bot:
                 result = builder.photo(
                     file=kyylogo
                     link_preview=False,
-                    text=f"♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️\n\n✣ ᴍᴀsᴛᴇʀ :[{user.first_name}](tg://user?id={user.id})\n✣ ᴠᴇʀsɪ :v1.5.3 \n✣ᴘʟᴜɢɪɴs :{len(dugmeler)} Modules",
+                    text=f"♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️\n\n✣ ᴍᴀsᴛᴇʀ : [{user.first_name}](tg://user?id={user.id})\n✣ ᴘʟᴜɢɪɴs {len(dugmeler)} Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
