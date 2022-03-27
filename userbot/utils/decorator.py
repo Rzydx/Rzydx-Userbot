@@ -55,7 +55,11 @@ def rzydx_cmd(
         else:
             rzydx_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            kyy_reg = re.compile(rzydx_ + pattern)
+<<<<<<< HEAD
+            rzydx_reg = re.compile(rzydx_ + pattern)
+=======
+            re.compile(rzydx_ + pattern)
+>>>>>>> 61189c2178a4a874834c55457c25d38a20010596
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
                 cmd1 = rzydx_ + command
