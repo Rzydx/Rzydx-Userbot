@@ -16,7 +16,7 @@ async def typewriter(typew):
 @kyy_cmd(pattern='atg(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇....SAYANG!!!!")
+    await typew.edit("𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇....NYEBUT TOD!!!!")
 
 
 @kyy_cmd(pattern='^L(?: |$)(.*)')

