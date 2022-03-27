@@ -662,11 +662,11 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@RzydxUserbot"):
+                    "@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=kyylogo
-                    link_preview=false,
+                    link_preview=False,
                     text=f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ** :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
