@@ -1,9 +1,9 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 
 
-@kyy_cmd(pattern='ngentot(?: |$)(.*)')
+@rzydx_cmd(pattern='ngentot(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -29,7 +29,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='goblok(?: |$)(.*)')
+@rzydx_cmd(pattern='goblok(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -55,7 +55,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='ngatain(?: |$)(.*)')
+@rzydx_cmd(pattern='ngatain(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -81,7 +81,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern='yatim(?: |$)(.*)')
+@rzydx_cmd(pattern='yatim(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -107,7 +107,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@kyy_cmd(pattern="kont(?: |$)(.*)")
+@rzydx_cmd(pattern="kont(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
