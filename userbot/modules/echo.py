@@ -22,7 +22,7 @@ from userbot.utils.events import get_user_from_event
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("`Balas pesan Pengguna untuk menggemakan pesannya`")
-    rzydxevent = await event.edit("`Tambahkan Echo ke pengguna...`")
+    await event.edit("`Tambahkan Echo ke pengguna...`")
     user, rank = await get_user_from_event(event, kyyevent, nogroup=True)
     if not user:
         return
