@@ -1394,7 +1394,7 @@ async def fail(e):
                             )
 
 
-@kyy_cmd(pattern=r"^\.lolz$")
+@rzydx_cmd(pattern=r"^\.lolz$")
 async def leol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e,
