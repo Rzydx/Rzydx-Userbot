@@ -299,7 +299,7 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "🔥"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⍣"
 
 # °Rzydx-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/Ngapain_Ngetag"
@@ -574,7 +574,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**♨️ Rzydx-Userbot ɪɴʟɪɴᴇ ᴍᴇɴᴜ ♨️**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=rzydxlogo,
@@ -666,7 +666,7 @@ with bot:
                 result = builder.photo(
                     file=rzydxlogo,
                     link_preview=False,
-                    text=f"**♨️ Rzydx-Userbot ɪɴʟɪɴᴇ ᴍᴇɴᴜ ♨️**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -765,7 +765,7 @@ with bot:
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
-                    f"Lu Gak Diizinin Tod, Ini Userbot Milik {owner}"
+                    f"Lu Gak Diizinin Tod, Ini Userbot Milik Si Kontol {owner}"
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
@@ -831,5 +831,5 @@ with bot:
     except BaseException:
         LOGS.info(
             "Help Mode Inline Bot Lu Gak Aktif Pepek. Gak di aktifkan juga gak papah serah lu mek. "
-            "Untuk Ngaktifkannya Bikin bot di @BotFather Terus Tambahkan var BOT_TOKEN sama BOT_USERNAME. "
+            "Untuk Ngaktifkannya Bikin bot di @BotFather Terus Tambahin var BOT_TOKEN sama BOT_USERNAME. "
             "Pergi Ke @BotFather terus settings bot » Pilih mode inline » Turn On. Paham kan tod ")
