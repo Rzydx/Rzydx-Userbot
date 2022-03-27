@@ -16,7 +16,7 @@ from userbot import (
     BOT_TOKEN,
     BOT_VER,
     LOGS,
-    kyyblacklist,
+    rzydxblacklist,
     bot,
     call_py,
 )
@@ -27,10 +27,10 @@ try:
     bot.start()
     call_py.start()
     user = bot.get_me()
-    kyyblacklist = requests.get(
-        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
+    rzydxblacklist = requests.get(
+        "https://raw.githubusercontent.com/Rzydx/Rzydxblack/master/rzydxblacklist.json"
     ).json()
-    if user.id in kyyblacklist:
+    if user.id in rzydxblacklist:
         LOGS.warning(
             "MAKANYA GA USAH BELAGU KONTOL, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @Ngapain_Ngetag"
         )
