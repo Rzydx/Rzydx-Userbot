@@ -36,7 +36,7 @@ async def get_full_user(event):
             user_obj = await event.client.get_entity(user)
         except Exception as err:
             return await event.edit(
-                "`Terjadi Kesalahan... Mohon Lapor Ke` @IDnyaKosong", str(err)
+                "`Terjadi Kesalahan... Mohon Lapor Ke` @Ngapain_Ngetag", str(err)
             )
     return user_obj, extra
 
@@ -90,11 +90,11 @@ async def gben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if not sender.id == me.id:
-        gbun = await dc.reply("`Ingin Mengaktifkan Perintah Global Banned!`")
+        gbun = await dc.reply("`Mau Ngaktifkan Perintah Pengusiran Jamet Kontol!`")
     else:
-        gbun = await edit_or_reply(userbot, "`Memproses Global Banned Pengguna Ini!!`")
+        gbun = await edit_or_reply(userbot, "`Sabar Ngentot Gua Lagi Ritual Dulu!!`")
     me = await userbot.client.get_me()
-    await gbun.edit(f"`Global Banned Akan Segera Aktif!!!`")
+    await gbun.edit(f"`Sabar Ngapa Gua Lagi Usaha Kontol!!!`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
@@ -135,11 +135,11 @@ async def gben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await gbun.edit(f"`Global Banned Aktif ✅`")
+                await gbun.edit(f"`Global Banned Hidup Tod ✅`")
             except BaseException:
                 b += 1
     else:
-        await gbun.edit(f"`Mohon Balas Ke Pesan`")
+        await gbun.edit(f"`Balas Pesannya Tolol`")
     try:
         if gmute(user.id) is False:
             return await gbun.edit(
@@ -148,7 +148,7 @@ async def gben(userbot):
     except BaseException:
         pass
     return await gbun.edit(
-        f"**Perintah:** [{user.first_name}](tg://user?id={user.id})\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Global Banned`"
+        f"**Perintah:** [{user.first_name}](tg://user?id={user.id})\n**Pengguna:** [{user.first_name}](tg://user?id={user.id})\n**Aksi:** `Jamet Di Usir`"
     )
 
 
