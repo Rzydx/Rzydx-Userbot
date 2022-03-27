@@ -299,7 +299,7 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "🔥"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⍣"
 
 # °Rzydx-Userbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/Ngapain_Ngetag"
@@ -462,7 +462,7 @@ with bot:
 
 async def update_restart_msg(chat_id, msg_id):
     message = (
-        f"**Kyy-Userbot v{BOT_VER} is back up and running!**\n\n"
+        f"**Rzydx-Userbot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
         f"**User:** {owner}"
@@ -574,7 +574,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**♨️ Rzydx-Userbot ɪɴʟɪɴᴇ ᴍᴇɴᴜ ♨️**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴠᴇʀsɪ** v1.5.3 \n✣**ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=kyylogo,
@@ -664,9 +664,9 @@ with bot:
             if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=kyylogo,
+                    file=kyylogo
                     link_preview=False,
-                    text=f"**♨️ Rzydx-Userbot ɪɴʟɪɴᴇ ᴍᴇɴᴜ ♨️**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text = f"♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️\n\n✣ ᴍᴀsᴛᴇʀ : [{user.first_name}](tg://user?id={user.id})\n✣ ᴠᴇʀsɪ : v1.5.3 \n✣ᴘʟᴜɢɪɴs : {len(dugmeler)} Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -679,7 +679,7 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="**Rzydx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Rzydx](https://t.me/Ngapain_Ngetag)\n✣ **sᴜᴘᴘᴏʀᴛ :** @Diskras\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [Rzydx-Userbot](https://github.com/Rzydx/Rzydx-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Rzydx](https://t.me/Ngapain_Ngetag)\n✣ **sᴜᴘᴘᴏʀᴛ :** @Diskras\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [Rzydx-Userbot](https://github.com/Rzydx/Rzydx-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
@@ -726,7 +726,7 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="♨️ Rzydx-Userbot ♨️",
+                    title="♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️",
                     description="Rzydx - Userbot | Telethon",
                     url="https://t.me/RzydxProject",
                     thumb=InputWebDocument(
@@ -734,7 +734,7 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text=f"**Rzydx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @RzydxProject\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @RzydxProject\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
