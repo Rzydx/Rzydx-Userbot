@@ -105,26 +105,26 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
-    5169252959,
     1663258664,
     1416529201,
     2116587637,  # kang deak
     955903284,
     2130526178,
     5106625166,
+    5169252959,
 )
 
 # Blacklist User for use Rzydx-Userbot
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/Rzydx/Rzydxblack/master/rzydxblacklist.json"
+        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        rzydxblacklist = []
+        kyyblacklist = []
         break
-    rzydxblacklist = _BLACKLIST.json()
+    kyyblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
@@ -577,12 +577,12 @@ with bot:
                 text = f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
-                    file=rzydxlogo,
+                    file=kyylogo,
                     buttons=buttons,
                     link_preview=False,
                 )
             else:
-                reply_pop_up_alert = f"Lu Gak Diizinin Tod, Ini Userbot Milik {owner}"
+                reply_pop_up_alert = f"Lu Gak Diizinin Tod, Ini Userbot Milik Si Kontol {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -664,7 +664,7 @@ with bot:
             if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=rzydxlogo,
+                    file=kyylogo,
                     link_preview=False,
                     text=f"**♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️**\n\n✣ **ᴍᴀsᴛᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴘʟᴜɢɪɴs** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
