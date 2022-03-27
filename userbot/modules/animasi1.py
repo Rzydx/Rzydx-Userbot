@@ -2,12 +2,12 @@
 
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 from telethon import events
 import asyncio
 
 
-@kyy_cmd(pattern="hua$")
+@rzydx_cmd(pattern="hua$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         e = await edit_or_reply(e, "أ‿أ")
@@ -42,7 +42,7 @@ async def koc(e):
         await e.edit("༼ ༎ຶ ෴ ༎ຶ༽")
 
 
-@kyy_cmd(pattern='huh(?: |$)(.*)')
+@rzydx_cmd(pattern='huh(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`\n(\\_/)`"
@@ -130,7 +130,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@kyy_cmd(pattern='nah(?: |$)(.*)')
+@rzydx_cmd(pattern='nah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`\n(\\_/)`"

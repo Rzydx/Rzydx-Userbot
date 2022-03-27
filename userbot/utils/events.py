@@ -10,8 +10,8 @@ LOGS = logging.getLogger("userbot")
 async def get_user_from_event(
     event, kyyevent=None, secondgroup=None, nogroup=False, noedits=False
 ):  # sourcery no-metrics
-    if kyyevent is None:
-        kyyevent = event
+    if rzydxevent is None:
+        rzydxevent = event
     if nogroup is False:
         if secondgroup:
             args = event.pattern_match.group(2).split(" ", 1)

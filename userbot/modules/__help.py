@@ -20,14 +20,14 @@
 
 
 from userbot import BOT_USERNAME, CMD_HELP, bot
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
 
 user = bot.get_me()
 DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "⍣"
 
 
-@kyy_cmd(pattern="help ?(.*)")
+@rzydx_cmd(pattern="help ?(.*)")
 async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
