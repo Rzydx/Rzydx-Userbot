@@ -661,12 +661,12 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@KyyUserbot"):
+            if event.query.user_id == uid and query.startswith("@RzydxUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=kyylogo
                     link_preview=False,
-                    text=f"♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️\n\n✣ ᴍᴀsᴛᴇʀ [{user.first_name}](tg://user?id={user.id})\n✣ ᴠᴇʀsɪ v1.5.3 \n✣ᴘʟᴜɢɪɴs {len(dugmeler)} Modules",
+                    text=f"♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️\n\n✣ ᴍᴀsᴛᴇʀ :[{user.first_name}](tg://user?id={user.id})\n✣ ᴠᴇʀsɪ :v1.5.3 \n✣ᴘʟᴜɢɪɴs :{len(dugmeler)} Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
