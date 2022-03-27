@@ -57,7 +57,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "♨️ **Rzydx Userbot Udah Hidup Ya Kontol**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5 @Rzydx-Userbot\n➠ **Ketik** `.ping` **Buat Ngecheck Bot Lu Tod**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @RzydxProject ")
+            await bot.send_message(BOTLOG_CHATID, "♨️ **Rzydx Userbot Udah Hidup Ya Kontol**!!\n━━━━━━━━━━━━━━━\n🔥 **Userbot Version** - 3.1.5 @Rzydx_Userbot\n🔥 **Ketik** `.ping` **Buat Ngecheck Bot Lu Tod**\n━━━━━━━━━━━━━━━\n🔥 **Powered By:** @RzydxProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
