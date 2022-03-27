@@ -8,7 +8,7 @@ LOGS = logging.getLogger("userbot")
 
 
 async def get_user_from_event(
-    event, kyyevent=None, secondgroup=None, nogroup=False, noedits=False
+    event, rzydxevent=None, secondgroup=None, nogroup=False, noedits=False
 ):  # sourcery no-metrics
     if rzydxevent is None:
         pass
@@ -52,14 +52,14 @@ async def get_user_from_event(
             previous_message = await event.get_reply_message()
             if previous_message.from_id is None:
                 if not noedits:
-                    await edit_delete(kyyevent, "`Well that's an anonymous admin !`")
+                    await edit_delete(rzydxevent, "`Well that's an anonymous admin !`")
                 return None, None
             user_obj = await event.client.get_entity(previous_message.sender_id)
             return user_obj, extra
         elif not args:
             if not noedits:
                 await edit_delete(
-                    kyyevent, "`Pass the user's username, id or reply!`", 5
+                    rzydxevent, "`Pass the user's username, id or reply!`", 5
                 )
             return None, None
     except Exception as e:
