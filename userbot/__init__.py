@@ -117,14 +117,14 @@ DEVS = (
 # Blacklist User for use Rzydx-Userbot
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
+        "https://raw.githubusercontent.com/Rzydx/Rzydxblack/master/rzydxblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        kyyblacklist = []
+        rzydxblacklist = []
         break
-    kyyblacklist = _BLACKLIST.json()
+    rzydxblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
