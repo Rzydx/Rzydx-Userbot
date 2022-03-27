@@ -10,7 +10,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 @kyy_cmd(pattern='d(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await edit_or_reply(typew, "**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
+    await edit_or_reply(typew, "**BACOT KONTOLLL!!BAPA LU SURUH RIBUT SAMA GUA ANJ**")
 
 
 @kyy_cmd(pattern='e(?: |$)(.*)')
