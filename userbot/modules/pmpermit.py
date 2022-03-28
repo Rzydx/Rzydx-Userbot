@@ -40,16 +40,17 @@ LASTMSG = {}
 CUSTOM_TEXT = str(
     PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Rzydx-Userbot {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
-    "╔═════════════════════════╗\n"
+    " •••••╼═══════⍟═══════╾••••• \n"
     " 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
-    "╚═════════════════════════╝\n"
-    "**Dimohon Untuk Tidak Melakukan Spam Ke Room Chat ini!** \n"
-    f"**Karena bisa menggangu** {owner} \n"
-    f"**Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis!**\n"
-    "╔═════════════════════╗\n"
-    f"➠ 𝗢𝘄𝗻𝗲𝗿 : {owner} \n"
-    f"➠ 𝗣𝗲𝘀𝗮𝗻 𝗢𝘁𝗼𝗺𝗮𝘁𝗶𝘀 𝗯𝘆 𝗞𝘆𝘆-𝗨𝘀𝗲𝗿𝗯𝗼𝘁\n"
-    "╚═════════════════════╝")
+    " ••••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••• \n"
+    f"৯•** Sabar Tod Tunggu Majikan Gua On ** \n"
+    f"৯•** Lu Jangan Nyepam Kek Para Jamet Kontol **\n"
+    f"৯•**Ntar Lu Bisa Ganggu Tuan ** {owner} \n"
+    f"৯•**Kalo Lu Masih Aja Nyepam, Ntar Mampus Lu Terblokir Otomatis **\n"
+    " ••••╼═⍟═════════════⍟═╾•••• \n"
+    f"➠ 𝐎𝐰𝐧𝐞𝐫 : {owner} \n"
+    f"➠ 𝐏𝐞𝐬𝐚𝐧 𝐎𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐁𝐲 𝐑𝐳𝐲𝐝𝐱 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
+    " •••••╼═══════⍟═══════╾••••• ")
 # =================================================================
 
 
