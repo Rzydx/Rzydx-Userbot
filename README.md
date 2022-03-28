@@ -79,9 +79,9 @@
 ##
 
 🔥 **THANKS YOU TO**
-*   [Rzydx](https://github.com/Rzydx/Rzydx-Userbot)   Rzydx-Userbot
-*   [Risman](https://github.com/mrismanaziz/Man-Userbot)   Man - Userbot
-*   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy-Userbot
-*   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   Skyzu-Userbot
-*   [Mawll](https://t.me/Ullvpr)     Owner_Veaper
-*   Dan Terima Kasih Kepada Userbot Lainnya Juga 🙏
+*   [Rzydx](https://github.com/Rzydx/Rzydx-Userbot)   ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ
+*   [Risman](https://github.com/mrismanaziz/Man-Userbot)   ᴍᴀɴ-ᴜsᴇʀʙᴏᴛ
+*   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   ᴋʏʏ-ᴜsᴇʀʙᴏᴛ
+*   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   sᴋʏᴢᴜ-ᴜsᴇʀʙᴏᴛ
+*   [Mawll](https://t.me/Ullvpr)     ᴏᴡɴᴇʀ-ᴠᴇᴀᴘᴇʀ
+*   ᴀɴᴅ ᴛʜᴀɴᴋs ᴀʟsᴏ ᴛᴏ ᴏᴛʜᴇʀ ᴜsᴇʀʙᴏᴛs 🙏
