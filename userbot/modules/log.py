@@ -40,7 +40,7 @@ async def logaddjoin(rzydx):
     if rzydx.user_added:
         tmp = rzydx.added_by
         text = f"u📩 **#TAMBAH_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {chat}"
-    elif kyy.user_joined:
+    elif rzydx.user_joined:
         text = f"📨 **#LOG_GABUNG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {chat}"
     else:
         return
@@ -54,10 +54,10 @@ async def monito_p_m_s(rzydx):
         return
     if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
         return
-    sender = await kyy.get_sender()
+    sender = await rzydx.get_sender()
     await asyncio.sleep(0.5)
     if not sender.bot:
-        chat = await kyy.get_chat()
+        chat = await rzydx.get_chat()
         if not no_log_pms_sql.is_approved(chat.id) and chat.id != 777000:
             if LOG_CHATS_.RECENT_USER != chat.id:
                 LOG_CHATS_.RECENT_USER = chat.id
@@ -69,14 +69,14 @@ async def monito_p_m_s(rzydx):
                         )
                     )
                     LOG_CHATS_.COUNT = 0
-                LOG_CHATS_.NEWPM = await kyy.client.send_message(
+                LOG_CHATS_.NEWPM = await rzydx.client.send_message(
                     BOTLOG_CHATID,
                     f"**💌 #MENERUSKAN #PESAN_BARU**\n** • Dari : **{_format.mentionuser(sender.first_name , sender.id)}\n** • User ID:** `{chat.id}`",
                 )
             try:
-                if kyy.message:
+                if rzydx.message:
                     await rzydx.client.forward_messages(
-                        BOTLOG_CHATID, kyy.message, silent=True
+                        BOTLOG_CHATID, rzydx.message, silent=True
                     )
                 LOG_CHATS_.COUNT += 1
             except Exception as e:
