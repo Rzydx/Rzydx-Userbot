@@ -27,9 +27,9 @@ async def stickerpack_spam(event):
     try:
         stickerset_attr = reply.document.attributes[1]
         rzydx = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
-                                  )
+                                    )
     except BaseException:
-        await kyy.edit("`This is not a sticker. Reply to a sticker.`", 5)
+        await rzydx.edit("`This is not a sticker. Reply to a sticker.`", 5)
         return
     try:
         get_stickerset = await event.client(
@@ -41,7 +41,7 @@ async def stickerpack_spam(event):
             )
         )
     except Exception:
-        return await kyy.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
+        return await rzydx.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
                               )
     try:
         hmm = Get(hmm)

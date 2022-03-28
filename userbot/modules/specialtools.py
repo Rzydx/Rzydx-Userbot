@@ -8,7 +8,10 @@ import os
 import moviepy.editor as m
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
+<<<<<<< HEAD
 from userbot.utils import rzydx_cmd
+=======
+>>>>>>> 59b6e423d6f63f1e43b4ce4c90b97a95ff7e4321
 
 
 @rzydx_cmd(pattern="getaudio(?: |$)(.*)")
