@@ -13,16 +13,10 @@
 <p align="center">
 <img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
 </p>
-<details>
-<summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
-<br>
-    
-> Anda memerlukan API_ID & API_HASH untuk menghasilkan sesi telethon. ambil APP ID dan API Hash di my.telegram.org
-<h4> Generate Session via Repl: </h4>    
-<p><a href="https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
-<h4> Generate Session via Telegram StringGen Bot: </h4>    
-<p><a href="https://t.me/RzydxStringbot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
-    
+<h2 align="center">
+   ᴍᴇᴛᴏᴅᴇ ᴅᴇᴘʟᴏʏ
+</h2>
+
 </details>
 
 <details>
@@ -50,14 +44,32 @@
 
 </details>
 
-
-<h2 align="center">
-   ᴍᴇᴛᴏᴅᴇ ᴅᴇᴘʟᴏʏ
-</h2>
+<details>
+<summary><b>🔗 Deploy Di Heroku</b></summary>
+<br>
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/Rzydx/Rzydx-Userbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="215""/</a>  
 <a href="https://telegram.dog/XTZ_HerokuBot?start=Unp5ZHgvUnp5ZHgtVXNlcmJvdCBSenlkeC1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
+
+</details>
+
+<h2 align="center">
+   sᴛʀɪɴɢ sᴇssɪᴏɴ
+</h2>
+
+</details>
+
+<details>
+<summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
+<br>
+
+### String Sesion
+> Anda memerlukan API_ID & API_HASH untuk menghasilkan sesi telethon. ambil APP ID dan API Hash di my.telegram.org
+<h4> Generate Session via Repl: </h4>    
+<p><a href="https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+<h4> Generate Session via Telegram StringGen Bot: </h4>    
+<p><a href="https://t.me/RzydxStringbot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
 
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
 <a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
