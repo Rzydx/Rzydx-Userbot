@@ -316,7 +316,7 @@ async def resize_photo(photo):
     return image
 
 
-@kyy_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     xnxx = await edit_or_reply(event, f"`{random.choice(KANGING_STR)}`")
     reply = await event.get_reply_message()
