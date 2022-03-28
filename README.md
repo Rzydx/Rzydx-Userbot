@@ -1,8 +1,7 @@
-<h1 align="center">Rzydx-Userbot</h1>
-
-<p align="center">
-<img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
-</p>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+   <p align="center">
+   𝐑𝐙𝐘𝐃𝐗  -  𝐔𝐒𝐄𝐑𝐁𝐎𝐓
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 
 <p align="center">
@@ -11,6 +10,9 @@
     <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
     <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
     </p>
+<p align="center">
+<img src="https://telegra.ph/file/a43123fb4508e7eb69de6.jpg">
+</p>
 <details>
 <summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
 <br>
