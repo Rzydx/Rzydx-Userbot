@@ -42,7 +42,7 @@ async def stickerpack_spam(event):
         )
     except Exception:
         return await rzydx.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
-                              )
+                                )
     try:
         hmm = Get(hmm)
         await event.client(hmm)
