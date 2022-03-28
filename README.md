@@ -76,5 +76,5 @@
 *   [Risman](https://github.com/mrismanaziz/Man-Userbot)   Man - Userbot
 *   [Kyy](https://github.com/muhammadrizky16/Kyy-Userbot)   Kyy-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   Skyzu-Userbot
-*   [Mawll](https://t.me/@Ullvpr)     Owner_Veaper
+*   [Mawll](https://t.me/Ullvpr)     Owner_Veaper
 *   Dan Terima Kasih Kepada Userbot Lainnya Juga 🙏
