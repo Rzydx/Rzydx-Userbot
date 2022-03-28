@@ -1,10 +1,10 @@
 # port by KOALA 🐨 /@manusiarakitann
 
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@kyy_cmd(pattern="gsend ?(.*)")
+@rzydx_cmd(pattern="gsend ?(.*)")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)

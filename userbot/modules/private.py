@@ -241,7 +241,7 @@ async def users(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="resources/extras/IMG_20211216_160240_756.jpg",
+                thumb="resources/extras/logo.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
@@ -480,7 +480,7 @@ async def bot_start(event):
             start_msg = f"**Users**: {mention}\
                         \n\n**Bot**: [{OWNER}](tg://user?id={OWNER_ID}) \
                         \n**Forward**: True\
-                        \n\n**Powered by**: [Kyy-Userbot](https://github.com/muhammadrizky16/Kyy-Userbot)"
+                        \n\n**Powered by**: [Kyy-Userbot](https://github.com/Rzydx/Rzydx-Userbot)"
             buttons = [
                 (
                     Button.inline("ɪɴꜰᴏ", data="infor"),
@@ -539,7 +539,7 @@ async def _(event):
 async def infor(event):
     await tgbot.send_message(
         event.chat_id,
-        message=f"**Groups**: [sᴜᴘᴘᴏʀᴛ](t.me/NastySupportt)\n**Github**: [Kyy-Userbot](https://github.com/muhammadrizky16/Kyy-Userbot)\n**Deploy**: [Heroku](https://dashboard.heroku.com/new?template=https://github.com/muhammadrizky16/templat-userbot2)",
+        message=f"**Groups**: [sᴜᴘᴘᴏʀᴛ](t.me/Rzydx_Support)\n**Github**: [Rzydx-Userbot](https://github.com/Rzydx/Rzydx-Userbot)\n**Deploy**: [Heroku](https://dashboard.heroku.com/new?template=https://github.com/Rzydx/Rzydx-Userbot)",
         buttons=[
             [
                 custom.Button.inline(

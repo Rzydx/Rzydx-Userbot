@@ -1,10 +1,10 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
 
 
-@kyy_cmd(pattern="getid(?: |$)(.*)")
+@rzydx_cmd(pattern="getid(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -26,7 +26,7 @@ async def _(event):
             response = conv.wait_event(
                 events.NewMessage(
                     incoming=True,
-                    from_users=1663258664))
+                    from_users=5169252959))
             await bot.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:

@@ -5,12 +5,12 @@ Available Commands:
 .ungban REASON"""
 import asyncio
 from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
-from userbot.utils import kyy_cmd
+from userbot.utils import rzydx_cmd
 from userbot import BOTLOG_CHATID, bot
 # imported from uniborg by @heyworld
 
 
-@kyy_cmd(pattern="gbanb(?: |$)(.*)")
+@rzydx_cmd(pattern="gbanb(?: |$)(.*)")
 async def _(event):
     if BOTLOG_CHATID is None:
         await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")
@@ -36,7 +36,7 @@ async def _(event):
     await event.delete()
 
 
-@kyy_cmd(pattern="ungbanb(?: |$)(.*)")
+@rzydx_cmd(pattern="ungbanb(?: |$)(.*)")
 async def _(event):
     if BOTLOG_CHATID is None:
         await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")

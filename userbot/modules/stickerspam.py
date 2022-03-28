@@ -10,11 +10,11 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot.utils import edit_or_reply, edit_delete, kyy_cmd
+from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, CMD_HANDLER as cmd
 
 
-@kyy_cmd(pattern="sspam(?: |$)(.*)")
+@rzydx_cmd(pattern="sspam(?: |$)(.*)")
 async def stickerpack_spam(event):
     if event.fwd_from:
         return
@@ -26,7 +26,7 @@ async def stickerpack_spam(event):
     hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     try:
         stickerset_attr = reply.document.attributes[1]
-        kyy = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
+        rzydx = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
                                   )
     except BaseException:
         await kyy.edit("`This is not a sticker. Reply to a sticker.`", 5)

@@ -5,7 +5,7 @@ from telethon.tl.types import MessageEntityMentionName
 from userbot import CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import edit_or_reply, kyy_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 
 
 async def get_full_user(event):
@@ -22,7 +22,7 @@ async def get_full_user(event):
         if user.isnumeric():
             user = int(user)
         if not user:
-            await event.edit("`Ini Tidak Mungkin Tanpa ID Pengguna`")
+            await event.edit("`Masukin ID nya Kontol`")
             return
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
@@ -82,7 +82,7 @@ async def handler(tele):
                             return
 
 
-@kyy_cmd(pattern="gban(?: |$)(.*)")
+@rzydx_cmd(pattern="gban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
@@ -152,7 +152,7 @@ async def gben(userbot):
     )
 
 
-@kyy_cmd(pattern="ungban(?: |$)(.*)")
+@rzydx_cmd(pattern="ungban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
 async def gunben(userbot):
     dc = userbot

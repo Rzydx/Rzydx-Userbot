@@ -14,7 +14,7 @@ from userbot.modules.vcg import vcmention
 from userbot.utils import _format, edit_delete, edit_or_reply
 from userbot.utils.tools import media_type
 
-from userbot.utils import kyy_cmd
+from userbot.utils import rzydx_cmd
 
 
 class LOG_CHATS:
@@ -28,28 +28,28 @@ LOG_CHATS_ = LOG_CHATS()
 
 
 @bot.on(events.ChatAction)
-async def logaddjoin(kyy):
-    user = await kyy.get_user()
-    chat = await kyy.get_chat()
+async def logaddjoin(rzydx):
+    user = await rzydx.get_user()
+    chat = await rzydx.get_chat()
     if not (user and user.is_self):
         return
     if hasattr(chat, "username") and chat.username:
-        chat = f"[{chat.title}](https://t.me/{chat.username}/{kyy.action_message.id})"
+        chat = f"[{chat.title}](https://t.me/{chat.username}/{rzydx.action_message.id})"
     else:
-        chat = f"[{chat.title}](https://t.me/c/{chat.id}/{kyy.action_message.id})"
-    if kyy.user_added:
-        tmp = kyy.added_by
+        chat = f"[{chat.title}](https://t.me/c/{chat.id}/{rzydx.action_message.id})"
+    if rzydx.user_added:
+        tmp = rzydx.added_by
         text = f"u📩 **#TAMBAH_LOG\n •** {vcmention(tmp)} **Menambahkan** {vcmention(user)}\n **• Ke Group** {chat}"
     elif kyy.user_joined:
         text = f"📨 **#LOG_GABUNG\n •** [{user.first_name}](tg://user?id={user.id}) **Bergabung\n • Ke Group** {chat}"
     else:
         return
-    await kyy.client.send_message(BOTLOG_CHATID, text)
+    await rzydx.client.send_message(BOTLOG_CHATID, text)
 
 
 @bot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 @bot.on(events.MessageEdited(incoming=True, func=lambda e: e.is_private))
-async def monito_p_m_s(kyy):
+async def monito_p_m_s(rzydx):
     if BOTLOG_CHATID == -100:
         return
     if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
@@ -75,7 +75,7 @@ async def monito_p_m_s(kyy):
                 )
             try:
                 if kyy.message:
-                    await kyy.client.forward_messages(
+                    await rzydx.client.forward_messages(
                         BOTLOG_CHATID, kyy.message, silent=True
                     )
                 LOG_CHATS_.COUNT += 1
@@ -122,7 +122,7 @@ async def log_tagged_messages(yahaha):
         )
 
 
-@kyy_cmd(pattern="save(?: |$)(.*)")
+@rzydx_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
@@ -144,7 +144,7 @@ async def log(log_text):
         )
 
 
-@kyy_cmd(pattern="log$")
+@rzydx_cmd(pattern="log$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -155,7 +155,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@kyy_cmd(pattern="nolog$")
+@rzydx_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -166,7 +166,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@kyy_cmd(pattern="pmlog (on|off)$")
+@rzydx_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(
@@ -196,7 +196,7 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@kyy_cmd(pattern="gruplog (on|off)$")
+@rzydx_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(
