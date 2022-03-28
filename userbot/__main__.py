@@ -57,7 +57,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "•••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••\n╒ ➠ ৯• **ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ** - 3.1.5 @Rzydx_Userbot\n╞ ➠ ৯• **ᴋᴇᴛɪᴋ** `.ping` **ʙᴜᴀᴛ ɴɢᴇᴄᴇᴋ ʙᴏᴛ ʟᴜ ᴛᴏᴅ**\n╘ ➠ ৯• **ᴘᴏᴡᴇʀᴇᴅ ʙʏ** @RzydxProject\n•••••╼══════⍟══════╾•••••\n🔥 **ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ** 🔥 ")
+            await bot.send_message(BOTLOG_CHATID, "•••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••\n╒ ➠ ৯• **ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ** - 3.1.5\n╞ ➠ ৯• **ᴋᴇᴛɪᴋ** `.ping` **ʙᴜᴀᴛ ɴɢᴇᴄᴇᴋ ʙᴏᴛ ʟᴜ ᴛᴏᴅ**\n╘ ➠ ৯• **ᴘᴏᴡᴇʀᴇᴅ ʙʏ** @RzydxProject\n•••••╼══════⍟══════╾•••••\n🔥 **ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ** 🔥 ")
     except Exception as e:
         LOGS.info(str(e))
     try:
