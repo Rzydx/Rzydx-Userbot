@@ -12,23 +12,31 @@
     <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
     </p>
 
+<details>
+<summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ :</b></summary>
+<br>
 
-## sᴛʀɪɴɢ sᴇssɪᴏɴ :
 [![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-white)](https://replit.com/@rizkyhmdanii16/StringSession)
 
-<h2 align="center">
-   ᴍᴇᴛᴏᴅᴇ ᴅᴇᴘʟᴏʏ
-</h2>
+<details>
+<summary><b>🔗 ᴍᴇᴛᴏᴅᴇ ᴅᴇᴘʟᴏʏ :</b></summary>
+<br>
 
 <p align="center">
 <a href="https://dashboard.heroku.com/new?template=https://github.com/Rzydx/Rzydx-Userbot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="215""/</a>  
 <a href="https://telegram.dog/XTZ_HerokuBot?start=Unp5ZHgvUnp5ZHgtVXNlcmJvdCBSenlkeC1Vc2VyYm90"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="215""/</a>  </p>
 
-### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
+<details>
+<summary><b>🔗 sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :</b></summary>
+<br>
+
 <a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
 <a href="https://t.me/Diskras"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
-### ғᴏʟʟᴏᴡ ᴍᴇ :
+<details>
+<summary><b>🔗 ғᴏʟʟᴏᴡ ᴍᴇ :</b></summary>
+<br>
+
 <p align="left">
 <a href="https://github.com/Rzydx"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a> 
 <a href="https://instagram.com/_r_z_y_d_x_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
