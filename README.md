@@ -76,6 +76,9 @@
 <a href="https://instagram.com/_r_z_y_d_x_"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
 
+## sᴛᴀʏ sᴜᴘᴘᴏʀᴛ 🚀
+❁   [LonamiWebs](https://github.com/LonamiWebs/) ᴀɴᴅ [Telethon](https://github.com/LonamiWebs/Telethon)
+
 ##
 
 🔥 **THANKS YOU TO**
