@@ -68,7 +68,7 @@ async def killdabot(event):
 
 @rzydx_cmd(pattern="restart$")
 async def killdabot(event):
-    await edit_or_reply(event, "`Restarting Kyy-Userbot...`")
+    await edit_or_reply(event, "`Restarting Rzydx-Userbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -106,7 +106,7 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await edit_or_reply(wannasee,
-                        "**Hey**, I am using **✨Rzydx-Userbot✨** \n"
+                        "**Hey**, I am using **♨️Rzydx-Userbot♨️** \n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/Rzydx/Rzydx-Userbot)\n"
                         "➣ **Owner Bot :** [Rzydx](t.me/Ngapain_Ngetag)\n"
