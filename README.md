@@ -20,6 +20,18 @@
 </details>
 
 <details>
+<summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
+<br>
+    
+> Anda memerlukan API_ID & API_HASH untuk menghasilkan sesi telethon. ambil APP ID dan API Hash di my.telegram.org
+<h4> Generate Session via Repl: </h4>    
+<p><a href="https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+<h4> Generate Session via Telegram StringGen Bot: </h4>    
+<p><a href="https://t.me/RzydxStringbot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+
+</details>
+
+<details>
 <summary><b>🔗 ᴅᴇᴘʟᴏʏ ᴅɪ ᴠᴘs</b></summary>
 <br>
     
@@ -45,7 +57,7 @@
 </details>
 
 <details>
-<summary><b>🔗 Deploy Di Heroku</b></summary>
+<summary><b>🔗 ᴅᴇᴘʟᴏʏ ᴅɪ ʜᴇʀᴏᴋᴜ</b></summary>
 <br>
 
 <p align="center">
@@ -54,26 +66,9 @@
 
 </details>
 
-<h2 align="center">
-   sᴛʀɪɴɢ sᴇssɪᴏɴ
-</h2>
-
-</details>
-
-<details>
-<summary><b>🔗 sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
-<br>
-
-### String Sesion
-> Anda memerlukan API_ID & API_HASH untuk menghasilkan sesi telethon. ambil APP ID dan API Hash di my.telegram.org
-<h4> Generate Session via Repl: </h4>    
-<p><a href="https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
-<h4> Generate Session via Telegram StringGen Bot: </h4>    
-<p><a href="https://t.me/RzydxStringbot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
-
 ### sᴜᴘᴘᴏʀᴛ & ᴜᴘᴅᴀᴛᴇs :
 <a href="https://t.me/+2wBflymRXDM1ZmRl"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> 
-<a href="https://t.me/Diskras"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/RzydxProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 ### ғᴏʟʟᴏᴡ ᴍᴇ :
 <p align="left">
