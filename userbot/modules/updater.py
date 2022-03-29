@@ -74,7 +74,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
             return repo.__del__()
         await edit_or_reply(event,
-                            "`Heroku :` `Sedang MengUpdate`" "\n`Mohon Menunggu 5-7 Menit`"
+                            "`Heroku :` `Sedang Mengocok`" "\n`Sabar Ya Kentod Tunggu Gua Crot 5-7 Menit`"
                             )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -98,12 +98,12 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "`Rzydx-Userbot Berhasil DiUpdate🛃,Restart Tunggu Sebentar`"
+                              "`Rzydx-Userbot Udah Di Kentot🛃,Sabar Gua Restart Dulu Tod`"
                               )
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, "#BOT \n" "`Rzydx-Userbot Berhasil Di Update`"
+                BOTLOG_CHATID, "#BOT \n" "`Rzydx-Userbot Berhasil Di Kentot`"
             )
 
     else:
@@ -119,17 +119,17 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    x = await edit_or_reply(event, "**✨Rzydx-Userbot✨** `Berhasil Di Update!`")
+    x = await edit_or_reply(event, "**✨Rzydx-Userbot✨** `Berhasil Di Kentot!`")
     await asyncio.sleep(1)
     await x.edit("**✨Rzydx-Userbot✨** `Di Restart....`")
     await asyncio.sleep(1)
-    await x.edit("`Mohon Menunggu Beberapa Detik.`")
+    await x.edit("`Sabar Tunggu Beberapa Detik Mek.`")
     await asyncio.sleep(10)
     await x.delete()
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#BOT \n" "**✨Rzydx-Userbot✨ Telah Di Perbarui.**"
+            BOTLOG_CHATID, "#BOT \n" "**✨Rzydx-Userbot✨ Berhasil Di Update Kontol.**"
         )
         await asyncio.sleep(100)
         await x.delete()
@@ -145,7 +145,7 @@ async def update(event, repo, ups_rem, ac_br):
           pattern=r"^.cupdate(?: |$)(now|deploy)?")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "**Mengecek Pembaruan, Silakan Menunggu....**")
+    xx = await edit_or_reply(event, "**Ntar Gua Cek Dulu Pembaruan, Sabar Ya Kontol....**")
     conf = event.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_update = False
@@ -233,7 +233,7 @@ async def upstream(event):
         await xx.edit("` Proses Update ✨Rzydx-Userbot✨, Loading....77%`")
         await xx.edit("` Proses Update ✨Rzydx-Userbot✨, Updating...90%`")
         await xx.edit(
-            "` Proses Update ✨Rzydx-Userbot✨, Mohon Tunggu Sebentar....100%`"
+            "` Proses Update ✨Rzydx-Userbot✨, Sabar Tunggu Dulu Kontol....100%`"
         )
 
     if conf == "now":
