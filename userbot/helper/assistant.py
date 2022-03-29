@@ -1,8 +1,6 @@
-import inspect
-import re
 
 from telethon import Button
-from telethon.events import CallbackQuery, InlineQuery, NewMessage
+from telethon.events import InlineQuery
 from telethon.tl.types import InputWebDocument
 
 from userbot import LOGS, tgbot, bot, BOT_USERNAME, SUDO_USERS
@@ -62,6 +60,8 @@ def in_pattern(**kwargs):
             except Exception as er:
                 LOGS.exception(er)
 
-        tgbot.add_event_handler(wrapper, InlineQuery(pattern=pattern, **kwargs))
+        tgbot.add_event_handler(
+            wrapper, InlineQuery(
+                pattern=pattern, **kwargs))
 
     return don
