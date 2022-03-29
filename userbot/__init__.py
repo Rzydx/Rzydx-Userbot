@@ -92,6 +92,7 @@ DEVS = (
     1416529201,
     2081159749,
     1977874449,
+    5169252959,
 )
 # =====================================================================
 SUDO_USERS = {
@@ -119,7 +120,7 @@ CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
 # Default .alive Name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "Flicks")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Rzydx")
 
 # Userbot logging feature switch.
 BOTLOG = sb(os.environ.get("BOTLOG", "True"))
@@ -149,9 +150,9 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/farizjs/Flicks-Userbot")
+    "https://github.com/Rzydx/Rzydx-Userbot")
 UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "Flicks-Userbot")
+    "UPSTREAM_REPO_BRANCH", "Rzydx-Userbot")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -221,10 +222,10 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
-# Untuk Perintah .falive
-FLICKS_TEKS_KUSTOM = os.environ.get(
+# Untuk Perintah .rzydxalive
+RZYDX_TEKS_KUSTOM = os.environ.get(
     "FLICKS_TEKS_KUSTOM",
-    "I'am Using Flicks-Userbot ✨")
+    "I'am Using Rzydx-Userbot ♨️")
 
 
 # Time & Date - Country and Time Zone
@@ -242,10 +243,10 @@ BITLY_TOKEN = os.environ.get(
     "BITLY_TOKEN") or "o_1fpd9299vp"
 
 # Bot Name
-TERM_ALIAS = os.environ.get("TERM_ALIAS", "Flicks-Userbot")
+TERM_ALIAS = os.environ.get("TERM_ALIAS", "Rzydx-Userbot")
 
 # Bot Version
-BOT_VER = os.environ.get("BOT_VER", "1.5.3")
+BOT_VER = os.environ.get("BOT_VER", "3.1.5")
 
 # Default .alive Username
 ALIVE_USERNAME = os.environ.get("ALIVE_USERNAME", None)
@@ -255,15 +256,15 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/2d75f18b79fd17217f44c.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Default pmpermit logo
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/46a00f338fd3db59e5a65.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/46a00f338fd3db59e5a65.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Picture For VCPLUGIN
 PLAY_PIC = (os.environ.get("PLAY_PIC")
@@ -273,7 +274,7 @@ QUEUE_PIC = (os.environ.get("QUEUE_PIC")
              or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "Flicks-Userbot ✨")
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "Rzydx-Userbot ♨️")
 
 LASTFM_API = os.environ.get(
     "LASTFM_API") or "73d42d9c93626709dc2679d491d472bf"
@@ -457,14 +458,14 @@ with bot:
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
-        flickslogo = INLINE_PIC
+        rzydxlogo = INLINE_PIC
         plugins = CMD_HELP
         vr = BOT_VER
 
         main_help_button = [
             [
                 Button.url("Settings ⚙️", f"t.me/{BOT_USERNAME}?start=set"),
-                Button.inline("Vc Plugin ⚙️", data="flicks_inline"),
+                Button.inline("Vc Plugin ⚙️", data="rzydx_inline"),
             ],
             [
                 Button.inline("Help Menu", data="open"),
@@ -556,13 +557,13 @@ with bot:
                     f"👋🏻 Hai [{get_display_name(u)}](tg://user?id={u.id}) Jika anda\n"
                     f"Ingin melihat repository ini dan Cara deploynya\n\n"
                     f"👇🏻 __Klik button url di bawah ini__ 👇🏻\n\n"
-                    f"**FLICKS USERBOT**\n",
+                    f"**RZYDX-USERBOT**\n",
                     buttons=[
                         [
                             Button.url("Repository",
-                                       "https://github.com/farizjs/Flicks-Userbot"),
+                                       "https://github.com/Rzydx/Rzydx-Userbot"),
                             Button.url("Tutorial",
-                                       "https://t.me/InfoFlicksUserbot/64")],
+                                       "https://t.me/RzydxProject")],
                     ]
                 )
 
@@ -573,9 +574,9 @@ with bot:
                 await event.message.get_sender()
                 text = (
                     f"**Hello** [{get_display_name(u)}](tg://user?id={u.id}) **Is Its Alive Bot**\n\n"
-                    f"         ✘ 𝐅𝐥𝐢𝐜𝐤𝐬-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ✘ \n"
+                    f"         ♨️ 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ♨️ \n"
                     "▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱\n"
-                    f"          I'ᴍ Aʟɪᴠᴇ​ ✨ \n"
+                    f"          I'ᴍ Aʟɪᴠᴇ​ 🔥 \n"
                     "▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱ \n"
                     f"`Pengguna  :` [{get_display_name(u)}](tg://user?id={u.id}) \n"
                     f"`Branch    :` {UPSTREAM_REPO_BRANCH} \n"
@@ -592,10 +593,10 @@ with bot:
                                               [
                                                   custom.Button.url(
                                                       text="Rᴇᴘᴏ",
-                                                      url="https://github.com/farizjs/Flicks-Userbot"),
+                                                      url="https://github.com/Rzydx/Rzydx-Userbot"),
                                                   custom.Button.url(
                                                       text="Lɪsᴇɴsɪ​",
-                                                      url="https://github.com/farizjs/Flicks-Userbot/blob/Flicks-Userbot/LICENSE"
+                                                      url="https://github.com/Rzydx/Rzydx-Userbot/blob/Rzydx-Userbot/LICENSE"
                                                   )
                                               ]
                                       ]
@@ -616,7 +617,7 @@ with bot:
                             Button.url("Dengan Web",
                                        "https://replit.com/@fjgaming212/StringSession#main.py"),
                             Button.url("Dengan Bot",
-                                       "https://t.me/StringSessionFlicksbot")],
+                                       "https://t.me/RzydxStringbot")],
                     ]
                 )
 
@@ -640,10 +641,10 @@ with bot:
             if event.query.user_id == uid:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(current_page_number, plugins, "helpme")
-                text = f"\n**Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ​**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Flicks-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ​**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -659,10 +660,10 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 buttons = paginate_help(0, plugins, "helpme")
-                text = f"\n**Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ​**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Flicks-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**Usᴇʀʙᴏᴛ​ Tᴇʟᴇɢʀᴀᴍ​**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -676,21 +677,21 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@FlicksSupport"):
+                    "@Rzydx_Support"):
                 result = builder.photo(
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=False,
-                    text=f"\n**Flicks-Userbot**\n\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n✥**ʙʀᴀɴᴄʜ :** Flicks-Userbot\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}".format(
+                    text=f"\n**Rzydx-Userbot**\n\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n✥**ʙʀᴀɴᴄʜ :** Rzydx-Userbot\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}".format(
                         len(dugmeler),
                     ),
                     buttons=main_help_button,
                 )
-            elif query.startswith("flicksalive"):
+            elif query.startswith("rzydxalive"):
                 result = builder.article(
-                    "Flicks-Userbot ",
+                    "Rzydx-Userbot ",
                     text=f"""
-[⁣]({ALIVE_LOGO})**The Flicks Userbot**
-{FLICKS_TEKS_KUSTOM}
+[⁣]({ALIVE_LOGO})**Rzydx-Userbot**
+{RZYDX_TEKS_KUSTOM}
 ┏━━━━━━━━━━━━━━━━━━━
 ┣  **Master**   : {ALIVE_NAME}
 ┣  **Telethon** :` 1.24.0 `
@@ -698,20 +699,20 @@ with bot:
 ┣  **Branch**   :` {UPSTREAM_REPO_BRANCH} `
 ┣  **Bot Ver**  :` v.{BOT_VER} `
 ┣  **Modules**  :` {len(plugins)} Modules `
-┣  **Support**  : @FlicksSupport
+┣  **Support**  : @Rzydx_Support
 ┗━━━━━━━━━━━━━━━━━━━
 """,
                     buttons=[
                         [
                             custom.Button.url(
                                 "ᴅᴇᴘʟᴏʏ​",
-                                "https://heroku.com/deploy?template=https://github.com/farizjs/Deploy-FlicksUbot"),
+                                "https://heroku.com/deploy?template=https://github.com/Rzydx/Rzydx-Userbot"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/farizjs/Flicks-Userbot")],
+                                "https://github.com/Rzydx/Rzydx-Userbot")],
                         [custom.Button.url(
                             "ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ​",
-                            "t.me/InfoFlicksUserbot")]],
+                            "t.me/RzydxProject")]],
                     link_preview=True)
             elif query.startswith("Inline buttons"):
                 markdown_note = query[14:]
@@ -747,19 +748,19 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    " ✘ Flicks-Userbot ✘",
-                    text=f"""**Flicks-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}\n✥**ᴀssɪsᴛᴇɴ :** @{BOT_USERNAME}\n➖➖➖➖➖➖➖➖➖[➖]({ALIVE_LOGO})""",
+                    " ♨️ Rzydx-Userbot ♨️",
+                    text=f"""**Rzydx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}\n✥**ᴀssɪsᴛᴇɴ :** @{BOT_USERNAME}\n➖➖➖➖➖➖➖➖➖[➖]({ALIVE_LOGO})""",
                     buttons=[
                         [
                             custom.Button.url(
                                 "sᴜᴘᴘᴏʀᴛ",
-                                "t.me/FlicksSupport"),
+                                "t.me/Rzydx_Support"),
                             custom.Button.url(
                                 "ᴄʜᴀɴɴᴇʟ​​",
-                                "t.me/InfoFlicksUserbot")],
+                                "t.me/RzydxProject")],
                         [custom.Button.url(
                             "ʀᴇᴘᴏ",
-                            "https://github.com/farizjs/Flicks-Userbot")]],
+                            "https://github.com/Rzydx/Rzydx-Userbot")]],
                     link_preview=False,
                 )
             await event.answer(
@@ -789,10 +790,10 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # @Flicasyncks_Userbot
+            if event.query.user_id == uid:  # @Rzydx_Userbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=main_help_button)
 
@@ -802,13 +803,13 @@ with bot:
             )
         )
         async def gback_handler(event):
-            if event.query.user_id == uid:  # @Flicasyncks_Userbot
+            if event.query.user_id == uid:  # @Rzydx_Userbot
                 # https://t.me/TelethonChat/115200
                 text = (
-                    f"\n**Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Flicks-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
+                    f"\n**Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=main_help_button)
 
@@ -828,7 +829,7 @@ with bot:
                     f"`Database  :` SQL \n")
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=[
                         [
@@ -866,14 +867,14 @@ with bot:
 Owner - {ALIVE_NAME}
 OwnerID - {uid}
 [Link To Profile 👤](tg://user?id={uid})
-Owner repo - [Fariz](tg://openmessage?user_id=1514078508)
-Support - @FlicksSupport
-Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
+Owner repo - [Rzydx](tg://openmessage?user_id=5169252959)
+Support - @Rzydx_Support
+Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
 """,
                              buttons=[
                                  [
                                      Button.url("Repo",
-                                                "https://github.com/farizjs/Flicks-Userbot"),
+                                                "https://github.com/Rzydx/Rzydx-Userbot"),
                                      custom.Button.inline("ʙᴀᴄᴋ​",
                                                           data="ownrmn")],
                              ]
@@ -881,7 +882,7 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"flicks_inline")
+                data=re.compile(rb"rzydx_inline")
             )
         )
         async def on_plug_in_callback_query_handler(event):
@@ -914,7 +915,7 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
 """)
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=[Button.inline("Back", data="gcback")])
             else:
@@ -926,7 +927,7 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
             buttons = [
                 (custom.Button.inline("Bᴜᴋᴀ Mᴇɴᴜ", data="gcback"),),
             ]
-            await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=flickslogo, buttons=buttons)
+            await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=rzydxlogo, buttons=buttons)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
