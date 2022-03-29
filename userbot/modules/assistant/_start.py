@@ -572,7 +572,7 @@ async def bot_start(event):
                         \n\n**Saya adalah {my_mention} \
                         \n**Anda dapat Menghubungi  [{OWNER}](tg://user?id={OWNER_ID}) dari sini. \
                         \n**Jangan Melakukan Spam Atau anda akan di blokir** \
-                        \n\n**Powered by**: [Flicks-Userbot](https://github.com/farizjs/Flicks-Userbot)**"
+                        \n\n**Powered by**: [Flicks-Userbot](https://github.com/Rzydx/Rzydx-Userbot)**"
             buttons = [
                 (
                     Button.inline("ɪɴꜰᴏ", data="infor"),
@@ -636,8 +636,8 @@ async def infor(event):
                 f"**Master** - {OWNER} \
                 \n**Id** - {OWNER_ID} \
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
-                \n\n**Repo** - [Github](github.com/farizjs/Flicks-userbot) \
-                \nPowerd By 💕 @TheFlicksUserbot",
+                \n\n**Repo** - [Github](github.com/Rzydx/Rzydx-userbot) \
+                \nPowerd By 💕 @RzydxProject",
         buttons=[
             [
                 custom.Button.inline(
