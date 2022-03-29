@@ -23,7 +23,7 @@ async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("`Balas pesan Pengguna untuk menggemakan pesannya`")
     await event.edit("`Tambahkan Echo ke pengguna...`")
-    user, rank = await get_user_from_event(event, kyyevent, nogroup=True)
+    user, rank = await get_user_from_event(event, rzydxevent, nogroup=True)
     if not user:
         return
     reply_msg = await event.get_reply_message()
@@ -64,7 +64,7 @@ async def echo(event):
         try:
             remove_echo(chat_id, user_id)
         except Exception as e:
-            await edit_delete(kyyevent, f"**Error:**\n`{str(e)}`")
+            await edit_delete(rzydxevent, f"**Error:**\n`{str(e)}`")
         else:
             await event.edit("Echo has been stopped for the user")
     else:
