@@ -225,7 +225,7 @@ YOUTUBE_API_KEY = os.environ.get(
 
 # Untuk Perintah .rzydxalive
 RZYDX_TEKS_KUSTOM = os.environ.get(
-    "FLICKS_TEKS_KUSTOM",
+    "RZYDX_TEKS_KUSTOM",
     "I'am Using Rzydx-Userbot ♨️")
 
 
