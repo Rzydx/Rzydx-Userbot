@@ -47,7 +47,7 @@ if not BOT_TOKEN:
     bot.loop.run_until_complete(autobot())
 
 LOGS.info(
-    f"Kalo {user.first_name} Bingung terus butuh Bantuan, Tinggal Tanya Ajah di Grup https://t.me/Rzydx_Support")
+    f"Kalo Lu Bingung Terus Butuh Bantuan, Tinggal Tanya Ajah Di Grup https://t.me/Rzydx_Support")
 LOGS.info(
     f"♨️Rzydx-Userbot♨️ ⚡ V{BOT_VER} [UDAH AKTIF YA KONTOL!]")
 
@@ -74,7 +74,7 @@ async def check_alive():
 bot.loop.run_until_complete(check_alive())
 if not BOT_TOKEN:
     LOGS.info(
-        "BOT_TOKEN Vars tidak terisi, Memulai Membuat BOT Otomatis di @Botfather..."
+        "BOT_TOKEN Vars tidak terisi, Si Kontol, Sabar Tod Ini Lagi Bikin Bot Otomatis Di @Botfather..."
     )
     bot.loop.run_until_complete(autobot())
 
