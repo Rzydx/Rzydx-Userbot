@@ -2,15 +2,14 @@
 # NGEDIT CMD YG BENER KONTOL!!!
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
-from platform import uname
 from userbot import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, rzydx_cmd
-from userbot.events import register
 
 # ================= WELCOME ==================
 #       HAYO YANG HAPUS KREDIT GUA JITAK
 #                FROM RAM-UBOT
 # ============================================
+
 
 @rzydx_cmd(pattern="p(?: |$)(.*)")
 async def _(event):
@@ -36,11 +35,13 @@ async def _(event):
         event.chat_id, "**Tim Yatim Wa'alaikumsalam...**", reply_to=event.reply_to_msg_id)
     await event.delete()
 
+
 @rzydx_cmd(pattern="gjn(?: |$)(.*)")
 async def typewriter(event):
     await event.client.send_message(
         event.chat_id, "TYPING APASI YANG JELAS NGENTOD, MAKANYA KALO JARI PADA KEBAS ATAU EMANG UDAH MATI RASA, JANGAN DI PAKSAIN NGETIK TOLOL, NANTI LO LUMPUH KAYA MAMAK LO YG HARI HARINYA BARING TERUS KALO KEKAMAR MANDI HARUS DI GOTONG MIRIP PISANG TANDAN, MANA BAPAKLO PENGANGGURAN KERJAAN NYA CUMA SERABUTAN TOLOL, MIKIR NAPA SI ANJING!!!", reply_to=event.reply_to_msg_id)
     await event.delete()
+
 
 @rzydx_cmd(pattern="yb(?: |$)(.*)")
 async def _(event):
@@ -52,8 +53,9 @@ async def _(event):
 @rzydx_cmd(pattern="m(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
-         event.chat_id, "**MEMEK NYA ANAK INIIIII....**")
+        event.chat_id, "**MEMEK NYA ANAK INIIIII....**")
     await event.delete()
+
 
 @rzydx_cmd(pattern="k(?: |$)(.*)")
 async def _(event):
@@ -61,11 +63,13 @@ async def _(event):
         event.chat_id, "**APALO KONTOL? MAO MARAH LO, MARAH AJA LAH NGENTOD GA TAKUT TAKUT AMAT GUA KALO LO MARAH, BADAN LO KECIL KURUS KEREMPENG UDAH PERSIS BATANG POHON SINGKONG, GUA SLEDING JUGA KEJENGKANG LO 🐷**", reply_to=event.reply_to_msg_id)
     await event.delete()
 
+
 @rzydx_cmd(pattern="gjb(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat.id, "**GAJELAS BABI, MUKA HINA LO TUH URUSIN DULU ANJING, JERAWAT NUMPUK DIMANA MANA UDH PERSIS KAYA ORANG PENYAKITAN, MANA BADAN LO BAU BANGET ANJING, APEK KAYA KASUR BASAH GA DI JEMUR, NAH ITU KASUR LO TU UDAH TAU TINGGAL DI RUMAH GUBUK KAYU TOLOL, SERING BOCOR KALO UJAN, JADI LO TIDUR SAMBIL MANDI UJAN, TAPI YANG GUA HERAN BADAN LO BAU BANGET BANGSAT, MAKAN SAMPAH LO YA?**", reply_to=event.reply_to_msg_id)
     await event.delete()
+
 
 @rzydx_cmd(pattern="gjk(?: |$)(.*)")
 async def _(event):
@@ -73,11 +77,13 @@ async def _(event):
         event.chat_id, "**GAJELAS KONTOL, MAKANYA KALO MAO LAWAN TYPINGAN GUA MINIMAL LO PANDAI BERBAHASA INDONESIA DENGAN BAIK ANJING, KELAMAAN TINGGAL DI KAMPUNG SI NGENTOT, JADI GA PAHAM ARTIKULASI BAHASA GUA KAN LO, UDAH LAH MENDING DIEM AJA DI EMBER BARENG KURA KURA**", reply_to=event.reply_to_msg_id)
     await event.delete()
 
+
 @rzydx_cmd(pattern="gbgn(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**GA BANGET LO BEGITU NGENTOT, GAYA LO AJA DI GEDE GEDEIN PADAHAL MAN ASLINYA MISKIN SE MISKIN MISKIN NYA KRANG MISKIN LO, IYALAH JELAS, LAHIR DARI ORANG TUA YG GA MAMPU MANA BAPAK LO NOH ANJING BAPAKLOO DI SIKSA SAMA MALAIKAT DALEM KUBUR TOD, MINIMAL LO DOAIN BAPAK LO JANGAN KERJAAN NYA BEGAYA DOANG MANA GA SESUAI SAMA LATAR BELAKANG KEHIDUPAN, GUA KALO JADI EMAK LO, UDH MALU BAT NAJIS DEH**", reply_to=event.reply_to_msg_id)
     await event.delete()
+
 
 @rzydx_cmd(pattern="gls(?: |$)(.*)")
 async def _(event):
@@ -120,7 +126,7 @@ async def _(typeq):
         return await edit_or_reply(typeq, "LAH DIA DEVELOPER RAM-UBOT TOLOL")
     await typeq.client.send_message(
         typeq.chat_id, "**LU SIAPA SI NGENTOT, GAUSAH SOKAP APA SAMA GUA, NAJIS BAT JUGA GUA KENAL SAMA LO ANJING, GA PASANG PP NAMA GA JELAS BGTU, NAMA HARAM, MANUSIA HARAM, MUKA HARAM, KEHIDUPAN HARAM, LAHIR DARI ORANG TUA YANG HARAM, MAKAN LO MAKAN DUIT HARAM YA SEMUA TENTANG LO HARAM UNTUK DI KENAL DAN DI KENANG HEHEH!!!!**", reply_to=typeq.reply_to_msg_id)
-    await typeq.delete()  
+    await typeq.delete()
 
 
 @rzydx_cmd(pattern="halo(?: |$)(.*)")
@@ -134,14 +140,14 @@ async def _(typew):
 
 @rzydx_cmd(pattern="loh(?: |$)(.*)")
 async def _(typew):
-     if typew.chat_id in BLACKLIST_CHAT:
-         return await edit_or_reply(
-             typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
-         )
-     await typew.client.send_message(
+    if typew.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
+        )
+    await typew.client.send_message(
         typew.chat_id, "**GC SAMPAH KAYA GINI, ISINYA CUMA GCAST SAMA FORWARD CHANNEL ANJING, PAKE SOK SOKAN NYENGGOL SANA SINI, GC MASIH DIBAWAH 10K ITU GAUSAH BELAGU DEK, DIAM AJA SIMAK, JANGAN SENGGAL SENGGOL ANJING, TAR GUA LADENIN MALAH BISA BUBAR GC LO TOD!!!**", reply_to=typew.reply_to_msg_id)
-     await typew.delete()
-    
+    await typew.delete()
+
 CMD_HELP.update({
     "ribut":
     f"{cmd}p\
