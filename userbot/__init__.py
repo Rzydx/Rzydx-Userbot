@@ -33,7 +33,6 @@ from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 
 
-
 redis_db = None
 
 load_dotenv("config.env")
@@ -267,13 +266,11 @@ INLINE_PIC = os.environ.get(
     "INLINE_PIC") or "https://telegra.ph/file/46a00f338fd3db59e5a65.jpg"
 
 # Picture For VCPLUGIN
-PLAY_PIC = (
-    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
-)
+PLAY_PIC = (os.environ.get("PLAY_PIC")
+            or "https://telegra.ph/file/6213d2673486beca02967.png")
 
-QUEUE_PIC = (
-    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
-)
+QUEUE_PIC = (os.environ.get("QUEUE_PIC")
+             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", "Flicks-Userbot ✨")
@@ -394,7 +391,6 @@ else:
     tgbot = None
 
 
-
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 6
     number_of_cols = 2
@@ -450,7 +446,6 @@ with bot:
         from userbot.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
         from userbot.utils import reply_id
 
-
         dugmeler = CMD_HELP
         me = bot.get_me()
         logo = ALIVE_LOGO
@@ -466,7 +461,7 @@ with bot:
         plugins = CMD_HELP
         vr = BOT_VER
 
-        main_help_button=[
+        main_help_button = [
             [
                 Button.url("Settings ⚙️", f"t.me/{BOT_USERNAME}?start=set"),
                 Button.inline("Vc Plugin ⚙️", data="flicks_inline"),
@@ -478,7 +473,8 @@ with bot:
             [Button.inline("Close", data="close")],
         ]
 
-        @tgbot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+        @tgbot.on(events.NewMessage(incoming=True,
+                  func=lambda e: e.is_private))
         async def bot_pms(event):
             chat = await event.get_chat()
             if check_is_black_list(chat.id):
@@ -534,8 +530,12 @@ with bot:
                         return await event.reply(f"**ERROR:** `{e}`")
                     try:
                         add_user_to_db(
-                            reply_to, user_name, user_id, reply_msg, event.id, msg.id
-                        )
+                            reply_to,
+                            user_name,
+                            user_id,
+                            reply_msg,
+                            event.id,
+                            msg.id)
                     except Exception as e:
                         LOGS.error(str(e))
                         if BOTLOG:
@@ -543,8 +543,6 @@ with bot:
                                 BOTLOG_CHATID,
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
-
-                
 
         @tgbot.on(events.CallbackQuery(data=b"keluar"))
         async def keluar(event):
@@ -589,8 +587,8 @@ with bot:
                     f"       Tᴇʟᴇɢʀᴀᴍ Usᴇʀʙᴏᴛ \n"
                     "▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱")
                 await tgbot.send_file(event.chat_id, file=logo,
-                                          caption=text,
-                                          buttons=[
+                                      caption=text,
+                                      buttons=[
                                               [
                                                   custom.Button.url(
                                                       text="Rᴇᴘᴏ",
@@ -600,8 +598,8 @@ with bot:
                                                       url="https://github.com/farizjs/Flicks-Userbot/blob/Flicks-Userbot/LICENSE"
                                                   )
                                               ]
-                                          ]
-                                          )
+                                      ]
+                                      )
 
         @ tgbot.on(events.NewMessage(pattern=r"/string"))
         async def handler(event):
@@ -633,7 +631,6 @@ with bot:
                     f"**PONG!!**\n `{ms}ms`",
                 )
 
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"get_back")
@@ -654,7 +651,6 @@ with bot:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"open")
@@ -673,7 +669,6 @@ with bot:
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
 
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
@@ -809,7 +804,8 @@ with bot:
         async def gback_handler(event):
             if event.query.user_id == uid:  # @Flicasyncks_Userbot
                 # https://t.me/TelethonChat/115200
-                text = (f"\n**Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Flicks-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
+                text = (
+                    f"\n**Usᴇʀʙᴏᴛ Tᴇʟᴇɢʀᴀᴍ**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Flicks-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
                 await event.edit(
                     text,
                     file=flickslogo,
@@ -839,7 +835,7 @@ with bot:
                             Button.inline("Ping ⚡",
                                           data="pingbot"),
                             Button.inline("Info ?",
-                                           data="about")],
+                                          data="about")],
                         [custom.Button.inline(
                             "Back", data="gcback")],
                     ]
@@ -864,7 +860,6 @@ with bot:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
         @tgbot.on(events.CallbackQuery(data=b"about"))
         async def about(event):
             await event.edit(f"""
@@ -884,7 +879,6 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
                              ]
                              )
 
-
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"flicks_inline")
@@ -893,29 +887,29 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 text = (
-"""
-  •  Syntax : .play <Judul Lagu/Link YT>        
-  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu        
+                    """
+  •  Syntax : .play <Judul Lagu/Link YT>
+  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu
 
-  •  Syntax : .vplay <Judul Video/Link YT>        
-  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu        
+  •  Syntax : .vplay <Judul Video/Link YT>
+  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu
 
-  •  Syntax : .end        
-  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group        
+  •  Syntax : .end
+  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group
 
-  •  Syntax : .skip        
-  •  Function : Untuk Melewati video/lagu yang sedang di putar        
+  •  Syntax : .skip
+  •  Function : Untuk Melewati video/lagu yang sedang di putar
 
-  •  Syntax : .pause        
-  •  Function : Untuk memberhentikan video/lagu yang sedang diputar        
+  •  Syntax : .pause
+  •  Function : Untuk memberhentikan video/lagu yang sedang diputar
 
-  •  Syntax : .resume        
-  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar        
+  •  Syntax : .resume
+  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar
 
-  •  Syntax : .volume 1-200        
-  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)        
+  •  Syntax : .volume 1-200
+  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)
 
-  •  Syntax : .playlist        
+  •  Syntax : .playlist
   •  Function : Untuk menampilkan daftar putar Lagu/Video
 """)
                 await event.edit(
@@ -927,14 +921,12 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
             buttons = [
                 (custom.Button.inline("Bᴜᴋᴀ Mᴇɴᴜ", data="gcback"),),
             ]
             await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=flickslogo, buttons=buttons)
-
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -994,4 +986,3 @@ Flicks-Userbot [v{BOT_VER}](https://github.com/farizjs/Flicks-Userbot)
         LOGS.info(
             "Mode Inline Bot Mu Nonaktif. "
             "Untuk Mengaktifkannya, Silahkan Gunakan Perintah .inlineon. ")
-
