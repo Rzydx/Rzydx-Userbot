@@ -7,13 +7,13 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@rzydx_cmd(pattern='^D(?: |$)(.*)')
+@rzydx_cmd(pattern='d(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**BACOT KONTOLLL!!BAPA LU SURUH RIBUT SAMA BAPAK GUA**")
 
 
-@rzydx_cmd(pattern='^E(?: |$)(.*)')
+@rzydx_cmd(pattern='e(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GAK USAH SOK KERAS GOBLOK!!KENCING MASIH BERDIRI AJA BELAGU**")
@@ -147,9 +147,9 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "toxic":
-    f"{cmd}D\
+    f"{cmd}d\
 \nUsage: Bacotin Orang.\
-\n\n{cmd}E\
+\n\n{cmd}e\
 \nUsage: Buat Orang Yang Sok Keras.\
 \n\n{cmd}f\
 \nUsage: Ngatain Orang Wkwkkw.\
