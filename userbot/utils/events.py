@@ -1,7 +1,5 @@
-
 from telethon.tl.types import MessageEntityMentionName
-
-from userbot.core.logger import logging
+from userbot.logger import logging
 from userbot.utils.tools import edit_delete
 
 LOGS = logging.getLogger("userbot")
@@ -10,8 +8,8 @@ LOGS = logging.getLogger("userbot")
 async def get_user_from_event(
     event, rzydxevent=None, secondgroup=None, nogroup=False, noedits=False
 ):  # sourcery no-metrics
-    if rzydxevent is None:
-        pass
+    if rzydxsevent is None:
+        rzydxsevent = event
     if nogroup is False:
         if secondgroup:
             args = event.pattern_match.group(2).split(" ", 1)
@@ -52,18 +50,18 @@ async def get_user_from_event(
             previous_message = await event.get_reply_message()
             if previous_message.from_id is None:
                 if not noedits:
-                    await edit_delete(rzydxevent, "`Well that's an anonymous admin !`")
+                    await edit_delete(rzydxsevent, "`Well that's an anonymous admin !`")
                 return None, None
             user_obj = await event.client.get_entity(previous_message.sender_id)
             return user_obj, extra
         elif not args:
             if not noedits:
                 await edit_delete(
-                    rzydxevent, "`Pass the user's username, id or reply!`", 5
+                    rzydxsevent, "`Pass the user's username, id or reply!`", 5
                 )
             return None, None
     except Exception as e:
         LOGS.error(str(e))
     if not noedits:
-        await edit_delete(rzydxevent, "__Couldn't fetch user to proceed further__")
+        await edit_delete(rzydxsevent, "__Couldn't fetch user to proceed further__")
     return None, None

@@ -1,19 +1,41 @@
+import asyncio
+import importlib
+import logging
+import sys
+from pathlib import Path
+from random import randint
 import os
+import random
+import time
+from random import randint
 
 from telethon.errors import (
+    BotMethodInvalidError,
+    ChannelPrivateError,
     ChannelsTooMuchError,
+    ChatAdminRequiredError,
+    UserNotParticipantError,
 )
+from telethon.tl.custom import Button
 from telethon.tl.functions.channels import (
     CreateChannelRequest,
+    EditAdminRequest,
     EditPhotoRequest,
+    InviteToChannelRequest,
+    JoinChannelRequest,
 )
+from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.types import (
+    ChatAdminRights,
     ChatPhotoEmpty,
+    InputChatUploadedPhoto,
+    InputMessagesFilterDocument,
 )
+from telethon.utils import get_peer_id
 
 import heroku3
 
-from userbot import BOTLOG_CHATID, HEROKU_API_KEY, HEROKU_APP_NAME, LOGS, bot
+from userbot import BOTLOG_CHATID, tgbot, bot, HEROKU_API_KEY, HEROKU_APP_NAME, LOGS
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -24,11 +46,9 @@ else:
     app = None
 
 # by : kenkan
-
-
 async def autopilot():
     if BOTLOG_CHATID and str(BOTLOG_CHATID).startswith("-100"):
-        return
+      return
     k = []  # To Refresh private ids
     async for x in bot.iter_dialogs():
         k.append(x.id)
@@ -41,8 +61,8 @@ async def autopilot():
     try:
         r = await bot(
             CreateChannelRequest(
-                title="FLICKS LOGS",
-                about="Group log Flicks-Userbot.\n\nJoin @Rzydx_Support & @RzydxProject",
+                title="RZYDX LOGS",
+                about="Group log Rzydx-Userbot.\n\nJoin @Rzydx_Support & @RzydxProject",
                 megagroup=True,
             ),
         )
@@ -64,7 +84,7 @@ async def autopilot():
         heroku_var["BOTLOG_CHATID"] = str(chat_id)
     if isinstance(chat.photo, ChatPhotoEmpty):
 
-        ppk = "userbot/files/20211115_142004.jpg"
+        ppk = "resources/extras/IMG_20220326_035831_498.jpg"
         try:
             await bot(
                 EditPhotoRequest(int(chat_id), await bot.upload_file(ppk)))

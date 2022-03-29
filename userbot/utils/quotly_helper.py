@@ -8,6 +8,7 @@
 import base64
 import os
 import os.path
+from io import BytesIO
 
 from aiohttp import ContentTypeError
 from PIL import Image
@@ -59,7 +60,7 @@ _entities = {
     types.MessageEntityBotCommand: "bot_command",
     types.MessageEntityCode: "code",
     types.MessageEntityPre: "pre",
-    #   types.MessageEntitySpoiler: "spoiler",
+#   types.MessageEntitySpoiler: "spoiler",
 }
 
 
@@ -180,8 +181,7 @@ async def create_quotly(
         raise er
     if request.get("ok"):
         with open(file_name, "wb") as file:
-            image = base64.decodebytes(
-                request["result"]["image"].encode("utf-8"))
+            image = base64.decodebytes(request["result"]["image"].encode("utf-8"))
             file.write(image)
         return file_name
     raise Exception(str(request))
