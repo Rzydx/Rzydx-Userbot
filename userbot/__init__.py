@@ -127,6 +127,13 @@ ALIVE_NAME = os.environ.get("ALIVE_NAME", "Rzydx")
 BOTLOG = sb(os.environ.get("BOTLOG", "True"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
 
+# Custom Pmpermit text
+PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
+
+# Custom Pmpermit pic
+PMPERMIT_PIC = os.environ.get(
+    "PMPERMIT_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
+
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
@@ -987,4 +994,4 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
     except BaseException:
         LOGS.info(
             "Mode Inline Bot Mu Nonaktif. "
-            "Untuk Mengaktifkannya, Silahkan Gunakan Perintah .inlineon. ")
+            "Untuk Mengaktifkannya, Silahkan Gunakan Perintah .Inline On. ")
