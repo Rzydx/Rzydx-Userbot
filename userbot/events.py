@@ -17,7 +17,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, DEFAULT, CMD_LIST, DEVS, bot
+from userbot import CMD_HANDLER, CMD_LIST, DEVS, bot
 
 
 def rzydx_cmd(pattern=None, command=None, **args):

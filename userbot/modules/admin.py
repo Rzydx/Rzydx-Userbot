@@ -204,8 +204,8 @@ async def demote(event):
     # If we catch BadRequestError from Telethon
     # Assume we don't have permission to demote
     except BadRequestError:
-        return await eventkyy.edit(NO_PERM)
-    await edit_delete(eventkyy, "`Berhasil Melepas Pengguna Ini Sebagai Admin!`")
+        return await eventrzydx.edit(NO_PERM)
+    await edit_delete(eventrzydx, "`Berhasil Melepas Pengguna Ini Sebagai Admin!`")
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
@@ -392,7 +392,7 @@ async def unmoot(unmot):
 
         try:
             await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await edit_delete(kyy, "```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Dibisukan```")
+            await edit_delete(rzydx, "```Berhasil Melakukan Unmute! Pengguna Sudah Tidak Dibisukan```")
         except UserIdInvalidError:
             return await edit_delete(rzydx, "`Terjadi Kesalahan!`")
 
