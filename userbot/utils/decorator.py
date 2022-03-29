@@ -45,13 +45,13 @@ def rzydx_cmd(
 
     if pattern is not None:
         global rzydx_reg
-        global rzydx_reg
+        global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            kyy_reg = sudo_reg = re.compile(pattern)
+            rzydx_reg = sudo_reg = re.compile(pattern)
         else:
             rzydx_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
@@ -136,6 +136,13 @@ def asst_cmd(**args):
 
     return decorator
 
+def chataction(**args):
+    def decorator(func):
+        if bot:
+            bot.add_event_handler(func, events.ChatAction(**args))
+        return func
+
+    return decorator
 
 def callback(**args):
     """Assistant's callback decorator"""
