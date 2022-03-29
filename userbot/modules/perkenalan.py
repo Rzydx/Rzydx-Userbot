@@ -41,7 +41,7 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Rzydx`\
-    \n↳ : perkenalan Kyy\
+    \n↳ : perkenalan Rzydx\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
