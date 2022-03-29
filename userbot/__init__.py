@@ -95,21 +95,6 @@ DEVS = (
     5169252959,
 )
 
-# Blacklist User for use Rzydx-Userbot
-while 0 < 6:
-    _BLACKLIST = get(
-        "https://raw.githubusercontent.com/Rzydx/Reforestation/master/manblacklist.json"
-    )
-    if _BLACKLIST.status_code != 200:
-        if 0 != 5:
-            continue
-        rzydxblacklist = []
-        break
-    rzydxblacklist = _BLACKLIST.json()
-    break
-
-del _BLACKLIST
-
 # =====================================================================
 SUDO_USERS = {
     int(x) for x in os.environ.get(
