@@ -1,6 +1,6 @@
 from userbot import CMD_HELP, BLACKLIST_CHAT, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import ram_cmd
+from userbot.utils import rzydx_cmd
 # ================= CONSTANT =================
 #                FROM RAM-UBOT
 # ============================================
@@ -13,10 +13,10 @@ async def _(typew):
     await typew.delete()
 
 
-@ram_cmd(pattern="atg(?: |$)(.*)")
+@rzydx_cmd(pattern="atg(?: |$)(.*)")
 async def _(typew):
     await typew.client.send_message(
-        typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇.... 𝐆𝐎𝐁𝐋𝐎𝐊𝐊𝐊𝐊𝐊!!!!", reply_to=typew.reply_to_msg_id)
+        typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇.... NYEBUT KONTOL!!!!", reply_to=typew.reply_to_msg_id)
     await typew.delete()
 
 
@@ -27,7 +27,7 @@ async def _(typew):
     await typew.delete()
 
 
-@ram_cmd(pattern="ast(?: |$)(.*)")
+@rzydx_cmd(pattern="ast(?: |$)(.*)")
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇......", reply_to=typew.reply_to_msg_id)
