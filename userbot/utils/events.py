@@ -1,5 +1,5 @@
 from telethon.tl.types import MessageEntityMentionName
-from userbot.logger import logging
+from userbot.utils.logger import logging
 from userbot.utils.tools import edit_delete
 
 LOGS = logging.getLogger("userbot")
