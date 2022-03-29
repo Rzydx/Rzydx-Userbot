@@ -65,5 +65,5 @@ async def get_user_from_event(
     except Exception as e:
         LOGS.error(str(e))
     if not noedits:
-        await edit_delete(kyyevent, "__Couldn't fetch user to proceed further__")
+        await edit_delete(rzydxevent, "__Couldn't fetch user to proceed further__")
     return None, None
