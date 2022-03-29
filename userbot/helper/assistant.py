@@ -42,7 +42,7 @@ def in_pattern(**kwargs):
                         description="(c) Rzydx Userbot",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://telegra.ph/file/2d75f18b79fd17217f44c.jpg",
+                            "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg",
                             0,
                             "image/jpeg",
                             [],
