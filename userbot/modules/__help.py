@@ -25,11 +25,11 @@ from userbot.utils import rzydx_cmd
 
 user = bot.get_me()
 DEFAULTUSER = user.first_name
-CUSTOM_HELP_EMOJI = "⚡"
+CUSTOM_HELP_EMOJI = "⌁"
 main_help_menu = [
     [
-        Button.url("Settings ⚙️", f"t.me/{BOT_USERNAME}"),
-        Button.inline("Vc Plugin ⚙️", data="rzydx_inline"),
+        Button.url("sᴇᴛᴛɪɴɢs ⚙️", f"t.me/{BOT_USERNAME}"),
+        Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs ⚙️", data="rzydx_inline"),
     ],
     [
         Button.inline("Help Menu", data="open"),
@@ -43,7 +43,7 @@ async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await event.edit(f"**✘ Commands available in {args} ✘** \n\n" + str(CMD_HELP[args]) + "\n\n**💕 @RzydxProject**")
+            await event.edit(f"**✘ Commands available in {args} ✘** \n\n" + str(CMD_HELP[args]) + "\n\n**🔥 @RzydxProject**")
         else:
             await event.edit(f"**Module** `{args}` **Tidak tersedia!**")
     else:
