@@ -64,7 +64,7 @@ if CONSOLE_LOGGER_VERBOSE:
     )
 else:
     basicConfig(
-        format="✘ %(asctime)s ✘ - ⫸ %(name)s ⫷ - ⛝ %(levelname)s ⛝ - ║ %(message)s ║",
+        format=". %(asctime)s . - . %(name)s . - . %(levelname)s . - ║ %(message)s ║",
         level=INFO)
 LOGS = getLogger(__name__)
 
@@ -132,7 +132,7 @@ PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/276d22aac9f400898cd27.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg"
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -409,8 +409,8 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = sorted(helpable_modules)
     modules = [
         custom.Button.inline(
-            "{} {} ✥".format(
-                "✥", x), data="ub_modul_{}".format(x))
+            "{} {} ⌁".format(
+                "⌁", x), data="ub_modul_{}".format(x))
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols],
@@ -428,7 +428,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     "««", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "Cʟᴏsᴇ", data="{}_close({})".format(prefix, modulo_page)
+                    "••Cʟᴏsᴇ••", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
                     "»»", data="{}_next({})".format(prefix, modulo_page)
@@ -472,12 +472,12 @@ with bot:
 
         main_help_button = [
             [
-                Button.url("Settings ⚙️", f"t.me/{BOT_USERNAME}?start=set"),
-                Button.inline("Vc Plugin ⚙️", data="rzydx_inline"),
+                Button.url("sᴇᴛᴛɪɴɢs ⚙️", f"t.me/{BOT_USERNAME}?start=set"),
+                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs ⚙️", data="rzydx_inline"),
             ],
             [
-                Button.inline("Help Menu", data="open"),
-                Button.inline("Owner Menu", data="ownrmn"),
+                Button.inline("• ʜᴇʟᴘ ᴍᴇɴᴜ", data="open"),
+                Button.inline("ᴏᴡɴᴇʀ ᴍᴇɴᴜ •", data="ownrmn"),
             ],
             [Button.inline("Close", data="close")],
         ]
