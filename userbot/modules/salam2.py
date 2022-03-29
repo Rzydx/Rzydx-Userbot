@@ -2,7 +2,7 @@
 # NGEDIT CMD YG BENER KONTOL!!!
 # YANG HAPUS KREDIT GUA TANDAIN REPO LO
 
-from userbot import CMD_HELP, BLACKLIST_CHAT, OWNDEV, CMD_HANDLER as cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_or_reply, rzydx_cmd
 
 # ================= WELCOME ==================
@@ -13,8 +13,6 @@ from userbot.utils import edit_or_reply, rzydx_cmd
 
 @rzydx_cmd(pattern="p(?: |$)(.*)")
 async def _(event):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(event, "JANGAN PAKE DISINI SALAM LO HARAM HEHEHE")
     await event.client.send_message(
         event.chat_id, "**𝐀ssalamu'alaikum Kontol**", reply_to=event.reply_to_msg_id)
     await event.delete()
@@ -29,8 +27,6 @@ async def _(event):
 
 @rzydx_cmd(pattern="l(?: |$)(.*)")
 async def _(event):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(event, "JANGAN DISINI DI NGENTOD SALAM LO HARAM!!")
     await event.client.send_message(
         event.chat_id, "**Tim Yatim Wa'alaikumsalam...**", reply_to=event.reply_to_msg_id)
     await event.delete()
@@ -122,8 +118,6 @@ async def _(typew):
 
 @rzydx_cmd(pattern="ucp(?: |$)(.*)")
 async def _(typeq):
-    if typeq.chat_id in OWNDEV:
-        return await edit_or_reply(typeq, "LAH DIA DEVELOPER RAM-UBOT TOLOL")
     await typeq.client.send_message(
         typeq.chat_id, "**LU SIAPA SI NGENTOT, GAUSAH SOKAP APA SAMA GUA, NAJIS BAT JUGA GUA KENAL SAMA LO ANJING, GA PASANG PP NAMA GA JELAS BGTU, NAMA HARAM, MANUSIA HARAM, MUKA HARAM, KEHIDUPAN HARAM, LAHIR DARI ORANG TUA YANG HARAM, MAKAN LO MAKAN DUIT HARAM YA SEMUA TENTANG LO HARAM UNTUK DI KENAL DAN DI KENANG HEHEH!!!!**", reply_to=typeq.reply_to_msg_id)
     await typeq.delete()
@@ -131,8 +125,6 @@ async def _(typeq):
 
 @rzydx_cmd(pattern="halo(?: |$)(.*)")
 async def _(typew):
-    if typew.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(typew, "GABOLEH NGATAIN MEMBER SINI NJING!!!!")
     await typew.client.send_message(
         typew.chat_id, "**HAI MEMBER ALAY, ALIANSI SAMPAH, FAMILY GAGUNA, MARGA TOLOL, SIRKEL ANJING, BOCAH AUTIS, PERKUMPULAN HARAM, PENYEMBAH KAMBING, PENCETUS KESESATAN, UTUSAN DAJAL, HARAM BGT YA KATA KATA GUA? YA IU COCOK BANGET KONTOL BUAT NGATAIN PERKUMPULAN KAYA LO PADA ANJING, YA EMANG HARAM SI PANTES BGT DI BUBARIN AJA JING!!**", reply_to=typew.reply_to_msg_id)
     await typew.delete()
@@ -140,10 +132,6 @@ async def _(typew):
 
 @rzydx_cmd(pattern="loh(?: |$)(.*)")
 async def _(typew):
-    if typew.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            typew, f"**Dasar ngentot, Lo gabisa Nyoba disini anjing!!!**"
-        )
     await typew.client.send_message(
         typew.chat_id, "**GC SAMPAH KAYA GINI, ISINYA CUMA GCAST SAMA FORWARD CHANNEL ANJING, PAKE SOK SOKAN NYENGGOL SANA SINI, GC MASIH DIBAWAH 10K ITU GAUSAH BELAGU DEK, DIAM AJA SIMAK, JANGAN SENGGAL SENGGOL ANJING, TAR GUA LADENIN MALAH BISA BUBAR GC LO TOD!!!**", reply_to=typew.reply_to_msg_id)
     await typew.delete()
