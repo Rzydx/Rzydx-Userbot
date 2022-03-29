@@ -39,42 +39,49 @@ for module_name in ASST_MODULES:
 
 if not BOTLOG_CHATID:
     LOGS.info(
-        "BOTLOG_CHATID Vars tidak terisi, Memulai Membuat Grup Otomatis..."
+        "BOTLOG_CHATID Vars tidak terisi, Sabar Kontol Gw Lagi Buat Grup Otomatis..."
     )
     bot.loop.run_until_complete(autopilot())
 
 if not BOT_TOKEN:
     LOGS.info(
-        "BOT_TOKEN Vars tidak terisi, Memulai Membuat BOT Otomatis di @Botfather..."
+        "BOT_TOKEN Vars tidak terisi, Kontol Sabar Ngapa Gua Lagi Bikin Bot Otomatis Di @Botfather..."
     )
     bot.loop.run_until_complete(autobot())
 
 LOGS.info(
-    f"Python Version - {python_version()} \
-      \nTelethon Version - {version.__version__} \
-      \nUserbot Version - {BOT_VER} \
-      \n✘ 𝐅𝐥𝐢𝐜𝐤𝐬 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ✘ [Berhasil Diaktifkan 🔥]")
+    f"Kalo {user.first_name} Bingung terus butuh Bantuan, Tinggal Tanya Ajah di Grup https://t.me/Rzydx_Support")
+LOGS.info(
+    f"♨️Rzydx-Userbot♨️ ⚡ V{BOT_VER} [UDAH AKTIF YA KONTOL!]")
 
 
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"**Flicks Userbot Telah diaktifkan ✨**\n\n✥ Master : {ALIVE_NAME}\n✥ Botver : {BOT_VER}\n✥ Support: @FlicksSupport")
+            await bot.send_message(BOTLOG_CHATID, "•••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••\n╒ ➠ ৯• **ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ** - 3.1.5\n╞ ➠ ৯• **ᴋᴇᴛɪᴋ** `.ping` **ʙᴜᴀᴛ ɴɢᴇᴄᴇᴋ ʙᴏᴛ ʟᴜ ᴛᴏᴅ**\n╘ ➠ ৯• **ᴘᴏᴡᴇʀᴇᴅ ʙʏ** @RzydxProject\n•••••╼══════⍟══════╾•••••\n🔥 **ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ** 🔥 ")
     except Exception as e:
         LOGS.info(str(e))
     try:
-        await bot(JoinChannelRequest("@TheFlicksUserbot"))
+        await bot(JoinChannelRequest("@RzydxProject"))
     except BaseException:
         pass
     try:
         await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
     except BaseException:
         pass
-
+    try:
+        await bot(Addbot(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException:
+        pass
 
 bot.loop.run_until_complete(check_alive())
+if not BOT_TOKEN:
+    LOGS.info(
+        "BOT_TOKEN Vars tidak terisi, Memulai Membuat BOT Otomatis di @Botfather..."
+    )
+    bot.loop.run_until_complete(autobot())
 
-if len(argv) not in (1, 3, 4):
+if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
