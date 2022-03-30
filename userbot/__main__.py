@@ -52,6 +52,7 @@ LOGS.info(
     f"♨️Rzydx-Userbot♨️ ⚡ V{BOT_VER} [UDAH AKTIF YA KONTOL!]")
 
 
+
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
