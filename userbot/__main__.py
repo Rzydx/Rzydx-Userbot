@@ -19,11 +19,9 @@ from userbot.utils import autobot, autopilot
 from userbot.pytgcalls import call_py
 
 
-
 INVALID_PH = '\nERROR: The Phone No. entered is INVALID' \
              '\n Tip: Use Country Code along with number.' \
              '\n or check your phone number and try again !'
-
 
 
 try:
@@ -56,6 +54,7 @@ LOGS.info(
       \nTelethon Version - {version.__version__} \
       \nUserbot Version - {BOT_VER} \
       \n✘ 𝐅𝐥𝐢𝐜𝐤𝐬 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ✘ [Berhasil Diaktifkan 🔥]")
+
 
 async def check_alive():
     try:
