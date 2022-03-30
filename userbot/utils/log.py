@@ -41,8 +41,8 @@ async def autopilot():
     try:
         r = await bot(
             CreateChannelRequest(
-                title="FLICKS LOGS",
-                about="Group log Flicks-Userbot.\n\nJoin @FlicksSupport & @TheFicksUserbot",
+                title="ᴍʏ ʀᴢʏᴅx ʟᴏɢs",
+                about="ᴍʏ ɢʀᴜᴘ ʟᴏɢ ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ.\n\nJoin @RzydxProject & @margamodedisini",
                 megagroup=True,
             ),
         )
@@ -64,7 +64,7 @@ async def autopilot():
         heroku_var["BOTLOG_CHATID"] = str(chat_id)
     if isinstance(chat.photo, ChatPhotoEmpty):
 
-        ppk = "userbot/files/20211115_142004.jpg"
+        ppk = "userbot/files/IMG_20220330_212611_797.jpg"
         try:
             await bot(
                 EditPhotoRequest(int(chat_id), await bot.upload_file(ppk)))
