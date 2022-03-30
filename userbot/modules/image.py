@@ -1,14 +1,14 @@
 # Ported By VCKYOU @VckyouuBitch
-# Credits © Rose-Userbot
+# Credits © Geez-Project
 # Ya gitu deh:')
 
 from shutil import rmtree
-from userbot.utils import rzydx_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.events import register
+from userbot import CMD_HELP
 from userbot.utils import googleimagesdownload
 
 
-@rzydx_cmd(pattern="img (.*)")
+@register(outgoing=True, pattern="^.img (.*)")
 async def goimg(event):
     query = event.pattern_match.group(1)
     if not query:
@@ -19,9 +19,9 @@ async def goimg(event):
             lmt = int(query.split(";")[1])
             query = query.split(";")[0]
         except BaseExceptaion:
-            lmt = 5
+            lmt = 10
     else:
-        lmt = 5
+        lmt = 10
     gi = googleimagesdownload()
     args = {
         "keywords": query,
@@ -38,7 +38,7 @@ async def goimg(event):
 
 CMD_HELP.update(
     {
-        "img": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}img <search_query>`\
-         \n↳ : Does an image search on Google and shows 5 images."
+        "img": "Cmd: `.img <search_query>`\
+         \n↳ : Pencarian gambar di Google dan menunjukkan 5 list gambar."
     }
 )

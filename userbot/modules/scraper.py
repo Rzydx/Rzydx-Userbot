@@ -18,16 +18,16 @@ from telethon.errors.rpcerrorlist import (
     UserNotMutualContactError
 )
 
-from userbot.utils import rzydx_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.events import register
+from userbot import CMD_HELP
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.types import InputPeerUser
 
 
-@rzydx_cmd(pattern="getmemb$")
+@register(outgoing=True, pattern="^.getmemb(?: |$)(.*)")
 async def scrapmem(event):
     chat = event.chat_id
-    await event.edit("`Mohon tunggu...`")
+    await event.edit("`Please wait...`")
     event.client
     members = await event.client.get_participants(chat, aggressive=True)
 
@@ -36,12 +36,12 @@ async def scrapmem(event):
         writer.writerow(["user_id", "hash"])
         for member in members:
             writer.writerow([member.id, member.access_hash])
-    await event.edit("`Berhasil Mengumpulkan Member..`")
+    await event.edit("`Members scraped.`")
 
 
-@rzydx_cmd(pattern="addmemb$")
+@register(outgoing=True, pattern="^.addmemb(?: |$)(.*)")
 async def admem(event):
-    await event.edit("`Proses Menambahkan 0 Member...`")
+    await event.edit("`Adding 0 members...`")
     chat = await event.get_chat()
     event.client
     users = []
@@ -55,13 +55,13 @@ async def admem(event):
     for user in users:
         n += 1
         if n % 30 == 0:
-            await event.edit(f"**Mencapai 30 anggota, tunggu selama {900/60} menit**")
+            await event.edit(f"`Mencapai 30 anggota, tunggu selama {900/60} menit`")
             await asyncio.sleep(900)
         try:
             userin = InputPeerUser(user['id'], user['hash'])
             await event.client(InviteToChannelRequest(chat, [userin]))
             await asyncio.sleep(random.randrange(5, 7))
-            await event.edit(f"`Prosess Menambahkan {n} Member...`")
+            await event.edit(f"`Menambahkan {n} anggota...`")
         except TypeError:
             n -= 1
             continue
@@ -78,9 +78,11 @@ async def admem(event):
 
 CMD_HELP.update({
     "scraper":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getmemb`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getmemb`\
    \nUsage : Mengumpulkan Anggota dari Obrolan\
-   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}addmemb`\
+   \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.addmemb`\
    \nUsage : Menambahkan Anggota ke Obrolan\
-   \nTata Cara Menggunakannya:  Pertama, Anda harus melakukan .getmemb terlebih dahulu dari Obrolan. Lalu buka grup Anda dan ketik .addmemb untuk menambahkan mereka ke grup Anda."
+   \nTata Cara Menggunakannya:  Pertama, Anda harus melakukan .getmemb terlebih dahulu dari Obrolan.."
+
+
 })

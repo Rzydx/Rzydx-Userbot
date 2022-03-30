@@ -27,7 +27,7 @@ from userbot.modules.sql_helper.bot_starters import (
     get_starter_details,
 )
 from userbot.modules.sql_helper.globals import gvarstatus
-from userbot.utils import asst_cmd, callback, reply_id
+from userbot.utils import _format, asst_cmd, callback, reply_id
 
 from userbot.modules.www import get_readable_time
 
@@ -467,7 +467,6 @@ async def alvlogo(event):
             buttons=get_back_button("alivemenu"),
         )
 
-
 @callback(data=re.compile(b"pmpic"))
 async def alvlogo(event):
     await event.delete()
@@ -490,7 +489,6 @@ async def alvlogo(event):
             f"**PMPERMIT_PIC Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
             buttons=get_back_button("pmpermitmenu"),
         )
-
 
 @callback(data=re.compile(b"bcast"))
 async def bdcast(event):
@@ -574,7 +572,7 @@ async def bot_start(event):
                         \n\n**Saya adalah {my_mention} \
                         \n**Anda dapat Menghubungi  [{OWNER}](tg://user?id={OWNER_ID}) dari sini. \
                         \n**Jangan Melakukan Spam Atau anda akan di blokir** \
-                        \n\n**Powered by**: [Flicks-Userbot](https://github.com/Rzydx/Rzydx-Userbot)**"
+                        \n\n**Powered by**: [Flicks-Userbot](https://github.com/farizjs/Flicks-Userbot)**"
             buttons = [
                 (
                     Button.inline("ɪɴꜰᴏ", data="infor"),
@@ -635,11 +633,11 @@ async def _(event):
 @callback(data=re.compile(b"infor"))
 async def infor(event):
     await event.edit(
-        f"**Master** - {OWNER} \
+                f"**Master** - {OWNER} \
                 \n**Id** - {OWNER_ID} \
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
-                \n\n**Repo** - [Github](github.com/Rzydx/Rzydx-userbot) \
-                \nPowerd By 💕 @RzydxProject",
+                \n\n**Repo** - [Github](github.com/farizjs/Flicks-userbot) \
+                \nPowerd By 💕 @TheFlicksUserbot",
         buttons=[
             [
                 custom.Button.inline(

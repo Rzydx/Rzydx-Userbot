@@ -4,16 +4,19 @@ Available Commands:
 .gban REASON
 .ungban REASON"""
 import asyncio
-from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
-from userbot import BOTLOG_CHATID, bot
+from userbot.events import register
+from userbot import ALIVE_NAME, G_BAN_LOGGER_GROUP, bot
 # imported from uniborg by @heyworld
 
+# ================= CONSTANT =================
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
+# ============================================
 
-@rzydx_cmd(pattern="gbanb(?: |$)(.*)")
+
+@register(outgoing=True, pattern="^.gbanb(?: |$)(.*)")
 async def _(event):
-    if BOTLOG_CHATID is None:
-        await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")
+    if G_BAN_LOGGER_GROUP is None:
+        await event.edit("Set G_BAN_LOGGER_GROUP di vars jika tidak perintah tidak akan berfungsi!")
         return
     if event.fwd_from:
         return
@@ -25,21 +28,21 @@ async def _(event):
         else:
             r_from_id = r.from_id
         await bot.send_message(
-            BOTLOG_CHATID,
+            G_BAN_LOGGER_GROUP,
             "/gban [user](tg://user?id={}) {}".format(r_from_id, reason)
         )
     await event.delete()
     await event.reply("**gbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User gbanned by {owner}**")
+    await event.edit(f"**Pengguna telah di gban oleh {DEFAULTUSER}**")
     asyncio.sleep(5)
     await event.delete()
 
 
-@rzydx_cmd(pattern="ungbanb(?: |$)(.*)")
+@register(outgoing=True, pattern="^.ungbanb(?: |$)(.*)")
 async def _(event):
-    if BOTLOG_CHATID is None:
-        await event.edit("Set BOTLOG_CHATID in vars otherwise module won't work.")
+    if G_BAN_LOGGER_GROUP is None:
+        await event.edit("Set G_BAN_LOGGER_GROUP di vars jika tidak perintah tidak akan berfungsi!")
         return
     if event.fwd_from:
         return
@@ -48,19 +51,12 @@ async def _(event):
         r = await event.get_reply_message()
         r_from_id = r.from_id
         await bot.send_message(
-            BOTLOG_CHATID,
+            G_BAN_LOGGER_GROUP,
             "/ungban [user](tg://user?id={}) {}".format(r_from_id, reason)
         )
     await event.delete()
     await event.reply("**ungbanning...**")
     asyncio.sleep(3.5)
-    await event.edit(f"**User ungbanned by {owner}**")
+    await event.edit(f"**Pengguna telah di ungban oleh {DEFAULTUSER}**")
     asyncio.sleep(5)
     await event.delete()
-
-CMD_HELP.update({
-    "gbanbot": f"`{cmd}gbanb`\
-    \nUsage: globally Ban Bot.\
-    \n\n`{cmd}ungbanb` :\
-    \nUsage: Cancel globally Ban Bot."
-})

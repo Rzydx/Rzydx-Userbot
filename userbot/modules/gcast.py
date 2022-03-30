@@ -1,5 +1,5 @@
 # Ultroid - UserBot
-# Copyright (C) 2020 TeamUltroid
+# Copyright © 2020 TeamUltroid
 #
 # This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
 # PLease read the GNU Affero General Public License in
@@ -10,31 +10,33 @@
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
+from userbot import CMD_HELP
 from userbot.events import register
 
-# KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
-
 GCAST_BLACKLIST = [
-    -1001380293847,  # NastySupport
     -1001473548283,  # SharingUserbot
-    -1001578091827,  # PrimeSupportGroup
-    -1001752592753,  # SkyzuSupport
+    -1001433238829,  # TedeSupport
+    -1001476936696,  # AnosSupport
+    -1001327032795,  # UltroidSupport
+    -1001294181499,  # UserBotIndo
+    -1001419516987,  # VeezSupportGroup
+    -1001209432070,  # GeezSupportGroup
+    -1001296934585,  # X-PROJECT BOT
+    -1001481357570,  # UsergeOnTopic
+    -1001459701099,  # CatUserbotSupport
+    -1001109837870,  # TelegramBotIndonesia
+    -1001578091827,  # AkiraSupport
     -1001430568914,  # FlicksSupport
-    -1001267233272,  # PocongUserbot
-    -1001489233533,  # RumahKitaro
-    -1001318051930,  # Gatau GC mana
-    -1001433478384,  # anjay saya bohong
-    -1001688172956,  # ga kekinian support
-    -1001728993415,  # Yang penting support
-
+    -1001163602327,  # KingUserbotSupport
+    -1001626554919,  # EmikoSupport
+    -1001412403011,  # Group Music Chat ID
+    -1001752592753,  # Skyzusupport
+    -1001611385446,  # SolidProjectChat
+    -1001380293847,  # NastySupport
 ]
 
 
-@rzydx_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=5169252959,
-          pattern=r"^\.cgcast(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -42,8 +44,9 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, "**Kasih Tulisannya Kontol atau Reply Pesan mek**")
-    kk = await edit_or_reply(event, "`Sabar ya kentot nih gikes lu gue sebar, kalo limit resiko lu mampus... 📢`")
+        await event.edit("**Berikan Sebuah Pesan atau Reply**")
+        return
+    kk = await event.edit("`Globally Broadcasting Msg...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -58,11 +61,11 @@ async def gcast(event):
             except BaseException:
                 er += 1
     await kk.edit(
-        f"**Nih Gikes Lu Kontol Berhasil Ke** `{done}` **Grup, Karna Lu Bau Jadi Gagal Ngirim Pesan Ke** `{er}` **Grup**"
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
 
-@rzydx_cmd(pattern="gucast(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -70,8 +73,9 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
-    kk = await edit_or_reply(event, "`Sedang Mengirim Pesan Secara Global... 📢`")
+        await event.edit("**Berikan Sebuah Pesan atau Reply**")
+        return
+    kk = await event.edit("`Globally Broadcasting Msg...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -89,8 +93,8 @@ async def gucast(event):
 
 CMD_HELP.update(
     {
-        "gcast": f"**Plugin : **`gcast`\
-        \n\n  •  **Syntax :** `{cmd}gcast` <text/reply media>\
+        "gcast": "**Plugin : **`gcast`\
+        \n\n  •  **Syntax :** `.gcast` <text/reply media>\
         \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Grup yang kamu masuk. (Bisa Mengirim Media/Sticker)\
     "
     }
@@ -99,8 +103,8 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "gucast": f"**Plugin : **`gucast`\
-        \n\n  •  **Syntax :** `{cmd}gucast` <text/reply media>\
+        "gucast": "**Plugin : **`gucast`\
+        \n\n  •  **Syntax :** `.gucast` <text/reply media>\
         \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)\
     "
     }

@@ -1,13 +1,13 @@
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import rzydx_cmd
-from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, CMD_HANDLER as cmd
+from userbot.events import register
+from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP
 
 
-@rzydx_cmd(pattern='kamuii(:? |$)([1-8])?')
+@register(outgoing=True, pattern=r'^.kamuii(:? |$)([1-8])?')
 async def _(fry):
-    await fry.edit("`Prosess, Mengaktifkan jurus tumor bolong...😜`")
+    await fry.edit("`Cringgggg Jadi Benjol...`")
     level = fry.pattern_match.group(2)
     if fry.fwd_from:
         return
@@ -38,7 +38,7 @@ async def _(fry):
             """ - don't spam notif - """
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await fry.reply("`Mohon Unblock` @image_deepfrybhuuhot`...`")
+            await fry.reply("`Mohon Unblock` @image_deepfrybot`...`")
             return
         if response.text.startswith("Forward"):
             await fry.edit("`Mohon Matikan Setelan Forward Privasi...`")
@@ -67,7 +67,7 @@ async def _(fry):
     return os.remove(downloaded_file_name)
 
 
-@rzydx_cmd(pattern='df(:? |$)([1-8])?')
+@register(outgoing=True, pattern=r'^.df(:? |$)([1-8])?')
 async def _(fry):
     await fry.edit("`Sedang Dalam Proses......`")
     level = fry.pattern_match.group(2)
@@ -131,6 +131,6 @@ async def _(fry):
 
 CMD_HELP.update({
     "kamuii":
-    f"`.kamuii` or `{cmd}kamuii` [level(1-8)]"
+    "`.kamuii` or `.kamuii` [level(1-8)]"
     "\nUsage: untuk mengubah foto/sticker."
 })

@@ -7,6 +7,7 @@ import asyncio
 from datetime import datetime
 from math import floor
 
+from telethon import Button, events
 from telethon.errors import BadRequestError, FloodWaitError, ForbiddenError
 from telethon.utils import get_display_name
 
@@ -21,15 +22,19 @@ from userbot.modules.sql_helper.bot_blacklists import (
 )
 from userbot.modules.sql_helper.bot_pms_sql import get_user_id
 from userbot.modules.sql_helper.bot_starters import (
+    add_starter_to_db,
     del_starter_from_db,
     get_all_starters,
+    get_starter_details,
 )
+from userbot.modules.sql_helper.globals import gvarstatus
 from userbot.utils import (
     _format,
     asst_cmd,
+    callback,
     edit_delete,
     edit_or_reply,
-    rzydx_cmd,
+    flicks_cmd,
     reply_id,
     time_formatter,
 )
@@ -84,12 +89,7 @@ def progress_str(total: int, current: int) -> str:
 async def ban_user_from_bot(user, reason, reply_to=None):
     try:
         date = str(datetime.now().strftime("%B %d, %Y"))
-        add_user_to_bl(
-            user.id,
-            get_display_name(user),
-            user.username,
-            reason,
-            date)
+        add_user_to_bl(user.id, get_display_name(user), user.username, reason, date)
     except Exception as e:
         LOGS.error(str(e))
     banned_msg = f"**Anda Telah Dibanned dari Bot ini.\nKarena:** `{reason}`"
@@ -119,6 +119,8 @@ async def unban_user_from_bot(user, reason, reply_to=None):
     if BOTLOG:
         await bot.send_message(BOTLOG_CHATID, info)
     return info
+
+
 
 
 @asst_cmd(pattern="^/broadcast$", from_users=OWNER_ID)
@@ -178,7 +180,7 @@ async def bot_broadcast(event):
     await br_cast.edit(b_info, parse_mode="html")
 
 
-@rzydx_cmd(pattern="botuser$")
+@flicks_cmd(pattern="botuser$")
 async def ban_starters(event):
     "To get list of users who started bot."
     ulist = get_all_starters()
@@ -252,7 +254,7 @@ async def ban_botpms(event):
     await event.reply(msg)
 
 
-@rzydx_cmd(pattern="bblist$")
+@flicks_cmd(pattern="bblist$")
 async def ban_starters(event):
     "To get list of users who are banned in bot."
     ulist = get_all_bl_users()
@@ -262,6 +264,11 @@ async def ban_starters(event):
     for user in ulist:
         msg += f"• **Nama:** {_format.mentionuser(user.first_name , user.chat_id)}\n**User ID:** `{user.chat_id}`\n**Tanggal: **{user.date}\n**Karena:** {user.reason}\n\n"
     await edit_or_reply(event, msg)
+
+
+
+
+
 
 
 @asst_cmd(pattern="^/uinfo$", from_users=OWNER_ID)
@@ -295,7 +302,7 @@ async def bot_start(event):
     await info_msg.edit(uinfo)
 
 
-@rzydx_cmd(pattern="(set|reset) pmbot(?: |$)(\\w*)")
+@flicks_cmd(pattern="(set|reset) pmbot(?: |$)(\w*)")
 async def setpmbot(event):
     try:
         import userbot.modules.sql_helper.globals as sql

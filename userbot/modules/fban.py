@@ -1,10 +1,10 @@
 from sqlalchemy.exc import IntegrityError
 
-from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
+from userbot import CMD_HELP, bot
+from userbot.events import register
 
 
-@rzydx_cmd(pattern="fban(?: |$)(.*)")
+@register(outgoing=True, disable_edited=True, pattern=r"^\.fban(?: |$)(.*)")
 async def fban(event):
     """Bans a user from connected federations."""
     try:
@@ -28,7 +28,7 @@ async def fban(event):
 
     if event.sender_id == fban_id:
         return await event.edit(
-            "**Error: This action has been prevented by RzydxBot self preservation protocols.**"
+            "**Error: This action has been prevented by Flicks Userbot self preservation protocols.**"
         )
 
     if len((fed_list := get_flist())) == 0:
@@ -75,7 +75,7 @@ async def fban(event):
     )
 
 
-@rzydx_cmd(pattern="unfban(?: |$)(.*)")
+@register(outgoing=True, disable_edited=True, pattern=r"^\.unfban(?: |$)(.*)")
 async def unfban(event):
     """Unbans a user from connected federations."""
     try:
@@ -144,7 +144,7 @@ async def unfban(event):
     )
 
 
-@rzydx_cmd(pattern="addf(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.addf(?: |$)(.*)")
 async def addf(event):
     """Adds current chat to connected federations."""
     try:
@@ -165,7 +165,7 @@ async def addf(event):
     await event.edit("**Added this group to federations list!**")
 
 
-@rzydx_cmd(pattern="delf$")
+@register(outgoing=True, pattern=r"^\.delf$")
 async def delf(event):
     """Removes current chat from connected federations."""
     try:
@@ -177,7 +177,7 @@ async def delf(event):
     await event.edit("**Removed this group from federations list!**")
 
 
-@rzydx_cmd(pattern="listf$")
+@register(outgoing=True, pattern=r"^\.listf$")
 async def listf(event):
     """List all connected federations."""
     try:
@@ -196,7 +196,7 @@ async def listf(event):
     await event.edit(msg)
 
 
-@rzydx_cmd(pattern="clearf$")
+@register(outgoing=True, disable_edited=True, pattern=r"^\.clearf$")
 async def delf(event):
     """Removes all chats from connected federations."""
     try:
@@ -210,17 +210,17 @@ async def delf(event):
 
 CMD_HELP.update(
     {
-        "federation": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}fban <id/username> <reason>`"
+        "federation": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.fban <id/username> <reason>`"
         "\n↳ : Bans user from connected federations."
         "\nYou can reply to the user whom you want to fban or manually pass the username/id."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unfban <id/username> <reason>`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unfban <id/username> <reason>`"
         "\n↳ : Same as fban but unbans the user"
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}addf <name>`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.addf <name>`"
         "\n↳ : Adds current group and stores it as <name> in connected federations."
         "\nAdding one group is enough for one federation."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}delf`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.delf`"
         "\n↳ : Removes current group from connected federations."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}listf`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.listf`"
         "\n↳ : Lists all connected federations by specified name."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}clearf`"
+        "\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.clearf`"
         "\n↳ : Disconnects from all connected federations. Use it carefully."})

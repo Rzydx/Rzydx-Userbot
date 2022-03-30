@@ -3,10 +3,13 @@
 # FROM Flicks-Userbot <https://github.com/farizjs/Flicks-Userbot>
 # t.me/TheFlicksUserbot
 
+import glob
 import os
 import sys
+from datetime import timedelta
+from pathlib import Path
 import heroku3
-from telethon import types
+from telethon import Button, functions, types, utils
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HANDLER, HEROKU_API_KEY, HEROKU_APP_NAME, LOGS
 
@@ -50,12 +53,13 @@ async def verifyLoggerGroup():
             )
         except Exception as e:
             LOGS.info(
-                "An Exception occured upon trying to verify the PRIVATE_GROUP_BOT_API_ID.\n" +
-                str(e))
+                "An Exception occured upon trying to verify the PRIVATE_GROUP_BOT_API_ID.\n"
+                + str(e)
+            )
     else:
         descript = "Jangan hapus grup ini atau ubah ke grup (Jika Anda mengubah grup semua potongan sebelumnya, selamat datang akan hilang.)"
         _, groupid = await create_supergroup(
-            "Rzydx-Userbot BotLog Group", bot, BOT_USERNAME, descript
+            "Flicks-Userbot BotLog Group", bot, BOT_USERNAME, descript
         )
 
         heroku_var["BOTLOG_CHATID"] = groupid
@@ -82,8 +86,9 @@ async def verifyLoggerGroup():
             LOGS.info("BOTLOG_CHATID is unsupported. Make sure it's correct.")
         except Exception as e:
             LOGS.info(
-                "An Exception occured upon trying to verify the BOTLOG_CHATID.\n" +
-                str(e))
+                "An Exception occured upon trying to verify the BOTLOG_CHATID.\n"
+                + str(e)
+            )
     if flag:
         executable = sys.executable.replace(" ", "\\ ")
         args = [executable, "-m", "userbot"]

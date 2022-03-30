@@ -21,7 +21,7 @@ from userbot import (
 )
 
 
-def rzydx_cmd(
+def flicks_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,
@@ -44,25 +44,25 @@ def rzydx_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global rzydx_reg
+        global flicks_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            rzydx_reg = sudo_reg = re.compile(pattern)
+            flicks_reg = sudo_reg = re.compile(pattern)
         else:
-            rzydx_ = "\\" + CMD_HANDLER
+            flicks_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            rzydx_reg = re.compile(rzydx_ + pattern)
+            flicks_reg = re.compile(flicks_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = rzydx_ + command
+                cmd1 = flicks_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (rzydx_ +
+                    (flicks_ +
                      pattern).replace(
                         "$",
                         "").replace(
@@ -85,9 +85,9 @@ def rzydx_cmd(
         if not disable_edited:
             bot.add_event_handler(
                 func, events.MessageEdited(
-                    **args, outgoing=True, pattern=rzydx_reg))
+                    **args, outgoing=True, pattern=flicks_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=rzydx_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=flicks_reg)
         )
         if allow_sudo:
             if not disable_edited:
@@ -112,7 +112,7 @@ def rzydx_cmd(
     return decorator
 
 
-def rzydx_handler(
+def flicks_handler(
     **args,
 ):
     def decorator(func):
@@ -136,7 +136,6 @@ def asst_cmd(**args):
 
     return decorator
 
-
 def chataction(**args):
     def decorator(func):
         if bot:
@@ -144,7 +143,6 @@ def chataction(**args):
         return func
 
     return decorator
-
 
 def callback(**args):
     """Assistant's callback decorator"""

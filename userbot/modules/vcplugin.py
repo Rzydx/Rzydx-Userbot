@@ -21,7 +21,7 @@ from userbot import CMD_HELP
 from userbot import PLAY_PIC as fotoplay
 from userbot import QUEUE_PIC as ngantri
 from userbot.pytgcalls import call_py
-from userbot.utils import bash, edit_delete, edit_or_reply, rzydx_cmd
+from userbot.utils import bash, edit_delete, edit_or_reply, flicks_cmd
 from userbot.utils.chattitle import CHAT_TITLE
 from userbot.utils.queues.queues import (
     QUEUE,
@@ -109,7 +109,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@rzydx_cmd(pattern="play(?:\\s|$)([\\s\\S]*)")
+@flicks_cmd(pattern="play(?:\s|$)([\s\S]*)")
 async def vc_play(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -211,7 +211,7 @@ async def vc_play(event):
                 await botman.edit(f"`{ep}`")
 
 
-@rzydx_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)")
+@flicks_cmd(pattern="vplay(?:\s|$)([\s\S]*)")
 async def vc_vplay(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -253,8 +253,7 @@ async def vc_vplay(event):
             if hm == 0:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
-                pos = add_to_queue(
-                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                pos = add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"💡 **Video Ditambahkan Ke antrian »** `#{pos}`\n\n**🏷 Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n🎧 **Atas permintaan:** {from_user}"
                 await xnxx.delete()
                 await event.client.send_file(
@@ -271,13 +270,7 @@ async def vc_vplay(event):
                         ),
                         stream_type=StreamType().pulse_stream,
                     )
-                    add_to_queue(
-                        chat_id,
-                        songname,
-                        ytlink,
-                        url,
-                        "Video",
-                        RESOLUSI)
+                    add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
                     await xnxx.edit(
                         f"**🏷 Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar Video`\n🎧 **Atas permintaan:** {from_user}",
                         link_preview=False,
@@ -351,8 +344,7 @@ async def vc_vplay(event):
             if hm == 0:
                 await xnxx.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
-                pos = add_to_queue(
-                    chat_id, songname, ytlink, url, "Video", RESOLUSI)
+                pos = add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
                 caption = f"💡 **Video Ditambahkan Ke antrian »** `#{pos}`\n\n🏷 **Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n🎧 **Atas permintaan:** {from_user}"
                 await xnxx.delete()
                 await event.client.send_file(
@@ -369,13 +361,7 @@ async def vc_vplay(event):
                         ),
                         stream_type=StreamType().pulse_stream,
                     )
-                    add_to_queue(
-                        chat_id,
-                        songname,
-                        ytlink,
-                        url,
-                        "Video",
-                        RESOLUSI)
+                    add_to_queue(chat_id, songname, ytlink, url, "Video", RESOLUSI)
                     caption = f"🏷 **Judul:** [{songname}]({url})\n**⏱ Durasi:** `{duration}`\n💡 **Status:** `Sedang Memutar Video`\n🎧 **Atas permintaan:** {from_user}"
                     await xnxx.delete()
                     await event.client.send_file(
@@ -386,7 +372,7 @@ async def vc_vplay(event):
                     await xnxx.edit(f"`{ep}`")
 
 
-@rzydx_cmd(pattern="end$")
+@flicks_cmd(pattern="end$")
 async def vc_end(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -400,7 +386,7 @@ async def vc_end(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@rzydx_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)")
+@flicks_cmd(pattern="skip(?:\s|$)([\s\S]*)")
 async def vc_skip(event):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
@@ -429,7 +415,7 @@ async def vc_skip(event):
             await event.edit(DELQUE)
 
 
-@rzydx_cmd(pattern="pause$")
+@flicks_cmd(pattern="pause$")
 async def vc_pause(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -442,7 +428,7 @@ async def vc_pause(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@rzydx_cmd(pattern="resume$")
+@flicks_cmd(pattern="resume$")
 async def vc_resume(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -455,7 +441,7 @@ async def vc_resume(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@rzydx_cmd(pattern=r"volume(?: |$)(.*)")
+@flicks_cmd(pattern=r"volume(?: |$)(.*)")
 async def vc_volume(event):
     query = event.pattern_match.group(1)
     me = await event.client.get_me()
@@ -478,7 +464,7 @@ async def vc_volume(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@rzydx_cmd(pattern="playlist$")
+@flicks_cmd(pattern="playlist$")
 async def vc_playlist(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -496,8 +482,7 @@ async def vc_playlist(event):
                 hmm = chat_queue[x][0]
                 hmmm = chat_queue[x][2]
                 hmmmm = chat_queue[x][3]
-                PLAYLIST = PLAYLIST + "\n" + \
-                    f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`"
+                PLAYLIST = PLAYLIST + "\n" + f"**#{x}** - [{hmm}]({hmmm}) | `{hmmmm}`"
             await edit_or_reply(event, PLAYLIST, link_preview=False)
     else:
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")

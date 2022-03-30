@@ -4,29 +4,29 @@
 from PIL import Image
 import cv2
 import os
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
+from userbot.events import register
 from userbot import CMD_HELP, bot
 
 
-@rzydx_cmd(pattern="tiny(?: |$)(.*)")
+@register(outgoing=True, pattern="^.tiny(?: |$)(.*)", disable_errors=True)
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
-        await edit_delete(event, "`Mohon Balas Ke Sticker`")
+        await event.edit("`Mohon Balas Ke Sticker`")
         return
-    xx = await edit_or_reply(event, "`Memproses Tiny....`")
+    xx = await event.edit("`Bismillah Jadi Kecil...`")
     ik = await bot.download_media(reply)
-    im1 = Image.open("resources/sky_blank.png")
+    im1 = Image.open("resources/extras/ken.png")
     if ik.endswith(".tgs"):
-        await event.client.download_media(reply, "geez.tgs")
-        os.system("lottie_convert.py geez.tgs json.json")
+        await event.client.download_media(reply, "ken.tgs")
+        os.system("lottie_convert.py ken.tgs json.json")
         json = open("json.json", "r")
         jsn = json.read()
         json.close()
         jsn = jsn.replace("512", "2000")
         open("json.json", "w").write(jsn)
-        os.system("lottie_convert.py json.json geez.tgs")
-        file = "geez.tgs"
+        os.system("lottie_convert.py json.json ken.tgs")
+        file = "ken.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".mp4")):
         iik = cv2.VideoCapture(ik)
@@ -82,5 +82,5 @@ async def _(event):
 
 
 CMD_HELP.update({
-    f"tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tiny`\
+    "tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiny`\
     \nUsage : Untuk Memperkecil Sticker."})

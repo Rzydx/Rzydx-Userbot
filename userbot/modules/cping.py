@@ -1,10 +1,15 @@
 # OWN MY CODE RENDY
 # Credits Rendy
-
 """ Userbot module containing commands related to the \
     Information Superhighway (yes, Internet). """
 
 import random
+
+
+from userbot import (
+    DEVS,
+)
+
 from userbot.events import register
 
 # OWN BY RENDY CODE
@@ -13,8 +18,8 @@ from userbot.events import register
 cping = [
     "**Hadir cping** `100.699` ",
     "**Hadir speed** `999.999` ",
-    "**Hadir boosted** `565.930` ",
-    "**Hadir pingers power** `789.666` ",
+    "**Hadir boosted** `668.938` ",
+    "**Hadir pingers power** `889.969` ",
 ]
 
 
@@ -45,6 +50,6 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=5169252959, pattern=r"^.cping$")
+@register(incoming=True, from_users=DEVS, pattern=r"^.cping$")
 async def _(rendy):
-    await rzydx.reply(random.choice(cping))
+    await flicks.reply(random.choice(cping))

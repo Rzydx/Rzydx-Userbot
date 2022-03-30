@@ -1,6 +1,8 @@
+import inspect
+import re
 
 from telethon import Button
-from telethon.events import InlineQuery
+from telethon.events import CallbackQuery, InlineQuery, NewMessage
 from telethon.tl.types import InputWebDocument
 
 from userbot import LOGS, tgbot, bot, BOT_USERNAME, SUDO_USERS
@@ -11,7 +13,7 @@ OWNER_ID = user.id
 
 
 MSG = f"""
-**Rzydx - Userbot**
+**Flicks - UserBot**
 ➖➖➖➖➖➖➖➖➖➖
 **Owner**: [{OWNER}](tg://user?id={OWNER_ID})
 **Assistant** : @{BOT_USERNAME}
@@ -22,9 +24,9 @@ IN_BTTS = [
     [
         Button.url(
             "Repository",
-            url="https://github.com/Rzydx/Rzydx-Userbot",
+            url="https://github.com/farizjs/Flicks-Userbot",
         ),
-        Button.url("Channel", url="https://t.me/RzydxProject"),
+        Button.url("Channel", url="https://t.me/TheFlicksUserbot"),
     ]
 ]
 
@@ -38,11 +40,11 @@ def in_pattern(**kwargs):
                 res = [
                     await event.builder.article(
                         title="Flicks Userbot",
-                        url="https://t.me/RzydxProject",
-                        description="(c) Rzydx Userbot",
+                        url="https://t.me/TheFlicksUserbot",
+                        description="(c) Flicks Userbot",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg",
+                            "https://telegra.ph/file/2d75f18b79fd17217f44c.jpg",
                             0,
                             "image/jpeg",
                             [],
@@ -60,8 +62,6 @@ def in_pattern(**kwargs):
             except Exception as er:
                 LOGS.exception(er)
 
-        tgbot.add_event_handler(
-            wrapper, InlineQuery(
-                pattern=pattern, **kwargs))
+        tgbot.add_event_handler(wrapper, InlineQuery(pattern=pattern, **kwargs))
 
     return don

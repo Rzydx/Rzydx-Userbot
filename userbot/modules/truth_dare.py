@@ -2,13 +2,13 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, rzydx_cmd
+from userbot import bot, CMD_HELP
+from userbot.events import register
 
 
-@rzydx_cmd(pattern="truth(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.truth(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "Mengirim pesan truth...")
+    await event.edit("Mengirim pesan truth...")
     async with bot.conversation("@truthordares_bot") as conv:
         try:
             response = conv.wait_event(
@@ -18,14 +18,14 @@ async def _(event):
             response = await response
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await xx.edit("Harap unblock `@truthordares_bot` dan coba lagi")
+            await event.edit("Harap unblock `@truthordares_bot` dan coba lagi")
             return
-        await xx.edit(f"**Pesan truth**\n\n{response.message.message}")
+        await event.edit(f"**Pesan truth**\n\n{response.message.message}")
 
 
-@rzydx_cmd(pattern="dare(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.dare(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "Mengirim pesan dare...")
+    await event.edit("Mengirim pesan dare...")
     async with bot.conversation("@truthordares_bot") as conv:
         try:
             response = conv.wait_event(
@@ -35,14 +35,14 @@ async def _(event):
             response = await response
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await xx.edit("Harap unblock `@truthordares_bot` dan coba lagi")
+            await event.edit("Harap unblock `@truthordares_bot` dan coba lagi")
             return
-        await xx.edit(f"**Pesan dare**\n\n{response.message.message}")
+        await event.edit(f"**Pesan dare**\n\n{response.message.message}")
 
 
-@rzydx_cmd(pattern="spill(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.spill(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "Mengirim pesan spill...")
+    await event.edit("Mengirim pesan spill...")
     async with bot.conversation("@Spillgame_bot") as conv:
         try:
             response = conv.wait_event(
@@ -52,19 +52,19 @@ async def _(event):
             response = await response
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await xx.edit("Harap unblock `@Spillgame_bot` dan coba lagi")
+            await event.edit("Harap unblock `@Spillgame_bot` dan coba lagi")
             return
-        await xx.edit(f"**Pesan spill**\n\n{response.message.message}")
+        await event.edit(f"**Pesan spill**\n\n{response.message.message}")
 
 
 CMD_HELP.update(
     {
-        "truth_dare": f"** Plugin :** truth_dare\
-        \n\n  •  Perintah : `{cmd}truth`\
+        "truth_dare": "** Plugin :** truth_dare\
+        \n\n  •  Perintah : `.truth`\
         \n  •  Function : Untuk mengirim pesan truth\
-        \n\n  •  Perintah : `{cmd}dare`\
+        \n\n  •  Perintah : `.dare`\
         \n  •  Function : Untuk mengirim pesan dare\
-        \n\n  •  Perintah : `{cmd}spill`\
+        \n\n  •  Perintah : `.spill`\
         \n  •  Function : Untuk Pertanyaan\
     "
     }

@@ -1,16 +1,19 @@
 # nyenyenyenye
 # FROM skyzu-userbot <https://github.com/Skyzu/skyzu-userbot>
+# port by koala🐨/@manusiarakitann
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, rzydx_cmd
+from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import flicks_cmd
+
 
 chat = "@BotFather"
 
 
-@rzydx_cmd(pattern="botbaru ?(.*)")
+@flicks_cmd(pattern="buatbot ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -18,7 +21,7 @@ async def _(event):
         text, username = event.pattern_match.group(1).split()
 
     else:
-        await edit_or_reply(event, "`Masukan Yang Benar Cok Biar Bisa Bikin Bot!!`")
+        await event.edit("`Masukan Yang Benar Cok Biar Bisa Bikin Bot!!`")
         return
 
     async with event.client.conversation(chat) as conv:
@@ -45,7 +48,10 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "botfather": f"{cmd}botbaru\
-    \nUntuk Membuat Bot Dari Botfather, .botbaru  < bot_name > <bot_username >  ."
+        "botfather":
+        f"`{cmd}botbaru`\
+\nUntuk Membuat Bot Dari Botfather, .botbaru  < bot_name > <bot_username >  ."
+        f"\n`{cmd}inlineon`\
+\nUsage: Untuk mengaktifkan inline bot Assisten anda"
     }
 )
