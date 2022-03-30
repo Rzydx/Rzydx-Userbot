@@ -11,7 +11,7 @@ OWNER_ID = user.id
 
 
 MSG = f"""
-**Flicks - UserBot**
+**Rzydx - UserBot**
 ➖➖➖➖➖➖➖➖➖➖
 **Owner**: [{OWNER}](tg://user?id={OWNER_ID})
 **Assistant** : @{BOT_USERNAME}
@@ -22,9 +22,9 @@ IN_BTTS = [
     [
         Button.url(
             "Repository",
-            url="https://github.com/farizjs/Flicks-Userbot",
+            url="https://github.com/Rzydx/Rzydx-Userbot",
         ),
-        Button.url("Channel", url="https://t.me/TheFlicksUserbot"),
+        Button.url("Channel", url="https://t.me/RzydxProject"),
     ]
 ]
 
@@ -37,12 +37,12 @@ def in_pattern(**kwargs):
             if event.sender_id not in OWNER_ID and SUDO_USERS():
                 res = [
                     await event.builder.article(
-                        title="Flicks Userbot",
-                        url="https://t.me/TheFlicksUserbot",
-                        description="(c) Flicks Userbot",
+                        title="Rzydx Userbot",
+                        url="https://t.me/RzydxSupport",
+                        description="(c) Rzydx Userbot",
                         text=MSG,
                         thumb=InputWebDocument(
-                            "https://telegra.ph/file/2d75f18b79fd17217f44c.jpg",
+                            "https://telegra.ph/file/a43123fb4508e7eb69de6.jpg",
                             0,
                             "image/jpeg",
                             [],
