@@ -96,7 +96,7 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**Flicks-Userbot ERROR**\n"
+                    text = "**Rzydx-Userbot ERROR**\n"
                     text += "login baru hanya menyatakan error dan tanggal\n\n"
 
                     ftext = "========== DISCLAIMER =========="
