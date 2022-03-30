@@ -418,7 +418,7 @@ def paginate_help(page_number, loaded_modules, prefix):
             (custom.Button.inline(
                 "««", data="{}_prev({})".format(
                     prefix, modulo_page)), custom.Button.inline(
-                        "•ᴋᴇᴍʙᴀʟɪ•", data="{}_close({})".format(
+                        "•ᴄʟᴏsᴇ•", data="{}_close({})".format(
                             prefix, modulo_page)), custom.Button.inline(
                                 "»»", data="{}_next({})".format(
                                     prefix, modulo_page)), )]
@@ -707,7 +707,7 @@ with bot:
                                 "https://github.com/Rzydx/Rzydx-Userbot")],
                         [custom.Button.url(
                             "ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ​",
-                            "t.me/RzydxSupport")]],
+                            "t.me/RzydxProject")]],
                     link_preview=True)
             elif query.startswith("Inline buttons"):
                 markdown_note = query[14:]
@@ -752,7 +752,7 @@ with bot:
                                 "t.me/margamodedisini"),
                             custom.Button.url(
                                 "ᴄʜᴀɴɴᴇʟ​​",
-                                "t.me/RzydxSupport")],
+                                "t.me/RzydxProject")],
                         [custom.Button.url(
                             "ʀᴇᴘᴏ",
                             "https://github.com/Rzydx/Rzydx-Userbot")]],
