@@ -225,7 +225,7 @@ YOUTUBE_API_KEY = os.environ.get(
 # Untuk Perintah .falive
 FLICKS_TEKS_KUSTOM = os.environ.get(
     "FLICKS_TEKS_KUSTOM",
-    "I'am Using Rzydx-Userbot ♨️")
+    "I'am Using Rzydx-Userbot 🔥")
 
 
 # Time & Date - Country and Time Zone
@@ -459,14 +459,14 @@ with bot:
 
         main_help_button = [
             [
-                Button.inline("**•ᴘʟᴜɢɪɴs**", data="open"),
-                Button.inline("**ᴠᴄ ᴘʟᴜɢɪɴs•**", data="flicks_inline"),
+                Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
+                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs•", data="flicks_inline"),
             ],
             [
-                Button.url("**⚙sᴇᴛᴛɪɴɢs**", f"t.me/{BOT_USERNAME}?start=set"),
-                Button.inline("**ᴏᴡɴᴇʀ ᴛᴏᴏʟs⚙**", data="ownrmn"),
+                Button.url("⚙ sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}?start=set"),
+                Button.inline("ᴏᴡɴᴇʀ ᴛᴏᴏʟs ⚙", data="ownrmn"),
             ],
-            [Button.inline("**•ᴄʟᴏsᴇ•**", data="close")],
+            [Button.inline("•ᴄʟᴏsᴇ•", data="close")],
         ]
 
         @tgbot.on(events.NewMessage(incoming=True,
@@ -636,7 +636,7 @@ with bot:
             if event.query.user_id == uid:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(current_page_number, plugins, "helpme")
-                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
                     file=flickslogo,
@@ -655,7 +655,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 buttons = paginate_help(0, plugins, "helpme")
-                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
                     file=flickslogo,
@@ -676,7 +676,7 @@ with bot:
                 result = builder.photo(
                     file=flickslogo,
                     link_preview=False,
-                    text=f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`".format(
+                    text=f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`".format(
                         len(dugmeler),
                     ),
                     buttons=main_help_button,
@@ -801,7 +801,7 @@ with bot:
             if event.query.user_id == uid:  # @Flicasyncks_Userbot
                 # https://t.me/TelethonChat/115200
                 text = (
-                    f"\n**🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
+                    f"\n**🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥**\n\n **Mᴀsᴛᴇʀ** {ALIVE_NAME}\n\n** Vᴇʀsɪ :** `{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
                 await event.edit(
                     text,
                     file=flickslogo,
