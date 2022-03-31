@@ -744,7 +744,7 @@ with bot:
             else:
                 result = builder.article(
                     " 🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥",
-                    text=f"""**•••╼⍟═🔥ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ🔥═⍟╾•••**\n╒ ➠ ৯• **Oᴡɴᴇʀ​** {ALIVE_NAME}\n╞ ➠ ৯• **Vᴇʀsɪᴏɴ :** {BOT_VER}\n╞ ➠ ৯• **ᴘʟᴜɢɪɴs** : {len(plugins)}\n╘ ➠ ৯• **ᴀssɪsᴛᴇɴ :** @{BOT_USERNAME}\n•••••╼═════⍟═════╾•••••[]({ALIVE_LOGO})""",
+                    text=f"""**•••╼⍟═🔥ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ🔥═⍟╾•••**\n╒ ➠ ৯• **Oᴡɴᴇʀ​** {ALIVE_NAME}\n╞ ➠ ৯• **Vᴇʀsɪᴏɴ :** {BOT_VER}\n╞ ➠ ৯• **ᴘʟᴜɢɪɴs** : {len(plugins)}\n╘ ➠ ৯• **ᴀssɪsᴛᴇɴ :** @{BOT_USERNAME}\n**•••••╼═════⍟═════╾•••••**""",
                     buttons=[
                         [
                             custom.Button.url(
