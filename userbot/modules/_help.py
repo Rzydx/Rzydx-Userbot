@@ -28,11 +28,11 @@ DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "✘"
 main_help_menu = [
     [
-        Button.url("•sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}"),
+        Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
         Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs•", data="flicks_inline"),
     ],
     [
-        Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
+        Button.url("•sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}"),
     ],
     [Button.inline("•ᴄʟᴏsᴇ•", data="close")],
 ]

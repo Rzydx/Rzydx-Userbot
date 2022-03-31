@@ -459,11 +459,11 @@ with bot:
 
         main_help_button = [
             [
-                Button.url("•sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}?start=set"),
+                Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
                 Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs•", data="flicks_inline"),
             ],
             [
-                Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
+                Button.url("•sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}?start=set"),
                 Button.inline("ᴏᴡɴᴇʀ ᴛᴏᴏʟs•", data="ownrmn"),
             ],
             [Button.inline("•ᴄʟᴏsᴇ•", data="close")],
@@ -552,7 +552,7 @@ with bot:
                     f"👋🏻 Hai [{get_display_name(u)}](tg://user?id={u.id}) Jika anda\n"
                     f"Ingin melihat repository ini dan Cara deploynya\n\n"
                     f"👇🏻 __Klik button url di bawah ini__ 👇🏻\n\n"
-                    f"**FLICKS USERBOT**\n",
+                    f"**RZYDX USERBOT**\n",
                     buttons=[
                         [
                             Button.url("Repository",
@@ -636,7 +636,7 @@ with bot:
             if event.query.user_id == uid:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(current_page_number, plugins, "helpme")
-                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
                     file=flickslogo,
@@ -655,7 +655,7 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
                 buttons = paginate_help(0, plugins, "helpme")
-                text = f"\n**🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥**\n\n **Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n** Bʀᴀɴᴄʜ :** Rzydx-Userbot\n** Vᴇʀsɪ :** `v{BOT_VER}`\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
                     file=flickslogo,
@@ -676,7 +676,7 @@ with bot:
                 result = builder.photo(
                     file=flickslogo,
                     link_preview=False,
-                    text=f"\n**🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥**\n\n✥**Mᴀsᴛᴇʀ​** {ALIVE_NAME}\n\n✥**ʙʀᴀɴᴄʜ :** Rzydx-Userbot\n✥**Vᴇʀsɪ :** {BOT_VER}\n✥**Plugin** : {len(plugins)}".format(
+                    text=f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**Mᴀsᴛᴇʀ​ {ALIVE_NAME}**\n**Bʀᴀɴᴄʜ : Rzydx-Userbot**\n**Vᴇʀsɪ : `{BOT_VER}`**\n** Pʟᴜɢɪɴs :** `{len(plugins)}`".format(
                         len(dugmeler),
                     ),
                     buttons=main_help_button,
@@ -692,7 +692,7 @@ with bot:
 ┣  **Telethon** :` 1.24.0 `
 ┣  **Bahasa**   : `Python`
 ┣  **Branch**   :` {UPSTREAM_REPO_BRANCH} `
-┣  **Bot Ver**  :` v.{BOT_VER} `
+┣  **Bot Ver**  :` {BOT_VER} `
 ┣  **Modules**  :` {len(plugins)} Modules `
 ┣  **Support**  : @margamodedisini
 ┗━━━━━━━━━━━━━━━━━━━
@@ -862,8 +862,8 @@ with bot:
 Owner - {ALIVE_NAME}
 OwnerID - {uid}
 [Link To Profile 👤](tg://user?id={uid})
-Owner repo - [Rzydx](tg://openmessage?user_id=5169252959)
-Support - @FlicksSupport
+Owner repo - [ Rzydx ](tg://openmessage?user_id=5169252959)
+Support - @margamodedisini
 Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
 """,
                              buttons=[
