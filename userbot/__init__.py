@@ -808,14 +808,14 @@ with bot:
                     link_preview=True,
                     buttons=main_help_button)
 
-        @tgbot.on(
+        @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"ownrmn")
             )
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
-                text = (
+                text=(
                     f"Owner menu untuk {ALIVE_NAME} \n"
                     f"`Branch    :` {UPSTREAM_REPO_BRANCH} \n"
                     f"`Versi Bot :` {BOT_VER} \n"
@@ -837,26 +837,26 @@ with bot:
                     ]
                 )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert=f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(
+        @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"pingbot")
             )
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
-                start = datetime.now()
-                end = datetime.now()
-                ms = (end - start).microseconds / 1000
+                start=datetime.now()
+                end=datetime.now()
+                ms=(end - start).microseconds / 1000
                 await event.answer(
                     f"**PONG!!**\n `{ms}ms`", cache_time=0, alert=True)
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert=f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(events.CallbackQuery(data=b"about"))
+        @ tgbot.on(events.CallbackQuery(data=b"about"))
         async def about(event):
             await event.edit(f"""
 Owner - {ALIVE_NAME}
@@ -875,14 +875,14 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                              ]
                              )
 
-        @tgbot.on(
+        @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"flicks_inline")
             )
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:
-                text = (
+                text=(
                     """
   •  Syntax : .play <Judul Lagu/Link YT>
   •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu
@@ -914,46 +914,46 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                     link_preview=True,
                     buttons=[Button.inline("Back", data="gcback")])
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert=f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(events.CallbackQuery(data=b"close"))
+        @ tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            buttons = [
+            buttons=[
                 (custom.Button.inline("Bᴜᴋᴀ Mᴇɴᴜ", data="gcback"),),
             ]
             await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=flickslogo, buttons=buttons)
 
-        @tgbot.on(
+        @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_prev\((.+?)\)")
             )
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:  # pylint:disable=E0602
-                current_page_number = int(
+                current_page_number=int(
                     event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(
+                buttons=paginate_help(
                     current_page_number - 1, dugmeler, "helpme"  # pylint:disable=E0602
                 )
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🔒 Tombol Hanya bisa digunakan oleh {ALIVE_NAME} 🔒."
+                reply_pop_up_alert=f"🔒 Tombol Hanya bisa digunakan oleh {ALIVE_NAME} 🔒."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(
+        @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"ub_modul_(.*)")
             )
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid:  # pylint:disable=E0602
-                modul_name = event.data_match.group(1).decode("UTF-8")
+                modul_name=event.data_match.group(1).decode("UTF-8")
 
-                cmdhel = str(CMD_HELP[modul_name])
+                cmdhel=str(CMD_HELP[modul_name])
                 if len(cmdhel) > 4030:
-                    help_string = (
+                    help_string=(
                         str(CMD_HELP[modul_name]).replace(
                             '__', '')[:4030] + "..."
                         + "\n\nBaca Text Berikutnya Ketik .help "
@@ -961,9 +961,9 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                         + " "
                     )
                 else:
-                    help_string = str(CMD_HELP[modul_name]).replace('`', '')
+                    help_string=str(CMD_HELP[modul_name]).replace('`', '')
 
-                reply_pop_up_alert = (
+                reply_pop_up_alert=(
                     help_string
                     if help_string is not None
                     else "{} No document has been written for module.".format(
@@ -972,10 +972,11 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                 )
 
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("Back", data="get_back")]
+                    reply_pop_up_alert, buttons=[
+                        Button.inline("Back", data="get_back")]
                 )
             else:
-                reply_pop_up_alert = f"""Jangan Menggunakan Milik {ALIVE_NAME} !"""
+                reply_pop_up_alert=f"""Jangan Menggunakan Milik {ALIVE_NAME} !"""
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     except BaseException:
