@@ -800,7 +800,7 @@ with bot:
         async def gback_handler(event):
             if event.query.user_id == uid:  # @Flicasyncks_Userbot
                 # https://t.me/TelethonChat/115200
-                text = (f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
+                text = (f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
                 await event.edit(
                     text,
                     file=flickslogo,
