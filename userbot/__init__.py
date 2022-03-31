@@ -459,14 +459,14 @@ with bot:
 
         main_help_button = [
             [
-                Button.inline("•ᴘʟᴜɢɪɴs", data="open"),
-                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs•", data="flicks_inline"),
+                Button.inline("**•ᴘʟᴜɢɪɴs**", data="open"),
+                Button.inline("**ᴠᴄ ᴘʟᴜɢɪɴs•**", data="flicks_inline"),
             ],
             [
-                Button.url("•sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}?start=set"),
-                Button.inline("ᴏᴡɴᴇʀ ᴛᴏᴏʟs•", data="ownrmn"),
+                Button.url("**⚙sᴇᴛᴛɪɴɢs**", f"t.me/{BOT_USERNAME}?start=set"),
+                Button.inline("**ᴏᴡɴᴇʀ ᴛᴏᴏʟs⚙**", data="ownrmn"),
             ],
-            [Button.inline("•ᴄʟᴏsᴇ•", data="close")],
+            [Button.inline("**•ᴄʟᴏsᴇ•**", data="close")],
         ]
 
         @tgbot.on(events.NewMessage(incoming=True,
