@@ -29,7 +29,6 @@ from userbot.utils import (
     asst_cmd,
     edit_delete,
     edit_or_reply,
-    flicks_cmd,
     reply_id,
     time_formatter,
 )
