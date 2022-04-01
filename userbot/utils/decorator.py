@@ -55,7 +55,7 @@ def flicks_cmd(
         else:
             flicks_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            flicks_reg = re.compile(flicks_ + pattern)
+            re.compile(flicks_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
                 cmd1 = rzydx_ + command

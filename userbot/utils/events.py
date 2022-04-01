@@ -9,7 +9,7 @@ async def get_user_from_event(
     event, rzydxevent=None, secondgroup=None, nogroup=False, noedits=False
 ):  # sourcery no-metrics
     if rzydxsevent is None:
-        rzydxsevent = event
+        pass
     if nogroup is False:
         if secondgroup:
             args = event.pattern_match.group(2).split(" ", 1)
