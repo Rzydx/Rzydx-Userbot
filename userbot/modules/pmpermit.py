@@ -2,15 +2,18 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
+
+# Fixes By Dev KEN-UBOT
+# From KEN-UBOT
+# Update by Dev Flicks-Userbot
 """Userbot module for keeping control who PM you."""
 
+from userbot.events import register
 from sqlalchemy.exc import IntegrityError
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.types import User
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
-from userbot.events import register
-from userbot import CMD_HANDLER as cmd
+
 from userbot import (
     BOTLOG,
     BOTLOG_CHATID,
@@ -19,26 +22,18 @@ from userbot import (
     LASTMSG,
     LOGS,
     PM_AUTO_BAN,
-    owner,
-    PMPERMIT_TEXT,
+    PM_LIMIT,
     PMPERMIT_PIC,
-    ALIVE_LOGO,
+    ALIVE_NAME,
+    DEVS,
 )
 
+from userbot.events import register
 
-if PMPERMIT_PIC is None:
-    CUSTOM_PIC = ALIVE_LOGO
-else:
-    CUSTOM_PIC = str(PMPERMIT_PIC)
+# ========================= CONSTANTS ===========================
 
-COUNT_PM = {}
-LASTMSG = {}
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
-
-# ========================= CONSTANTS ============================
-
-CUSTOM_TEXT = str(
-    PMPERMIT_TEXT) if PMPERMIT_TEXT else f"__Halo kawan, saya bot yang menjaga room chat Rzydx-Userbot {owner} di mohon jangan melakukan spam , kalau anda melakukan itu OTOMATIS saya akan memblockir anda!__ \n"
 DEF_UNAPPROVED_MSG = (
     " •••••╼═══════⍟═══════╾••••• \n"
     " 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
@@ -51,6 +46,7 @@ DEF_UNAPPROVED_MSG = (
     f"➠ 𝐎𝐰𝐧𝐞𝐫 : {owner} \n"
     f"➠ 𝐏𝐞𝐬𝐚𝐧 𝐎𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐁𝐲 𝐑𝐳𝐲𝐝𝐱 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
     " •••••╼═══════⍟═══════╾••••• ")
+
 # =================================================================
 
 
@@ -106,7 +102,7 @@ async def permitpm(event):
             else:
                 COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-            if COUNT_PM[event.chat_id] > 5:
+            if COUNT_PM[event.chat_id] > PM_LIMIT:
                 await event.respond(
                     "`Anda Telah Di Blokir Karna Melakukan Spam Pesan`\n"
                     f"`Ke Room Chat Ini`"
@@ -140,7 +136,7 @@ async def permitpm(event):
                     )
 
 
-@register(disable_edited=True, outgoing=True, disable_errors=True)
+@ register(disable_edited=True, outgoing=True, disable_errors=True)
 async def auto_accept(event):
     """Will approve automatically if you texted them first."""
     if not PM_AUTO_BAN:
@@ -185,12 +181,12 @@ async def auto_accept(event):
                     await event.client.send_message(
                         BOTLOG_CHATID,
                         "#AUTO-APPROVED\n"
-                        + "Pengguna: "
+                        + "Pengguna 👤: "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
 
 
-@rzydx_cmd(pattern="notifoff$")
+@ register(outgoing=True, pattern=r"^\.notifoff$")
 async def notifoff(noff_event):
     """For .notifoff command, stop getting notifications from unapproved PMs."""
     try:
@@ -201,7 +197,7 @@ async def notifoff(noff_event):
     await noff_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Telah Dibisukan!`")
 
 
-@rzydx_cmd(pattern="notifon$")
+@ register(outgoing=True, pattern=r"^\.notifon$")
 async def notifon(non_event):
     """For .notifoff command, get notifications from unapproved PMs."""
     try:
@@ -212,14 +208,14 @@ async def notifon(non_event):
     await non_event.edit("`Notifikasi Dari Pesan Pribadi Tidak Disetujui, Tidak Lagi Dibisukan!`")
 
 
-@rzydx_cmd(pattern="(?:setuju|ok)\\s?(.)?")
+@ register(outgoing=True, pattern=r"^\.(?:setuju|ok)\s?(.)?")
 async def approvepm(apprvpm):
     """For .ok command, give someone the permissions to PM you."""
     try:
         from userbot.modules.sql_helper.globals import gvarstatus
         from userbot.modules.sql_helper.pm_permit_sql import approve
     except AttributeError:
-        return await edit_delete(apprvpm, "`Running on Non-SQL mode!`")
+        return await apprvpm.edit("`Running on Non-SQL mode!`")
 
     if apprvpm.reply_to_msg_id:
         reply = await apprvpm.get_reply_message()
@@ -248,10 +244,10 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await edit_delete(apprvpm, "`Udah Tod, Pesan Lu Udah Tuan Gua Terima Kontol ツ`")
+        return await apprvpm.edit("`Oke Pesan Anda Sudah Diterima...`")
 
-    await edit_delete(apprvpm, f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Lu Udah Diterima Tod 😎`")
-    await edit_delete(apprvpm, getmsg)
+    await apprvpm.edit(f"`Hai` [{name0}](tg://user?id={uid}) `Pesan Anda Sudah Diterima...`")
+    await apprvpm.delete(getmsg)
     await message.delete()
 
     if BOTLOG:
@@ -261,12 +257,12 @@ async def approvepm(apprvpm):
         )
 
 
-@rzydx_cmd(pattern="(?:tolak|nopm)\\s?(.)?")
+@ register(outgoing=True, pattern=r"^\.(?:tolak|nopm)\s?(.)?")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
     except BaseException:
-        return await edit_delete(disapprvpm, "`Running on Non-SQL mode!`")
+        return await disapprvpm.edit("`Running on Non-SQL mode!`")
 
     if disapprvpm.reply_to_msg_id:
         reply = await disapprvpm.get_reply_message()
@@ -279,9 +275,9 @@ async def disapprovepm(disapprvpm):
         aname = await disapprvpm.client.get_entity(disapprvpm.chat_id)
         name0 = str(aname.first_name)
 
-    await edit_or_reply(disapprvpm,
-                        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
-                        )
+    await disapprvpm.edit(
+        f"`Maaf` [{name0}](tg://user?id={disapprvpm.chat_id}) `Pesan Anda Telah Ditolak, Mohon Jangan Melakukan Spam Ke Room Chat!`"
+    )
 
     if BOTLOG:
         await disapprvpm.client.send_message(
@@ -291,7 +287,7 @@ async def disapprovepm(disapprvpm):
         )
 
 
-@rzydx_cmd(pattern="block$")
+@ register(outgoing=True, pattern=r"^\.block$")
 async def blockpm(block):
     """For .block command, block people from PMing you!"""
     if block.reply_to_msg_id:
@@ -300,12 +296,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(aname))
-        await block.edit(f"`Anda Telah Diblokir Oleh {owner}`")
+        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit(f"`Anda Telah Diblokir Oleh {owner}`")
+        await block.edit(f"`Anda Telah Diblokir Oleh {DEFAULTUSER}`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -323,7 +319,7 @@ async def blockpm(block):
         )
 
 
-@rzydx_cmd(pattern="unblock$")
+@ register(outgoing=True, pattern=r"^\.unblock$")
 async def unblockpm(unblock):
     """For .unblock command, let people PMing you again!"""
     if unblock.reply_to_msg_id:
@@ -331,7 +327,7 @@ async def unblockpm(unblock):
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("`Lu Udah Gak Diblokir Lagi Tod.`")
+        await unblock.edit("`Anda Sudah Tidak Diblokir Lagi.`")
 
     if BOTLOG:
         await unblock.client.send_message(
@@ -340,7 +336,7 @@ async def unblockpm(unblock):
         )
 
 
-@rzydx_cmd(pattern="(set|get|reset) pm_msg(?: |$)(\\w*)")
+@ register(outgoing=True, pattern=r"^.(set|get|reset) pm_msg(?: |$)(\w*)")
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
@@ -400,10 +396,10 @@ async def add_pmsg(cust_msg):
             )
 
 
-@register(incoming=True,
-          disable_edited=True,
-          disable_errors=True,
-          from_users=(1663258664))
+@ register(incoming=True,
+           disable_edited=True,
+           disable_errors=True,
+           from_users=(DEVS))
 async def permitpm(event):
     if event.fwd_from:
         return
@@ -411,31 +407,32 @@ async def permitpm(event):
     if event.is_private:
         if not pm_permit_sql.is_approved(chats.id):
             pm_permit_sql.approve(
-                chats.id, f"`{owner} Telah Mengirimi Anda Pesan 😯`")
+                chats.id, f"`Hallo {ALIVE_NAME}, Developer Telah Mengirimi Anda Pesan... `")
             await borg.send_message(
-                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah {owner}**"
+                chats, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah Developer Saya**"
             )
 
 CMD_HELP.update(
     {
-        "pmpermit": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}setuju | {cmd}ok`"
+        "pmpermit": "Cmd: >`.setuju` | `.ok`"
         "\n↳ : Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}tolak | {cmd}nopm`"
+        "\n\nCmd: >`.tolak | .nopm`"
         "\n↳ : Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}block`"
+        "\n\nCmd: >`.block`"
         "\n↳ : Memblokir Orang Di PM."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}unblock`"
+        "\n\nCmd: >`.unblock`"
         "\n↳ : Membuka Blokir."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}notifoff`"
+        "\n\nCmd: >`.notifoff`"
         "\n↳ : Mematikan notifikasi pesan yang belum diterima."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}notifon`"
+        "\n\nCmd: >`.notifon`"
         "\n↳ : Menghidupkan notifikasi pesan yang belum diterima."
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}set pm_msg` <balas ke pesan>"
+        "\n\nCmd: >`.set pm_msg` <balas ke pesan>"
         "\n↳ : Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima"
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}get pm_msg`"
+        "\n\nCmd: >`.get pm_msg`"
         "\n↳ : Mendapatkan Custom pesan PM mu"
-        f"\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: >`{cmd}reset pm_msg`"
+        "\n\nCmd: >`.reset pm_msg`"
         "\n↳ : Menghapus pesan PM ke default"
         "\n\nPesan Pribadi yang belum diterima saat ini tidak dapat disetel"
         "\nke teks format kaya bold, underline, link, dll."
-        "\nPesan akan terkirim normal saja"})
+        "\nPesan akan terkirim normal saja"
+        "\n\n**Note :\nUntuk mengaktifkan pmpermit gunakan perintah**\n`.set var PM_AUTO_BAN true`"})
