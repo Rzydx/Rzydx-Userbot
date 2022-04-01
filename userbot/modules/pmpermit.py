@@ -39,7 +39,7 @@ DEF_UNAPPROVED_MSG = (
     " ••••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••• \n"
     f"৯•** Sabar Tod Tunggu Majikan Gua On ** \n"
     f"৯•** Lu Jangan Nyepam Kek Para Jamet Kontol **\n"
-    f"৯•** Ntar Lu Bisa Ganggu Tuan ** {ALIVE_NAME} [⚠️]({PMPERMIT_PIC})\n"
+    f"৯•** Ntar Lu Bisa Ganggu Tuan ** {ALIVE_NAME}\n"
     f"৯•** Kalo Lu Masih Aja Nyepam, Ntar Mampus Lu Terblokir Otomatis **\n"
     " ••••╼═⍟═════════════⍟═╾•••• \n"
     f"➠ 𝐎𝐰𝐧𝐞𝐫 : {owner} \n"
