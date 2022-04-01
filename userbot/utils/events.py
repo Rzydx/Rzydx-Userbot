@@ -8,7 +8,7 @@ LOGS = logging.getLogger("userbot")
 async def get_user_from_event(
     event, rzydxevent=None, secondgroup=None, nogroup=False, noedits=False
 ):  # sourcery no-metrics
-    if rzydxsevent is None:
+    if rzydxevent is None:
         pass
     if nogroup is False:
         if secondgroup:

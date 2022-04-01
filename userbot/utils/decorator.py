@@ -44,18 +44,18 @@ def rzydx_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global flicks_reg
+        global rzydx_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            flicks_reg = sudo_reg = re.compile(pattern)
+            rzydx_reg = sudo_reg = re.compile(pattern)
         else:
             rzydx_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            re.compile(rzydx_ + pattern)
+            rzydx_reg = re.compile(rzydx_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
                 cmd1 = rzydx_ + command
@@ -85,9 +85,9 @@ def rzydx_cmd(
         if not disable_edited:
             bot.add_event_handler(
                 func, events.MessageEdited(
-                    **args, outgoing=True, pattern=flicks_reg))
+                    **args, outgoing=True, pattern=rzydx_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=flicks_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=rzydx_reg)
         )
         if allow_sudo:
             if not disable_edited:
@@ -136,7 +136,6 @@ def asst_cmd(**args):
 
     return decorator
 
-
 def chataction(**args):
     def decorator(func):
         if bot:
@@ -144,7 +143,6 @@ def chataction(**args):
         return func
 
     return decorator
-
 
 def callback(**args):
     """Assistant's callback decorator"""

@@ -453,7 +453,7 @@ with bot:
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
-        flickslogo = INLINE_PIC
+        rzydxlogo = INLINE_PIC
         plugins = CMD_HELP
         vr = BOT_VER
 
@@ -785,7 +785,7 @@ with bot:
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:  # @Flicasyncks_Userbot
+            if event.query.user_id == uid:  # @Rzydx_Userbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
                     file=rzydxlogo,
@@ -798,7 +798,7 @@ with bot:
             )
         )
         async def gback_handler(event):
-            if event.query.user_id == uid:  # @Flicasyncks_Userbot
+            if event.query.user_id == uid:  # @Rzydx_Userbot
                 # https://t.me/TelethonChat/115200
                 text = (
                     f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
@@ -922,7 +922,7 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
             buttons = [
                 (custom.Button.inline("Bᴜᴋᴀ Mᴇɴᴜ", data="gcback"),),
             ]
-            await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=flickslogo, buttons=buttons)
+            await event.edit("**Mᴇɴᴜ Dɪᴛᴜᴛᴜᴘ​!**", file=rzydxlogo, buttons=buttons)
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
