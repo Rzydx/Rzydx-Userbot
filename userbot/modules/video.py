@@ -5,10 +5,10 @@ import requests
 
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="vidwibu$")
+@rzydx_cmd(pattern="vidwibu$")
 async def _(event):
     try:
         response = requests.get(
@@ -19,7 +19,7 @@ async def _(event):
         await event.edit("**Tidak bisa menemukan video wibu.**")
 
 
-@flicks_cmd(pattern="chika$")
+@rzydx_cmd(pattern="chika$")
 async def _(event):
     try:
         response = requests.get(

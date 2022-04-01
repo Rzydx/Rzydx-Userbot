@@ -22,13 +22,13 @@ from youtubesearchpython import SearchVideos
 
 from userbot import CMD_HELP, ALIVE_NAME
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 
-@flicks_cmd(pattern="song (.*)")
+@rzydx_cmd(pattern="song (.*)")
 async def download_video(event):
     a = event.text
     if len(a) >= 5 and a[5] == "s":
@@ -134,7 +134,7 @@ Connected to server...
         pass
 
 
-@flicks_cmd(pattern="vsongs (.*)")
+@rzydx_cmd(pattern="vsongs (.*)")
 async def download_vsong(event):
     x = await event.edit("Processing..")
     url = event.pattern_match.group(1)
@@ -209,7 +209,7 @@ async def download_vsong(event):
     await x.delete()
 
 
-@flicks_cmd(pattern="lirik (.*)")
+@rzydx_cmd(pattern="lirik (.*)")
 async def original(event):
     if not event.pattern_match.group(1):
         return await event.edit("Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `.lirik` <Judul Lagu>")

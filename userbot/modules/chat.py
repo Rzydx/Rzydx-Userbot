@@ -23,10 +23,10 @@ from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from telethon.utils import pack_bot_file_id
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="getid(?: |$)(.*)")
+@rzydx_cmd(pattern="getid(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def _(event):
         await event.edit("ID Grup : `{}`".format(str(event.chat_id)))
 
 
-@flicks_cmd(pattern="link(?: |$)(.*)")
+@rzydx_cmd(pattern="link(?: |$)(.*)")
 async def permalink(mention):
     """ For .link command, generates a link to the user's PM with a custom text. """
     user, custom = await get_user_from_event(mention)
@@ -56,7 +56,7 @@ async def permalink(mention):
         await mention.edit(f"[{tag}](tg://user?id={user.id})")
 
 
-@flicks_cmd(pattern="getbot(?: |$)(.*)")
+@rzydx_cmd(pattern="getbot(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -86,7 +86,7 @@ async def _(event):
     await event.edit(mentions)
 
 
-@flicks_cmd(pattern="logit(?: |$)([\\s\\S]*)")
+@rzydx_cmd(pattern="logit(?: |$)([\\s\\S]*)")
 async def log(log_text):
     """ For .log command, forwards a message or the command argument to the bot logs group """
     if BOTLOG:
@@ -107,21 +107,21 @@ async def log(log_text):
     await log_text.delete()
 
 
-@flicks_cmd(pattern="kickme$")
+@rzydx_cmd(pattern="kickme$")
 async def kickme(leave):
     """ Basically it's .kickme command """
     await leave.edit(f"`Master {ALIVE_NAME} Telah Meninggalkan Grup...`")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
-@flicks_cmd(pattern="leave$")
+@rzydx_cmd(pattern="leave$")
 async def kickme(leave):
     """ Basically it's .leave command """
     await leave.edit(f"`Master {ALIVE_NAME} Telah Keluar Grup...`")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
-@flicks_cmd(pattern="keluar$")
+@rzydx_cmd(pattern="keluar$")
 async def kickme(leave):
     """ Basically it's .keluar command """
     await leave.edit("`Dahlah,keluar aja:)`")
@@ -130,7 +130,7 @@ async def kickme(leave):
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
-@flicks_cmd(pattern="unmutechat$")
+@rzydx_cmd(pattern="unmutechat$")
 async def unmute_chat(unm_e):
     """ For .unmutechat command, unmute a muted chat. """
     try:
@@ -144,7 +144,7 @@ async def unmute_chat(unm_e):
     await unm_e.delete()
 
 
-@flicks_cmd(pattern="mutechat$")
+@rzydx_cmd(pattern="mutechat$")
 async def mute_chat(mute_e):
     """ For .mutechat command, mute any chat. """
     try:
@@ -189,7 +189,7 @@ async def sedNinja(event):
         await event.delete()
 
 
-@flicks_cmd(pattern="regexninja (on|off)$")
+@rzydx_cmd(pattern="regexninja (on|off)$")
 async def sedNinjaToggle(event):
     """ Aktifkan Atau Nonaktifkan Modul Regex Ninja. """
     global regexNinja
@@ -205,7 +205,7 @@ async def sedNinjaToggle(event):
         await event.delete()
 
 
-@flicks_cmd(pattern="chatinfo(?: |$)(.*)")
+@rzydx_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
     await event.edit("`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
@@ -410,7 +410,7 @@ async def fetch_info(chat, event):
     return caption
 
 
-@flicks_cmd(pattern="invite(?: |$)(.*)")
+@rzydx_cmd(pattern="invite(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

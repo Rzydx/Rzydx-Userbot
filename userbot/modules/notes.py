@@ -3,7 +3,7 @@
 # FROM Flicks-Userbot <https://github.com/farizjs/Flicks-Userbot>
 # t.me/TheFlicksUserbot
 
-from userbot.utils import reply_id, edit_delete, edit_or_reply, flicks_cmd
+from userbot.utils import reply_id, edit_delete, edit_or_reply, rzydx_cmd
 from .sql_helper.notes_sql import add_note, get_note, get_notes, rm_note
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HANDLER as i, CMD_HELP
 
@@ -15,7 +15,7 @@ async def get_message_link(client, event):
     return f"https://t.me/c/{chat.id}/{event.id}"
 
 
-@flicks_cmd(pattern="\\#(\\S+)")
+@rzydx_cmd(pattern="\\#(\\S+)")
 async def incom_note(event):
     if not BOTLOG:
         return
@@ -49,7 +49,7 @@ async def incom_note(event):
         pass
 
 
-@flicks_cmd(pattern="save (\\w*)")
+@rzydx_cmd(pattern="save (\\w*)")
 async def add_snip(event):
     "To save notes to bot."
     if not BOTLOG:
@@ -101,7 +101,7 @@ async def add_snip(event):
     return await edit_or_reply(event, success.format(keyword, "added", keyword))
 
 
-@flicks_cmd(pattern="notes$")
+@rzydx_cmd(pattern="notes$")
 async def on_snip_list(event):
     "To list all notes in bot."
     message = "Anda belum menyimpan catatan/snip"
@@ -122,7 +122,7 @@ async def on_snip_list(event):
     await edit_or_reply(event, message)
 
 
-@flicks_cmd(pattern="clear (\\S+)")
+@rzydx_cmd(pattern="clear (\\S+)")
 async def on_snip_delete(event):
     "To delete paticular note in bot."
     name = event.pattern_match.group(1)

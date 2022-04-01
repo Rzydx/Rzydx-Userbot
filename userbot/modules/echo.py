@@ -16,10 +16,10 @@ from .sql_helper.echo_sql import (
     remove_echo,
     remove_echos,
 )
-from userbot.utils import get_user_from_event, edit_delete, edit_or_reply, flicks_cmd
+from userbot.utils import get_user_from_event, edit_delete, edit_or_reply, rzydx_cmd
 
 
-@flicks_cmd(pattern="addecho$")
+@rzydx_cmd(pattern="addecho$")
 async def echo(event):
     "To echo the user messages"
     if event.reply_to_msg_id is None:
@@ -57,7 +57,7 @@ async def echo(event):
         await edit_or_reply(flicksevent, "Hi")
 
 
-@flicks_cmd(pattern="rmecho$")
+@rzydx_cmd(pattern="rmecho$")
 async def echo(event):
     "To stop echoing the user messages"
     if event.reply_to_msg_id is None:
@@ -78,7 +78,7 @@ async def echo(event):
         await edit_or_reply(event, "Pengguna tidak diaktifkan dengan echo")
 
 
-@flicks_cmd(pattern="delecho( -a)?")
+@rzydx_cmd(pattern="delecho( -a)?")
 async def echo(event):
     "To delete echo in this chat."
     input_str = event.pattern_match.group(1)
@@ -112,7 +112,7 @@ async def echo(event):
             )
 
 
-@flicks_cmd(pattern="echolist( -a)?$")
+@rzydx_cmd(pattern="echolist( -a)?$")
 async def echo(event):  # sourcery no-metrics
     "To list all users on who you enabled echoing."
     input_str = event.pattern_match.group(1)

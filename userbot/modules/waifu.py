@@ -9,7 +9,7 @@ import os
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 EMOJI_PATTERN = re.compile(
@@ -33,7 +33,7 @@ def deEmojify(inputString: str) -> str:
     return re.sub(EMOJI_PATTERN, '', inputString)
 
 
-@flicks_cmd(pattern="waifu(?: |$)(.*)")
+@rzydx_cmd(pattern="waifu(?: |$)(.*)")
 async def waifu(animu):
     #"""Generate random waifu sticker with the text!"""
 
@@ -62,7 +62,7 @@ async def waifu(animu):
     await animu.delete()
 
 
-@flicks_cmd(pattern="hz(:? |$)(.*)?")
+@rzydx_cmd(pattern="hz(:? |$)(.*)?")
 async def _(hazmat):
     await hazmat.edit("`Sending information...`")
     level = hazmat.pattern_match.group(2)

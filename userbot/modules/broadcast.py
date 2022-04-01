@@ -12,10 +12,10 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.utils import parse_pre
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="sendto ?(.*)")
+@rzydx_cmd(pattern="sendto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -67,7 +67,7 @@ async def catbroadcast_send(event):
         )
 
 
-@flicks_cmd(pattern="fwdto ?(.*)")
+@rzydx_cmd(pattern="fwdto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -119,7 +119,7 @@ async def catbroadcast_send(event):
         )
 
 
-@flicks_cmd(pattern="addto ?(.*)")
+@rzydx_cmd(pattern="addto ?(.*)")
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -155,7 +155,7 @@ async def catbroadcast_add(event):
             )
 
 
-@flicks_cmd(pattern="rmfrom ?(.*)")
+@rzydx_cmd(pattern="rmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -191,7 +191,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@flicks_cmd(pattern="list ?(.*)")
+@rzydx_cmd(pattern="list ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -231,7 +231,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@flicks_cmd(pattern="listall ?(.*)")
+@rzydx_cmd(pattern="listall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -247,7 +247,7 @@ async def catbroadcast_list(event):
     await event.efit(resultext)
 
 
-@flicks_cmd(pattern="frmfrom ?(.*)")
+@rzydx_cmd(pattern="frmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -304,7 +304,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@flicks_cmd(pattern="delc ?(.*)")
+@rzydx_cmd(pattern="delc ?(.*)")
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return

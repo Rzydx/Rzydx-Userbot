@@ -13,7 +13,7 @@ import os
 from userbot import TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY, bot, CMD_HELP
 from userbot.utils import progress
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 # ====================
@@ -21,7 +21,7 @@ today = date.today()
 # ====================
 
 
-@flicks_cmd(pattern="compress(?: |$)(.*)")
+@rzydx_cmd(pattern="compress(?: |$)(.*)")
 async def _(event):
     # Prevent Channel Bug to use update
     if event.is_channel and not event.is_group:
@@ -71,7 +71,7 @@ async def _(event):
     await event.delete()
 
 
-@flicks_cmd(pattern="addzip(?: |$)(.*)")
+@rzydx_cmd(pattern="addzip(?: |$)(.*)")
 async def addzip(add):
     """ Copyright (c) 2020 azrim @github"""
     # Prevent Channel Bug to use update
@@ -104,7 +104,7 @@ async def addzip(add):
             return
 
 
-@flicks_cmd(pattern="upzip(?: |$)(.*)")
+@rzydx_cmd(pattern="upzip(?: |$)(.*)")
 async def upload_zip(up):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await up.edit("`Files not found`")
@@ -131,7 +131,7 @@ async def upload_zip(up):
     await up.delete()
 
 
-@flicks_cmd(pattern="rmzip(?: |$)(.*)")
+@rzydx_cmd(pattern="rmzip(?: |$)(.*)")
 async def remove_dir(rm):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await rm.edit("`Directory not found`")

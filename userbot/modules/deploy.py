@@ -9,7 +9,7 @@ import asyncio
 from userbot import ALIVE_NAME, BOT_VER, CMD_HELP
 from platform import uname
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 # Ported for Lynx by KENZO (Lynx-Userbot)
 # ================= CONSTANT =================
@@ -17,7 +17,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@flicks_cmd(pattern="deploy ?(.*)")
+@rzydx_cmd(pattern="deploy ?(.*)")
 async def _(event):
 
     if event.fwd_from:
@@ -54,7 +54,7 @@ async def _(event):
         "INFO - Flicks-Userbot: Logged in as 557667062",
         "INFO - Flicks-Userbot: Successfully...",
         "919852+00:00 app[worker.1]: 919 - Flicks-Userbot -",
-        f"INFO - \n➖➖➖➖➖➖➖➖➖➖\n✘ 𝐅𝐥𝐢𝐜𝐤𝐬 𝐔𝐬𝐞𝐫𝐛𝐨𝐭 ✘ v{BOT_VER} ⚙️ [Berhasil Diaktifkan 🔥]\nSelamat memakai saya tuan {DEFAULTUSER}\n➖➖➖➖➖➖➖➖➖➖",
+        f"INFO - \n➖➖➖➖➖➖➖➖➖➖\n[Rzydx-Userbot] {BOT_VER} ⚙️ [Udah Aktif Ya Kontol 🔥]\nSelamat memakai saya tuan {DEFAULTUSER}\n➖➖➖➖➖➖➖➖➖➖",
 
     ]
 

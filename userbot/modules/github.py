@@ -1,9 +1,9 @@
 import aiohttp
 from userbot import CMD_HELP, CMD_HANDLER as i
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="git (.*)")
+@rzydx_cmd(pattern="git (.*)")
 async def github(event):
     URL = f"https://api.github.com/users/{event.pattern_match.group(1)}"
     await event.get_chat()

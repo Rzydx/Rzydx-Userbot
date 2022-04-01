@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 import re
 from PIL import Image
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 # ================= CONSTANT =================
@@ -28,7 +28,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@flicks_cmd(pattern="random")
+@rzydx_cmd(pattern="random")
 async def randomise(items):
     """ For .random command, get a random item from the list of items. """
     itemo = (items.text[8:]).split()
@@ -42,7 +42,7 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@flicks_cmd(pattern="sleep ([0-9]+)$")
+@rzydx_cmd(pattern="sleep ([0-9]+)$")
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
@@ -57,7 +57,7 @@ async def sleepybot(time):
     await time.edit("`OK, I'm awake now.`")
 
 
-@flicks_cmd(pattern="shutdown$")
+@rzydx_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
     await event.edit("`Mematikan Flicks-Userbot....`")
@@ -69,7 +69,7 @@ async def killdabot(event):
     await bot.disconnect()
 
 
-@flicks_cmd(pattern="restart$")
+@rzydx_cmd(pattern="restart$")
 async def killdabot(event):
     await event.edit("`Restarting Flicks-Userbot...`")
     await asyncio.sleep(10)
@@ -84,7 +84,7 @@ async def killdabot(event):
     exit()
 
 
-@flicks_cmd(pattern="readme$")
+@rzydx_cmd(pattern="readme$")
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
@@ -93,7 +93,7 @@ async def reedme(e):
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
-@flicks_cmd(pattern="repeat (.*)")
+@rzydx_cmd(pattern="repeat (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -107,7 +107,7 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@flicks_cmd(pattern="raw$")
+@rzydx_cmd(pattern="raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -131,7 +131,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@flicks_cmd(pattern="reverse(?: |$)(\\d*)")
+@rzydx_cmd(pattern="reverse(?: |$)(\\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):

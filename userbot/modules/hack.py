@@ -1,9 +1,9 @@
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 import asyncio
 
 
-@flicks_cmd(pattern="hack")
+@rzydx_cmd(pattern="hack")
 async def hack(event):
     range(0, 11)
     await event.edit("Installing.")

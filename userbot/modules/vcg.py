@@ -13,7 +13,7 @@ from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 from telethon.tl.types import ChatAdminRights
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
@@ -30,7 +30,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@flicks_cmd(pattern="startvc$")
+@rzydx_cmd(pattern="startvc$")
 async def _(e):
     chat = await e.get_chat()
     admin = chat.admin_rights
@@ -46,7 +46,7 @@ async def _(e):
         await e.edit(f"`{str(ex)}`")
 
 
-@flicks_cmd(pattern="stopvc$")
+@rzydx_cmd(pattern="stopvc$")
 async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -62,7 +62,7 @@ async def stop_voice(c):
         await c.edit(f"**ERROR:** `{ex}`")
 
 
-@flicks_cmd(pattern="vcinvite")
+@rzydx_cmd(pattern="vcinvite")
 async def _(e):
     await e.edit("`Sedang Mengivinte Member...`")
     users = []

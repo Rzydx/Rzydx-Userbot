@@ -7,7 +7,7 @@ import re
 from telethon.utils import get_display_name
 from telethon import events
 
-from userbot.utils import edit_or_reply, flicks_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 from .sql_helper.filter_sql import (
     add_filter,
     get_filters,
@@ -81,7 +81,7 @@ async def filter_incoming_handler(event):  # sourcery no-metrics
             )
 
 
-@flicks_cmd(pattern="filter (.*)")
+@rzydx_cmd(pattern="filter (.*)")
 async def add_new_filter(event):
     "To save the filter"
     keyword = event.pattern_match.group(1)
@@ -123,7 +123,7 @@ async def add_new_filter(event):
     await edit_or_reply(event, f"Kesalahan saat menyetel filter untuk {keyword}")
 
 
-@flicks_cmd(pattern="filters$")
+@rzydx_cmd(pattern="filters$")
 async def on_snip_list(event):
     "To list all filters in that chat."
     OUT_STR = "Tidak ada filter dalam obrolan ini."
@@ -140,7 +140,7 @@ async def on_snip_list(event):
     )
 
 
-@flicks_cmd(pattern="stop ([\\s\\S]*)")
+@rzydx_cmd(pattern="stop ([\\s\\S]*)")
 async def remove_a_filter(event):
     "Stops the specified keyword."
     filt = event.pattern_match.group(1)
@@ -150,7 +150,7 @@ async def remove_a_filter(event):
         await event.edit("Filter `{} `berhasil dihapus".format(filt))
 
 
-@flicks_cmd(pattern="rmfilters$")
+@rzydx_cmd(pattern="rmfilters$")
 async def on_all_snip_delete(event):
     "To delete all filters in that group."
     filters = get_filters(event.chat_id)

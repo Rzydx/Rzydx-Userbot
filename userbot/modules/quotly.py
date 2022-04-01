@@ -13,11 +13,11 @@ import os
 from random import choice
 
 from userbot import CMD_HANDLER as cmd, CMD_HELP
-from userbot.utils import all_col, flicks_cmd
+from userbot.utils import all_col, rzydx_cmd
 from userbot.utils.quotly_helper import create_quotly
 
 
-@flicks_cmd(pattern="q( (.*)|$)")
+@rzydx_cmd(pattern="q( (.*)|$)")
 async def quott_(event):
     match = event.pattern_match.group(1).strip()
     if not event.is_reply:

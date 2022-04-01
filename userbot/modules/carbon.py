@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from urllib.parse import quote_plus
 from asyncio import sleep
 from userbot import CHROME_DRIVER, CMD_HELP, GOOGLE_CHROME_BIN, ALIVE_NAME, CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -22,14 +22,14 @@ TRT_LANG = "en"
 TEMP_DOWNLOAD_DIRECTORY = "/root/userbot/.bin"
 
 
-@flicks_cmd(pattern="crblang (.*)")
+@rzydx_cmd(pattern="crblang (.*)")
 async def setlang(prog):
     global CARBONLANG
     CARBONLANG = prog.pattern_match.group(1)
     await prog.edit(f"Language for carbon.now.sh set to {CARBONLANG}")
 
 
-@flicks_cmd(pattern="carbon1")
+@rzydx_cmd(pattern="carbon1")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -94,7 +94,7 @@ async def carbon_api(e):
     await e.delete()  # Deleting msg
 
 
-@flicks_cmd(pattern="carbon2")
+@rzydx_cmd(pattern="carbon2")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -159,7 +159,7 @@ async def carbon_api(e):
     await e.delete()  # Deleting msg
 
 
-@flicks_cmd(pattern="carbon3")
+@rzydx_cmd(pattern="carbon3")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -224,7 +224,7 @@ async def carbon_api(e):
     await e.delete()  # Deleting msg
 
 
-@flicks_cmd(pattern="carbon4")
+@rzydx_cmd(pattern="carbon4")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -289,7 +289,7 @@ async def carbon_api(e):
     await e.delete()  # Deleting msg
 
 
-@flicks_cmd(pattern="carbon")
+@rzydx_cmd(pattern="carbon")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")

@@ -7,10 +7,10 @@ import time
 from userbot import CMD_HELP, bot
 from userbot import TEMP_DOWNLOAD_DIRECTORY
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
+@rzydx_cmd(pattern="webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
 async def _(event):
     if event.fwd_from:
         return

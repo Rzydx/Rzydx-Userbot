@@ -9,7 +9,7 @@ from telethon.tl.types import User
 from userbot import CMD_HELP, LOGS, bot
 from userbot.modules.sql_helper.tede_chatbot_sql import is_tede, rem_tede, set_tede
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 translator = Translator()
 LANGUAGE = "id"
@@ -46,7 +46,7 @@ async def chat_bot_toggle(event):
         await event.edit("**Usage:** `.chatbot` <on/off>")
 
 
-@flicks_cmd(pattern="chatbot(?: |$)(.*)")
+@rzydx_cmd(pattern="chatbot(?: |$)(.*)")
 async def on_apa_off(event):
     await chat_bot_toggle(event)
 

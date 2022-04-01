@@ -7,7 +7,7 @@ from random import choice
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 # ================= CONSTANT =================
 XBOT_STRINGS = [
@@ -19,9 +19,9 @@ XBOT_STRINGS = [
 ]
 
 
-@flicks_cmd(pattern="xbot")
-async def xbot(xbotflicks):
-    await xbotflicks.edit(choice(XBOT_STRINGS))
+@rzydx_cmd(pattern="xbot")
+async def xbot(xbotrzydx):
+    await xbotrzydx.edit(choice(XBOT_STRINGS))
 
 CMD_HELP.update(
     {

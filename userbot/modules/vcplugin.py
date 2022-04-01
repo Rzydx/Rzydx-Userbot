@@ -21,7 +21,7 @@ from userbot import CMD_HELP
 from userbot import PLAY_PIC as fotoplay
 from userbot import QUEUE_PIC as ngantri
 from userbot.pytgcalls import call_py
-from userbot.utils import bash, edit_delete, edit_or_reply, flicks_cmd
+from userbot.utils import bash, edit_delete, edit_or_reply, rzydx_cmd
 from userbot.utils.chattitle import CHAT_TITLE
 from userbot.utils.queues.queues import (
     QUEUE,
@@ -109,7 +109,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@flicks_cmd(pattern="play(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="play(?:\\s|$)([\\s\\S]*)")
 async def vc_play(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -211,7 +211,7 @@ async def vc_play(event):
                 await botman.edit(f"`{ep}`")
 
 
-@flicks_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)")
 async def vc_vplay(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -386,7 +386,7 @@ async def vc_vplay(event):
                     await xnxx.edit(f"`{ep}`")
 
 
-@flicks_cmd(pattern="end$")
+@rzydx_cmd(pattern="end$")
 async def vc_end(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -400,7 +400,7 @@ async def vc_end(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@flicks_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)")
 async def vc_skip(event):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
@@ -429,7 +429,7 @@ async def vc_skip(event):
             await event.edit(DELQUE)
 
 
-@flicks_cmd(pattern="pause$")
+@rzydx_cmd(pattern="pause$")
 async def vc_pause(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -442,7 +442,7 @@ async def vc_pause(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@flicks_cmd(pattern="resume$")
+@rzydx_cmd(pattern="resume$")
 async def vc_resume(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -455,7 +455,7 @@ async def vc_resume(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@flicks_cmd(pattern=r"volume(?: |$)(.*)")
+@rzydx_cmd(pattern=r"volume(?: |$)(.*)")
 async def vc_volume(event):
     query = event.pattern_match.group(1)
     me = await event.client.get_me()
@@ -478,7 +478,7 @@ async def vc_volume(event):
         await edit_delete(event, "**Tidak Sedang Memutar Streaming**")
 
 
-@flicks_cmd(pattern="playlist$")
+@rzydx_cmd(pattern="playlist$")
 async def vc_playlist(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:

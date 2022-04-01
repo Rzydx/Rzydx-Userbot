@@ -8,7 +8,7 @@ from telethon.tl.types import (
     MessageEntityMentionName)
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 from userbot import CMD_HANDLER as cmd, CMD_HELP
 from userbot import ALIVE_NAME as OWNER
 
@@ -59,7 +59,7 @@ except BaseException:
     client2 = client3 = None
 
 
-@flicks_cmd(pattern="gkick(?: |$)(.*)")
+@rzydx_cmd(pattern="gkick(?: |$)(.*)")
 async def gspide(rk):
     lazy = rk
     sender = await lazy.get_sender()

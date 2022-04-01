@@ -9,7 +9,7 @@ from pathlib import Path
 
 from userbot import CMD_HELP, LOGS, bot  # pylint:disable=E0602
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 DELETE_TIMEOUT = 5
 
 
@@ -39,7 +39,7 @@ def load_module(shortname):
         LOGS.info("Successfully imported " + shortname)
 
 
-@flicks_cmd(pattern="install$")
+@rzydx_cmd(pattern="install$")
 async def _(event):
     if event.fwd_from:
         return

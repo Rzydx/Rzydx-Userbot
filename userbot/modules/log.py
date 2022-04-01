@@ -17,8 +17,8 @@ from userbot.utils import (
     chataction,
     edit_delete,
     edit_or_reply,
-    flicks_cmd,
-    flicks_handler,
+    rzydx_cmd,
+    rzydx_handler,
 )
 from userbot.utils.tools import media_type
 
@@ -61,7 +61,7 @@ async def logaddjoin(event):
     await tgbot.send_message(BOTLOG_CHATID, text, buttons=buttons)
 
 
-@flicks_handler(func=lambda e: e.is_private)
+@rzydx_handler(func=lambda e: e.is_private)
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
@@ -96,7 +96,7 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@flicks_handler(func=lambda e: e.mentioned)
+@rzydx_handler(func=lambda e: e.mentioned)
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -134,7 +134,7 @@ async def log_tagged_messages(event):
         )
 
 
-@flicks_cmd(pattern="save(?: |$)(.*)")
+@rzydx_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
     if log_text.sender_id in SUDO_USERS:
         return
@@ -158,7 +158,7 @@ async def log(log_text):
         )
 
 
-@flicks_cmd(pattern="log$")
+@rzydx_cmd(pattern="log$")
 async def set_no_log_p_m(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -171,7 +171,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@flicks_cmd(pattern="nolog$")
+@rzydx_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -184,7 +184,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@flicks_cmd(pattern="pmlog (on|off)$")
+@rzydx_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -216,7 +216,7 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@flicks_cmd(pattern="gruplog (on|off)$")
+@rzydx_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if event.sender_id in SUDO_USERS:
         return

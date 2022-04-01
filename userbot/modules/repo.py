@@ -5,7 +5,7 @@
 import logging
 
 from userbot import BOT_USERNAME
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 logging.basicConfig(
@@ -13,7 +13,7 @@ logging.basicConfig(
     level=logging.WARNING)
 
 
-@flicks_cmd(pattern="repo")
+@rzydx_cmd(pattern="repo")
 async def yardim(event):
     try:
         botusername = BOT_USERNAME
@@ -31,8 +31,7 @@ async def yardim(event):
         return await event.edit(
             "**__USERBOT INDONESIA__**\n"
             "𝗥𝗲𝗽𝗼 🇮🇩\n"
-            "╰⎆ [Flick-Userbot](https://github.com/farizjs/Flicks-Userbot)\n"
-            "❏ 𝗢𝘄𝗻𝗲𝗿 ⎆ [Fariz • 🇮🇩](t.me/farizjs)\n"
-            "❏ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⎆ [groups](t.me/FlicksSupport)\n"
-            "❏ 𝗧𝗲𝗮𝗺 ⎆  [click here](t.me/devoloperflicks)\n"
+            "╰⎆ [Rzydx-Userbot](https://github.com/Rzydx/Rzydx-Userbot)\n"
+            "❏ 𝗢𝘄𝗻𝗲𝗿 ⎆ [Rzydx • 🇮🇩](t.me/Ngapain_Ngetag)\n"
+            "❏ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⎆ [groups](t.me/margamodedisini)\n"
         )

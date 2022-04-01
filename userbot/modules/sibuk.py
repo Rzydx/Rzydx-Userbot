@@ -21,7 +21,7 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     bot,
 )
 from userbot.events import register
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 # ========================= CONSTANTS ============================
@@ -44,7 +44,7 @@ afk_start = {}
 # =================================================================
 
 
-@flicks_cmd(pattern="sibuk(?: |$)(.*)")
+@rzydx_cmd(pattern="sibuk(?: |$)(.*)")
 async def set_afk(afk_e):
     """ For .afk command, allows you to inform people that you are afk when they message you """
     message = afk_e.text  # pylint:disable=E0602

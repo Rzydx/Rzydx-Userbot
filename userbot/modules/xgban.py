@@ -1,7 +1,7 @@
 from time import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
 
@@ -9,7 +9,7 @@ from userbot import CMD_HANDLER as cmd
 # Fixes by team Flick-Userbot
 
 
-@flicks_cmd(pattern="allban(?: |$)(.*)")
+@rzydx_cmd(pattern="allban(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()

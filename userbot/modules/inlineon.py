@@ -7,10 +7,10 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, BOT_USERNAME
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="inlineon")
+@rzydx_cmd(pattern="inlineon")
 async def _(event):
     await event.edit(f"Sedang menyalakan inline untuk `@{BOT_USERNAME}` tunggu sebentar")
     async with bot.conversation("@BotFather") as conv:

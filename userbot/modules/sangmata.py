@@ -2,10 +2,10 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot, CMD_HELP
 from asyncio.exceptions import TimeoutError
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="(sa|sg)(?: |$)")
+@rzydx_cmd(pattern="(sa|sg)(?: |$)")
 async def lastname(steal):
     if steal.fwd_from:
         return

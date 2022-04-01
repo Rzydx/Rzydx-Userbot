@@ -6,10 +6,10 @@ from youtube_dl import YoutubeDL
 
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="yt(a|v|sa|sv) (.*)")
+@rzydx_cmd(pattern="yt(a|v|sa|sv) (.*)")
 async def download_from_youtube_(event):
     opt = event.pattern_match.group(1).lower()
     if opt == "a":

@@ -17,7 +17,7 @@ from userbot import (
     ALIVE_NAME,
     CMD_HELP)
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -33,7 +33,7 @@ else:
 """
 
 
-@flicks_cmd(pattern="(get|del) var(?: |$)(\\w*)")
+@rzydx_cmd(pattern="(get|del) var(?: |$)(\\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -95,7 +95,7 @@ async def variable(var):
             return True
 
 
-@flicks_cmd(pattern="set var (\\w*) ([\\s\\S]*)")
+@rzydx_cmd(pattern="set var (\\w*) ([\\s\\S]*)")
 async def set_var(var):
     await var.edit("`Sedang Menyetel Config Vars 🛠️`")
     variable = var.pattern_match.group(1)
@@ -124,7 +124,7 @@ async def set_var(var):
 """
 
 
-@flicks_cmd(pattern="(usage|kuota|dyno)(?: |$)")
+@rzydx_cmd(pattern="(usage|kuota|dyno)(?: |$)")
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
@@ -182,7 +182,7 @@ async def dyno_usage(dyno):
 
             await dyno.edit(
                 f"╭┈─╼━━━━━━━━━━━━━╾─┈╮ \n"
-                f"│ㅤ✨**𝐅𝐥𝐢𝐜𝐤𝐬-𝐔𝐬𝐞𝐫𝐛𝐨𝐭**✨ \n"
+                f"│ㅤ✨**Rzydx-Userbot**✨ \n"
                 f"╭┈─╼━━━━━━━━━━━━━╾─┈╮ \n"
                 f"│◈ **Dyno usage this month :** \n"
                 f"│◈ {AppHours} jam - {AppMinutes} menit \n"
@@ -200,7 +200,7 @@ async def dyno_usage(dyno):
             return True
 
 
-@flicks_cmd(pattern="logs")
+@rzydx_cmd(pattern="logs")
 async def _(dyno):
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)

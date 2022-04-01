@@ -4,10 +4,10 @@ from time import sleep
 
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="wibu2(?: |$)(.*)")
+@rzydx_cmd(pattern="wibu2(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(0.07)
@@ -52,7 +52,7 @@ async def typewriter(typew):
     await typew.edit("**IUHH DEMEN KOK SAMA 2D😖**")
 
 
-@flicks_cmd(pattern="wibbu(?: |$)(.*)")
+@rzydx_cmd(pattern="wibbu(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**WI WIII WIIII WIIII.....**")
@@ -110,7 +110,7 @@ async def typewriter(typew):
     await typew.edit("**Mampus Kau Wibu**")
 
 
-@flicks_cmd(pattern="jadiwibu(?: |$)(.*)")
+@rzydx_cmd(pattern="jadiwibu(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Kekuatan Mengjadi Wibu Garis Keras**")
@@ -142,7 +142,7 @@ async def typewriter(typew):
     await typew.edit("**Iya Wibu, Seperti Watashi**")
 
 
-@flicks_cmd(pattern="adawibu(?: |$)(.*)")
+@rzydx_cmd(pattern="adawibu(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**WI WIII WIIII**")
@@ -196,7 +196,7 @@ async def typewriter(typew):
     await typew.edit("**Kasian Si Wibu Wokwokwok**")
 
 
-@flicks_cmd(pattern="turtle(?: |$)(.*)")
+@rzydx_cmd(pattern="turtle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**War Sama Turtle Kah Gass Lah Ajg**")
@@ -251,7 +251,7 @@ async def typewriter(typew):
     await typew.edit("**Good Game**")
 
 
-@flicks_cmd(pattern="gbt(?: |$)(.*)")
+@rzydx_cmd(pattern="gbt(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Wait**")

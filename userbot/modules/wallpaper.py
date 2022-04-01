@@ -12,10 +12,10 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP, bot
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="wall(?: |$)(.*)")
+@rzydx_cmd(pattern="wall(?: |$)(.*)")
 async def _(event):
     try:
         query = event.pattern_match.group(1)

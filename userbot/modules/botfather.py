@@ -7,13 +7,13 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
 chat = "@BotFather"
 
 
-@flicks_cmd(pattern="buatbot ?(.*)")
+@rzydx_cmd(pattern="buatbot ?(.*)")
 async def _(event):
     if event.fwd_from:
         return

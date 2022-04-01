@@ -24,10 +24,10 @@ from telethon.tl.types import DocumentAttributeVideo
 from userbot import LOGS, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.utils import progress, humanbytes
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="download(?: |$)(.*)")
+@rzydx_cmd(pattern="download(?: |$)(.*)")
 async def download(target_file):
     """ For .download command, download files to the userbot's server. """
     await target_file.edit("Processing ...")
@@ -104,7 +104,7 @@ async def download(target_file):
             "Reply to a message to download to my local server.")
 
 
-@flicks_cmd(pattern="uploadir (.*)")
+@rzydx_cmd(pattern="uploadir (.*)")
 async def uploadir(udir_event):
     """ For .uploadir command, allows you to upload everything from a folder in the server"""
     input_str = udir_event.pattern_match.group(1)
@@ -180,7 +180,7 @@ async def uploadir(udir_event):
         await udir_event.edit("404: Directory Not Found")
 
 
-@flicks_cmd(pattern="upload (.*)")
+@rzydx_cmd(pattern="upload (.*)")
 async def upload(u_event):
     """ For .upload command, allows you to upload a file from the userbot's server """
     await u_event.edit("Processing ...")
@@ -256,7 +256,7 @@ def extract_w_h(file):
         return width, height
 
 
-@flicks_cmd(pattern="uploadas(stream|vn|all) (.*)")
+@rzydx_cmd(pattern="uploadas(stream|vn|all) (.*)")
 async def uploadas(uas_event):
     """ For .uploadas command, allows you to specify some arguments for upload. """
     await uas_event.edit("Processing ...")
