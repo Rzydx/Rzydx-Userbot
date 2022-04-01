@@ -8,8 +8,8 @@ import sys
 from pathlib import Path
 
 from userbot import CMD_HELP, LOGS, bot  # pylint:disable=E0602
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.events import register
+
 DELETE_TIMEOUT = 5
 
 
@@ -39,7 +39,7 @@ def load_module(shortname):
         LOGS.info("Successfully imported " + shortname)
 
 
-@flicks_cmd(pattern="install$")
+@register(outgoing=True, pattern=r"^\.install$")
 async def _(event):
     if event.fwd_from:
         return
@@ -71,8 +71,8 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "core": f"**Plugin : **`core`\
-        \n\n  •  **Syntax :** `{cmd}install` <reply ke file plugins>\
+        "core": "**Plugin : **`core`\
+        \n\n  •  **Syntax :** `.install` <reply ke file plugins>\
         \n  •  **Function : **Untuk Menginstall plugins userbot secara instan.\
     "
     }

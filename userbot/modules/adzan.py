@@ -4,12 +4,12 @@ import requests
 
 from userbot import CMD_HELP
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 PLACE = ""
 
 
-@flicks_cmd(pattern="adzan(?: |$)(.*)")
+@rzydx_cmd(pattern="adzan(?: |$)(.*)")
 async def get_adzan(adzan):
     if not adzan.pattern_match.group(1):
         LOCATION = PLACE
@@ -49,7 +49,7 @@ async def get_adzan(adzan):
         f"**Ashar :** `{ashar}`\n"
         f"**Maghrib :** `{maghrib}`\n"
         f"**Isya :** `{isya}`\n"
-        f"By Flicks-Userbot 🔰\n"
+        f"By Rzydx-Userbot 🔰\n"
     )
 
     await adzan.edit(result)

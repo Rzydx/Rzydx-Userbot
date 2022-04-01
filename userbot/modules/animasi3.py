@@ -1,13 +1,14 @@
 from time import sleep
-from userbot import CMD_HELP
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
+from telethon import events
+import asyncio
 
 
-@flicks_cmd(pattern="sayang$")
+@rzydx_cmd(pattern="sayang$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("I LOVEE YOUUU 💕")
+        e = await edit_or_reply(e, "I LOVEE YOUUU 💕")
         await e.edit("💝💘💓💗")
         await e.edit("💞💕💗💘")
         await e.edit("💝💘💓💗")
@@ -33,10 +34,10 @@ async def koc(e):
         await e.edit("SAYANG KAMU💞")
 
 
-@flicks_cmd(pattern="dino(?: |$)(.*)")
+@rzydx_cmd(pattern='dino(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`DIN DINNN.....`")
+    typew = await edit_or_reply(typew, "`DIN DINNN.....`")
     sleep(1)
     await typew.edit("`DINOOOOSAURUSSSSS!!`")
     sleep(1)
@@ -54,7 +55,7 @@ async def typewriter(typew):
     await typew.edit("`🏃             🦖`")
     await typew.edit("`🏃            🦖`")
     await typew.edit("`🏃           🦖`")
-    await typew.edit("`🏃Eh malah ngejar!   🦖`")
+    await typew.edit("`🏃WOARGH!   🦖`")
     await typew.edit("`🏃           🦖`")
     await typew.edit("`🏃            🦖`")
     await typew.edit("`🏃             🦖`")
@@ -66,7 +67,7 @@ async def typewriter(typew):
     await typew.edit("`🏃                   🦖`")
     await typew.edit("`🏃                    🦖`")
     await typew.edit("`🏃                     🦖`")
-    await typew.edit("`🏃   CAPE             🦖`")
+    await typew.edit("`🏃  Huh-Huh           🦖`")
     await typew.edit("`🏃                   🦖`")
     await typew.edit("`🏃                  🦖`")
     await typew.edit("`🏃                 🦖`")
@@ -78,23 +79,23 @@ async def typewriter(typew):
     await typew.edit("`🏃           🦖`")
     await typew.edit("`🏃          🦖`")
     await typew.edit("`🏃         🦖`")
-    await typew.edit("`DIA MAKIN DEKET!!!`")
+    await typew.edit("`DIA SEMAKIN MENDEKAT!!!`")
     sleep(1)
     await typew.edit("`🏃       🦖`")
     await typew.edit("`🏃      🦖`")
     await typew.edit("`🏃     🦖`")
     await typew.edit("`🏃    🦖`")
-    await typew.edit("`Dahlah Pasrah Aja:)`")
+    await typew.edit("`Dahlah Pasrah Aja`")
     sleep(1)
     await typew.edit("`🧎🦖`")
     sleep(2)
     await typew.edit("`-TAMAT-`")
 
 
-@flicks_cmd(pattern="gabut$")
+@rzydx_cmd(pattern="gabut$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
+        e = await edit_or_reply(e, "`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
         await e.edit("`SEPEEERTIIIII APAAAA BENTUKKKKKKK CINTAAAA`")
         await e.edit("`RAMBUUUT WARNAAA WARNII`")
         await e.edit("`BAGAI GULALI`")
@@ -348,46 +349,49 @@ async def koc(e):
         await e.edit("`GABUT`")
 
 
-@flicks_cmd(pattern="mf$")
-async def koc(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("`mf g dl` **ミ(ノ;_ _)ノ=3** ")
+@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+async def _(event):
 
+    if event.fwd_from:
 
-# Create by myself @localheart
+        return
 
+    animation_interval = 2
 
-@flicks_cmd(pattern="war(?: |$)(.*)")
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(1)
-    await typew.edit("**Woi Lol**")
-    sleep(1)
-    await typew.edit("**Ga Senang Kah Lu??**")
-    sleep(1)
-    await typew.edit("**Sini War **")
-    sleep(1)
-    await typew.edit("**Omong Doang Gede**")
-    sleep(1)
-    await typew.edit("**Di Sosmed Jagoan Di Realife Babu Tongkrongan**")
-    sleep(1)
-    await typew.edit("**Ahahaha Jijik Gua**")
-    sleep(1)
-    await typew.edit("**HAHAHAHAHAHAHA**")
-    sleep(1)
-    await typew.edit("**Canda coy**")
-    sleep(1)
-    await typew.edit("**Sorry Coy Wkwkwk**")
-    sleep(1)
-    await typew.edit("**😁😁😁**")
-# Create by myself @localheart
+    animation_ttl = range(0, 11)
+
+    input_str = event.pattern_match.group(1)
+
+    if input_str == "cinta":
+
+        await event.edit(input_str)
+
+        animation_chars = [
+            "`Connecting Ke Server Cinta`",
+            "`Mencari Target Cinta`",
+            "`Mengirim Cintaku.. 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
+            "`Mengirim Cintaku.. 84%\n█████████████████████▒▒▒▒ `",
+            "`Mengirim Cintaku.. 100%\n█████████CINTAKU███████████ `",
+            f"`Cintaku Sekarang Sepenuhnya Terkirim Padamu, Dan Sekarang Aku Sangat Mencintai Mu, I Love You 💞`"]
+
+        for i in animation_ttl:
+
+            await asyncio.sleep(animation_interval)
+
+            await event.edit(animation_chars[i % 11])
 
 
 CMD_HELP.update({
     "animasi3":
     f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}gabut` atau `{cmd}dino`\
     \n↳ : Dikala gabut, yaaa pake aja xixixi.\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}cinta`\
+    \n↳ : Mengirim cinta tai anjiing ke seseorang.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
-    \n↳ : Berubah menjadi buaya.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}war`."
+    \n↳ : Berubah menjadi kadal."
 })

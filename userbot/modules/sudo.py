@@ -9,14 +9,14 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
-from userbot.utils import edit_delete, edit_or_reply, flicks_cmd
+from userbot.utils import edit_delete, edit_or_reply, rzydx_cmd
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 sudousers = os.environ.get("SUDO_USERS") or ""
 
 
-@flicks_cmd(pattern="sudo$")
+@rzydx_cmd(pattern="listsudo$")
 async def sudo(event):
     sudo = "True" if SUDO_USERS else "False"
     users = sudousers
@@ -29,7 +29,7 @@ async def sudo(event):
         await edit_delete(event, "🔮 **Sudo:** `Disabled`")
 
 
-@flicks_cmd(pattern="addsudo(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="addsudo(?:\\s|$)([\\s\\S]*)")
 async def add(event):
     suu = event.text[9:]
     if f"{cmd}add " in event.text:
@@ -73,7 +73,7 @@ async def add(event):
     heroku_Config[var] = newsudo
 
 
-@flicks_cmd(pattern="delsudo(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="delsudo(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -119,22 +119,6 @@ async def _(event):
         )
 
 
-@flicks_cmd(pattern="listsudo")
-async def sudolists(event):
-    xx = await edit_or_reply(event, "`Processing...`")
-    app = Heroku.app(HEROKU_APP_NAME)
-    app.config()
-    if not sudousers:
-        return await edit_delete(event, "**Daftar Sudo Kosong**")
-    sudos = sudousers.split(" ")
-    sudoz = "**» List Sudo «**"
-    for sudo in sudos:
-        k = await event.client.get_entity(int(sudo))
-        pro = f"\n[**Name:** {k.first_name} \n**Username:~** @{k.username or None}]\n"
-        sudoz += pro
-    await xx.edit(sudoz)
-
-
 async def get_user(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -152,7 +136,7 @@ async def get_user(event):
 CMD_HELP.update(
     {
         "sudo": f"**Plugin : **`sudo`\
-        \n\n  •  **Syntax :** `{cmd}sudo`\
+        \n\n  •  **Syntax :** `{cmd}listsudo`\
         \n  •  **Function : **Untuk Mengecek informasi Sudo.\
         \n\n  •  **Syntax :** `{cmd}addsudo` <reply/user id>\
         \n  •  **Function : **Untuk Menambahkan User ke Pengguna Sudo.\

@@ -1,9 +1,10 @@
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
+
 import asyncio
 
 
-@flicks_cmd(pattern="hack")
+@rzydx_cmd(pattern='hack(?: |$)(.*)')
 async def hack(event):
     range(0, 11)
     await event.edit("Installing.")
@@ -21,7 +22,7 @@ async def hack(event):
     await asyncio.sleep(2)
     await event.edit("`Installing... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `")
     await asyncio.sleep(3)
-    await event.edit("`lnstallig.... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `")
+    await event.edit("`lnstallig... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `")
     await asyncio.sleep(2)
     await event.edit("`Installing... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `")
     await asyncio.sleep(3)
@@ -33,7 +34,7 @@ async def hack(event):
     await asyncio.sleep(2)
     await event.edit("`Target files Uploading...\n\nDirecting To Remote  server to hack..`")
     await asyncio.sleep(3)
-    await event.edit("Connecting nd getting combined token from `my.telegram.org` ")
+    await event.edit("Connecting nd getting combined token from my.telegram.org ")
     await asyncio.sleep(3)
     await event.edit("`root@anon:~#` ")
     await asyncio.sleep(2)
@@ -108,10 +109,10 @@ async def hack(event):
     await asyncio.sleep(3)
     await event.edit("`Accoount hacked\n Collecting all data\n converting data into PDF`")
     await asyncio.sleep(3)
-    await event.edit("PDF Created Click Link Below to Download Data`\n\n`Don't Worry Only i Can Open This File 😎..\nIf u don't Believe try to Download 🙂\n\nhttps://drive.google.com/file/d/1o2wXirqy1RZqnUMgsoM8qX4j4iyse26X/view?usp=sharing")
+    await event.edit("PDF Created Click Link Below to Download Data`\n\n`Don't Worry Only i Can Open This File 😎😎..\nIf u don't Believe try to Download 🙂\n\nhttps://drive.google.com/file/d/1o2wXirqy1RZqnUMgsoM8qX4j4iyse26X/view?usp=sharing")
 
 
 CMD_HELP.update({
     "hack": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}hack`\
-        \n↳ : Untuk hacking via Termux (animasi:v)."
+        \n↳ : Untuk hacking via Termux."
 })

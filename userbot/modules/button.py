@@ -10,7 +10,7 @@ from telethon import Button
 from userbot import BOT_USERNAME
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, flicks_cmd, reply_id
+from userbot.utils import edit_delete, rzydx_cmd, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
@@ -18,7 +18,7 @@ BTN_URL_REGEX = re.compile(
     r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
-@flicks_cmd(pattern="button(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="button(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     reply_to_id = await reply_id(event)
     reply_message = await event.get_reply_message()
@@ -51,7 +51,7 @@ CMD_HELP.update(
         "button": f"**Plugin : **`button`\
         \n\n  •  **Syntax :** `{cmd}button` <text> [Name on button]<buttonurl:link you want to open>\
         \n  •  **Function : **Untuk membuat pesan button melalui inline\
-        \n  •  **Examples : **`{cmd}button test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/InfoFlicksUserbot:same> [Support]<buttonurl:https://t.me/FlicksSupport>`\
+        \n  •  **Examples : **`{cmd}button test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/RzydxProject:same> [Support]<buttonurl:https://t.me/Rzydx_Support>`\
     "
     }
 )

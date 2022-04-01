@@ -4,13 +4,12 @@
 
 import asyncio
 import time
+from userbot.events import register
 from userbot import CMD_HELP, bot
 from userbot import TEMP_DOWNLOAD_DIRECTORY
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
 
 
-@flicks_cmd(pattern="webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
+@register(outgoing=True, pattern="^.webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)")
 async def _(event):
     if event.fwd_from:
         return
@@ -45,6 +44,6 @@ async def _(event):
 
 CMD_HELP.update({
     "webupload":
-        f"\n`{cmd}webupload --`(`anonfiles`|`transfer`|`filebin`|`anonymousfiles`|`megaupload`|`bayfiles`)\
-         \nUsage: reply `{cmd}webupload --anonfiles` or `{cmd}webupload --filebin` and the file will be uploaded to that website. "
+        "\n`.webupload --`(`anonfiles`|`transfer`|`filebin`|`anonymousfiles`|`megaupload`|`bayfiles`)\
+         \nUsage: reply `.webupload --anonfiles` or `.webupload --filebin` and the file will be uploaded to that website. "
 })

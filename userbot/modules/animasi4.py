@@ -1,9 +1,8 @@
 from time import sleep
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
 from telethon import events
 import asyncio
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
 
 
 @bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
@@ -64,211 +63,211 @@ async def _(event):
             await event.edit(animation_chars[i % 32])
 
 
-@flicks_cmd(pattern="helikopter")
+@rzydx_cmd(pattern='helikopter(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("▬▬▬.◙.▬▬▬ \n"
-                     "═▂▄▄▓▄▄▂ \n"
-                     "◢◤ █▀▀████▄▄▄▄◢◤ \n"
-                     "█▄ █ █▄ ███▀▀▀▀▀▀▀╬ \n"
-                     "◥█████◤ \n"
-                     "══╩══╩══ \n"
-                     "╬═╬ \n"
-                     "╬═╬ \n"
-                     "╬═╬ \n"
-                     "╬═╬ \n"
-                     "╬═╬ \n"
-                     "╬═╬ \n"
-                     "╬═╬ Hallo Nona Nona \n"
-                     "╬═╬☻/ \n"
-                     "╬═╬/▌ \n"
-                     "╬═╬/ \\ \n")
+    await edit_or_reply(typew, "▬▬▬.◙.▬▬▬ \n"
+                        "═▂▄▄▓▄▄▂ \n"
+                        "◢◤ █▀▀████▄▄▄▄◢◤ \n"
+                        "█▄ █ █▄ ███▀▀▀▀▀▀▀╬ \n"
+                        "◥█████◤ \n"
+                        "══╩══╩══ \n"
+                        "╬═╬ \n"
+                        "╬═╬ \n"
+                        "╬═╬ \n"
+                        "╬═╬ \n"
+                        "╬═╬ \n"
+                        "╬═╬ \n"
+                        "╬═╬ Hallo Semuanya :) \n"
+                        "╬═╬☻/ \n"
+                        "╬═╬/▌ \n"
+                        "╬═╬/ \\ \n")
 
 
-@flicks_cmd(pattern="tembak")
+@rzydx_cmd(pattern='tembak(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("_/﹋\\_\n"
-                     "(҂`_´)\n"
-                     "<,︻╦╤─ ҉\n"
-                     r"_/﹋\_"
-                     "\n**Ayo jadi pacarku**")
+    await edit_or_reply(typew, "_/﹋\\_\n"
+                        "(҂`_´)\n"
+                        "<,︻╦╤─ ҉\n"
+                        r"_/﹋\_"
+                        "\n**Mau Jadi Pacarku Gak?!**")
 
 
-@flicks_cmd(pattern="bundir")
+@rzydx_cmd(pattern='bundir(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Gua Mati Dulu Bye Kawand...`          \n　　　　　|"
-                     "\n　　　　　| \n"
-                     "　　　　　| \n"
-                     "　　　　　| \n"
-                     "　　　　　| \n"
-                     "　　　　　| \n"
-                     "　　　　　| \n"
-                     "　　　　　| \n"
-                     "　／￣￣＼| \n"
-                     "＜ ´･ 　　 |＼ \n"
-                     "　|　３　 | 丶＼ \n"
-                     "＜ 、･　　|　　＼ \n"
-                     "　＼＿＿／∪ _ ∪) \n"
-                     "　　　　　 Ｕ Ｕ\n")
+    await edit_or_reply(typew, "`Dadah Semuanya...`          \n　　　　　|"
+                        "\n　　　　　| \n"
+                        "　　　　　| \n"
+                        "　　　　　| \n"
+                        "　　　　　| \n"
+                        "　　　　　| \n"
+                        "　　　　　| \n"
+                        "　　　　　| \n"
+                        "　／￣￣＼| \n"
+                        "＜ ´･ 　　 |＼ \n"
+                        "　|　３　 | 丶＼ \n"
+                        "＜ 、･　　|　　＼ \n"
+                        "　＼＿＿／∪ _ ∪) \n"
+                        "　　　　　 Ｕ Ｕ\n")
 
 
-@flicks_cmd(pattern="awokawok")
+@rzydx_cmd(pattern='awkwok(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("────██──────▀▀▀██\n"
-                     "──▄▀█▄▄▄─────▄▀█▄▄▄\n"
-                     "▄▀──█▄▄──────█─█▄▄\n"
-                     "─▄▄▄▀──▀▄───▄▄▄▀──▀▄\n"
-                     "─▀───────▀▀─▀───────▀▀\n`Awkwokwokwok Goblok..`")
+    await edit_or_reply(typew, "────██──────▀▀▀██\n"
+                        "──▄▀█▄▄▄─────▄▀█▄▄▄\n"
+                        "▄▀──█▄▄──────█─█▄▄\n"
+                        "─▄▄▄▀──▀▄───▄▄▄▀──▀▄\n"
+                        "─▀───────▀▀─▀───────▀▀\n`Awkwokwokwok..`")
 
 
-@flicks_cmd(pattern="ular")
+@rzydx_cmd(pattern='ular(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("░░░░▓\n"
-                     "░░░▓▓\n"
-                     "░░█▓▓█\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░░░██▓▓██\n"
-                     "░░░░██▓▓██\n"
-                     "░░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░██▓▓██\n"
-                     "░░░██▓▓███\n"
-                     "░░░░██▓▓████\n"
-                     "░░░░░██▓▓█████\n"
-                     "░░░░░░██▓▓██████\n"
-                     "░░░░░░███▓▓███████\n"
-                     "░░░░░████▓▓████████\n"
-                     "░░░░█████▓▓█████████\n"
-                     "░░░█████░|░█████●███\n"
-                     "░░████░░░|░░░███████\n"
-                     "░░███░░░░|░░░░██████\n"
-                     "░░██░░░░░|░░░░░████\n"
-                     "░░░░░░░░░|░░░░░░███\n"
-                     "░░░░░░░░░░░░░░░░░░░\n")
+    await edit_or_reply(typew, "░░░░▓\n"
+                        "░░░▓▓\n"
+                        "░░█▓▓█\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░░░██▓▓██\n"
+                        "░░░░██▓▓██\n"
+                        "░░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░██▓▓██\n"
+                        "░░░██▓▓███\n"
+                        "░░░░██▓▓████\n"
+                        "░░░░░██▓▓█████\n"
+                        "░░░░░░██▓▓██████\n"
+                        "░░░░░░███▓▓███████\n"
+                        "░░░░░████▓▓████████\n"
+                        "░░░░█████▓▓█████████\n"
+                        "░░░█████░░░█████●███\n"
+                        "░░████░░░░░░░███████\n"
+                        "░░███░░░░░░░░░██████\n"
+                        "░░██░░░░░░░░░░░████\n"
+                        "░░░░░░░░░░░░░░░░███\n"
+                        "░░░░░░░░░░░░░░░░░░░\n")
 
 
-@flicks_cmd(pattern="y")
+@rzydx_cmd(pattern='y(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
-                     "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
-                     "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
-                     "‡‡‡‡‡‡‡‡‡‡█‡‡‡‡‡█\n"
-                     "‡‡‡‡‡‡‡‡‡█‡‡‡‡‡‡█\n"
-                     "██████▄▄█‡‡‡‡‡‡████████▄\n"
-                     "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
-                     "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
-                     "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
-                     "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
-                     "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
-                     "▓▓▓▓▓▓█████‡‡‡‡‡‡‡‡‡‡‡‡██\n"
-                     "█████‡‡‡‡‡‡‡██████████\n")
+    await edit_or_reply(typew, "‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
+                        "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
+                        "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
+                        "‡‡‡‡‡‡‡‡‡‡█‡‡‡‡‡█\n"
+                        "‡‡‡‡‡‡‡‡‡█‡‡‡‡‡‡█\n"
+                        "██████▄▄█‡‡‡‡‡‡████████▄\n"
+                        "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
+                        "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
+                        "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
+                        "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
+                        "▓▓▓▓▓▓█‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡█\n"
+                        "▓▓▓▓▓▓█████‡‡‡‡‡‡‡‡‡‡‡‡██\n"
+                        "█████‡‡‡‡‡‡‡██████████\n")
 
 
-@flicks_cmd(pattern="tank")
+@rzydx_cmd(pattern='tank(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
-                     "▂▄▅█████████▅▄▃▂…\n"
-                     "[███████████████████]\n"
-                     "◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\n")
+    await edit_or_reply(typew, "█۞███████]▄▄▄▄▄▄▄▄▄▄▃ \n"
+                        "▂▄▅█████████▅▄▃▂…\n"
+                        "[███████████████████]\n"
+                        "◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\n")
 
 
-@flicks_cmd(pattern="pig")
+@rzydx_cmd(pattern='babi(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("┈┈┏━╮╭━┓┈╭━━━━╮\n"
-                     "┈┈┃┏┗┛┓┃╭┫Ngok ┃\n"
-                     "┈┈╰┓▋▋┏╯╯╰━━━━╯\n"
-                     "┈╭━┻╮╲┗━━━━╮╭╮┈\n"
-                     "┈┃▎▎┃╲╲╲╲╲╲┣━╯┈\n"
-                     "┈╰━┳┻▅╯╲╲╲╲┃┈┈┈\n"
-                     "┈┈┈╰━┳┓┏┳┓┏╯┈┈┈\n"
-                     "┈┈┈┈┈┗┻┛┗┻┛┈┈┈┈\n")
+    await edit_or_reply(typew, "┈┈┏━╮╭━┓┈╭━━━━╮\n"
+                        "┈┈┃┏┗┛┓┃╭┫Ngok ┃\n"
+                        "┈┈╰┓▋▋┏╯╯╰━━━━╯\n"
+                        "┈╭━┻╮╲┗━━━━╮╭╮┈\n"
+                        "┈┃▎▎┃╲╲╲╲╲╲┣━╯┈\n"
+                        "┈╰━┳┻▅╯╲╲╲╲┃┈┈┈\n"
+                        "┈┈┈╰━┳┓┏┳┓┏╯┈┈┈\n"
+                        "┈┈┈┈┈┗┻┛┗┻┛┈┈┈┈\n")
 
 
-@flicks_cmd(pattern="dog")
+@rzydx_cmd(pattern='ajg(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("╥━━━━━━━━╭━━╮━━┳\n"
-                     "╢╭╮╭━━━━━┫┃▋▋━▅┣\n"
-                     "╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣\n"
-                     "╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣\n"
-                     "╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣\n"
-                     "╨━━┗┛┗┛━━┗┛┗┛━━┻\n")
+    await edit_or_reply(typew, "╥━━━━━━━━╭━━╮━━┳\n"
+                        "╢╭╮╭━━━━━┫┃▋▋━▅┣\n"
+                        "╢┃╰┫┈┈┈┈┈┃┃┈┈╰┫┣\n"
+                        "╢╰━┫┈┈┈┈┈╰╯╰┳━╯┣\n"
+                        "╢┊┊┃┏┳┳━━┓┏┳┫┊┊┣\n"
+                        "╨━━┗┛┗┛━━┗┛┗┛━━┻\n")
 
 
-@flicks_cmd(pattern="bernyanyi")
+@rzydx_cmd(pattern='bernyanyi(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**Mari bernyanyi bersama (ง˙o˙)ว**")
+    typew = await edit_or_reply(typew, "**Ganteng Doang Gak Bernyanyi (ง˙o˙)ว**")
     sleep(2)
     await typew.edit("**♪┗ ( ･o･) ┓♪┏ (・o･) ┛♪**")
     sleep(1)
@@ -303,14 +302,14 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "animasi4":
-    f"`{cmd}hati` ; `{cmd}bernyanyi`\
+    f"`{cmd}bulan` ; `{cmd}hati` ; `{cmd}bernyanyi`\
     \nUsage: liat aja.\
-    \n\n`{cmd}helikopter` ; `{cmd}tank` ; `{cmd}tembak`\n`{cmd}bundir`\
+    \n\n`{cmd}helikopter` ; `{cmd}tank` `{cmd}tembak`\n`{cmd}bundir`\
     \nUsage: liat sendiri\
     \n\n`{cmd}y`\
     \nUsage: jempol\
-    \n\n`{cmd}awokawok`\
+    \n\n`{cmd}awkwok`\
     \nUsage: ketawa lari.\
-    \n\n`{cmd}ular` ; `{cmd}pig` ; `{cmd}dog`\
+    \n\n`{cmd}ular` ; `{cmd}babi` ; `{cmd}ajg`\
     \nUsage: liat sendiri."
 })

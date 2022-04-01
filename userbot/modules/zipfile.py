@@ -7,21 +7,19 @@
 
 import asyncio
 import zipfile
+from userbot.events import register
 from datetime import date
 import time
 import os
 from userbot import TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY, bot, CMD_HELP
 from userbot.utils import progress
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
-
 
 # ====================
 today = date.today()
 # ====================
 
 
-@flicks_cmd(pattern="compress(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.compress(?: |$)(.*)")
 async def _(event):
     # Prevent Channel Bug to use update
     if event.is_channel and not event.is_group:
@@ -71,7 +69,7 @@ async def _(event):
     await event.delete()
 
 
-@flicks_cmd(pattern="addzip(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.addzip(?: |$)(.*)")
 async def addzip(add):
     """ Copyright (c) 2020 azrim @github"""
     # Prevent Channel Bug to use update
@@ -104,7 +102,7 @@ async def addzip(add):
             return
 
 
-@flicks_cmd(pattern="upzip(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.upzip(?: |$)(.*)")
 async def upload_zip(up):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await up.edit("`Files not found`")
@@ -131,7 +129,7 @@ async def upload_zip(up):
     await up.delete()
 
 
-@flicks_cmd(pattern="rmzip(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.rmzip(?: |$)(.*)")
 async def remove_dir(rm):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await rm.edit("`Directory not found`")
@@ -150,12 +148,12 @@ def zipdir(path, ziph):
 
 CMD_HELP.update({
     "zipfile":
-        f"`{cmd}compress` **[optional: <reply to file>]**\
+        "`.compress` **[optional: <reply to file>]**\
             \nUsage: make files to zip.\
-            \n`{cmd}addzip` **<reply to file>**\
+            \n`.addzip` **<reply to file>**\
             \nUsage: add files to zip list.\
-            \n`{cmd}upzip` **[optional: <zip title>]**\
+            \n`.upzip` **[optional: <zip title>]**\
             \nUsage: upload zip list.\
-            \n`{cmd}rmzip` **[optional: <zip title>]**\
+            \n`.rmzip` **[optional: <zip title>]**\
             \nUsage: clear zip list."
 })

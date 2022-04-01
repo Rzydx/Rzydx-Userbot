@@ -222,9 +222,9 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
-# Untuk Perintah .falive
-FLICKS_TEKS_KUSTOM = os.environ.get(
-    "FLICKS_TEKS_KUSTOM",
+# Untuk Perintah .ralive
+RZYDX_TEKS_KUSTOM = os.environ.get(
+    "RZYDX_TEKS_KUSTOM",
     "I'am Using Rzydx-Userbot 🔥")
 
 
@@ -460,7 +460,7 @@ with bot:
         main_help_button = [
             [
                 Button.inline("• ᴘʟᴜɢɪɴs", data="open"),
-                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs •", data="flicks_inline"),
+                Button.inline("ᴠᴄ ᴘʟᴜɢɪɴs •", data="rzydx_inline"),
             ],
             [
                 Button.url("⚙ sᴇᴛᴛɪɴɢs", f"t.me/{BOT_USERNAME}?start=set"),
@@ -639,7 +639,7 @@ with bot:
                 text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -658,7 +658,7 @@ with bot:
                 text = f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n"
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -674,19 +674,19 @@ with bot:
             if event.query.user_id == uid and query.startswith(
                     "@margamodedisini"):
                 result = builder.photo(
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=False,
                     text=f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`".format(
                         len(dugmeler),
                     ),
                     buttons=main_help_button,
                 )
-            elif query.startswith("flicksalive"):
+            elif query.startswith("rzydxalive"):
                 result = builder.article(
                     "Rzydx-Userbot ",
                     text=f"""
 [⁣]({ALIVE_LOGO})**Rzydx Userbot**
-{FLICKS_TEKS_KUSTOM}
+{RZYDX_TEKS_KUSTOM}
 ┏━━━━━━━━━━━━━━━━━━━
 ┣  **Master**   : {ALIVE_NAME}
 ┣  **Telethon** :` 1.24.0 `
@@ -788,7 +788,7 @@ with bot:
             if event.query.user_id == uid:  # @Flicasyncks_Userbot
                 # https://t.me/TelethonChat/115200
                 await event.edit(
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=main_help_button)
 
@@ -804,7 +804,7 @@ with bot:
                     f"\n**​🔥 𝐑𝐳𝐲𝐝𝐱-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 🔥​**\n\n**• Oᴡɴᴇʀ {ALIVE_NAME}**\n**• Vᴇʀsɪᴏɴ : `{BOT_VER}`**\n**• Pʟᴜɢɪɴs :** `{len(plugins)}`\n")
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=main_help_button)
 
@@ -824,7 +824,7 @@ with bot:
                     f"`Database  :` SQL \n")
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=[
                         [
@@ -877,7 +877,7 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
 
         @ tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"flicks_inline")
+                data=re.compile(rb"rzydx_inline")
             )
         )
         async def on_plug_in_callback_query_handler(event):
@@ -910,7 +910,7 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
 """)
                 await event.edit(
                     text,
-                    file=flickslogo,
+                    file=rzydxlogo,
                     link_preview=True,
                     buttons=[Button.inline("Back", data="gcback")])
             else:

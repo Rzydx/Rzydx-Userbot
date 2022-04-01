@@ -14,8 +14,7 @@ from pytz import country_names as c_n
 
 from userbot import CMD_HELP, WEATHER_DEFCITY
 from userbot import OPEN_WEATHER_MAP_APPID as OWM_API
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.events import register
 
 # ===== CONSTANT =====
 if WEATHER_DEFCITY:
@@ -38,7 +37,7 @@ async def get_tz(con):
         return
 
 
-@flicks_cmd(pattern="weather(?: |$)(.*)")
+@register(outgoing=True, pattern="^.weather(?: |$)(.*)")
 async def get_weather(weather):
     """ For .weather command, gets the current weather of a city. """
 
@@ -137,6 +136,6 @@ async def get_weather(weather):
 
 CMD_HELP.update({
     "weather":
-    f"`{cmd}weather` <city> or `{cmd}weather` <city>, <country name/code>\
-    \nUsage: Mendapatkan cuaca kota."
+    "`.weather` <city> or `.weather` <city>, <country name/code>\
+    \nUsage: Gets the weather of a city."
 })

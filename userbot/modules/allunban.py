@@ -5,10 +5,10 @@ from telethon.tl.types import (
 )
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 
-@flicks_cmd(pattern="allunban(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="allunban(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     await event.edit("`Sedang Mencari List Banning.`")
     p = 0

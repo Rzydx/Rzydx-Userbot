@@ -31,7 +31,7 @@ from telethon.tl.types import (
 )
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, DEVS
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
 
@@ -115,7 +115,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@flicks_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
 @register(incoming=True, from_users=DEVS,
           pattern=r"^\.cpromote(?:\s|$)([\s\S]*)")
 async def promote(promt):
@@ -167,7 +167,7 @@ async def promote(promt):
         )
 
 
-@flicks_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
 @register(incoming=True, from_users=DEVS,
           pattern=r"^\.cdemote(?:\s|$)([\s\S]*)")
 async def demote(dmod):
@@ -218,7 +218,7 @@ async def demote(dmod):
         )
 
 
-@flicks_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
 async def ban(bon):
     # Here laying the sanity check
     chat = await bon.get_chat()
@@ -271,7 +271,7 @@ async def ban(bon):
         )
 
 
-@flicks_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
+@rzydx_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
 async def nothanos(unbon):
     # Here laying the sanity check
     chat = await unbon.get_chat()
@@ -307,7 +307,7 @@ async def nothanos(unbon):
         await unbon.edit("`Sepertinya Terjadi Kesalahan!`")
 
 
-@flicks_cmd(pattern="mute(?: |$)(.*)")
+@rzydx_cmd(pattern="mute(?: |$)(.*)")
 async def spider(spdr):
     # Check if the function running under SQL mode
     try:
@@ -361,7 +361,7 @@ async def spider(spdr):
             return await spdr.edit("`Terjadi Kesalahan!`")
 
 
-@flicks_cmd(pattern="mute(?: |$)(.*)")
+@rzydx_cmd(pattern="mute(?: |$)(.*)")
 async def unmoot(unmot):
     # Admin or creator check
     chat = await unmot.get_chat()
@@ -437,7 +437,7 @@ async def muter(moot):
             await moot.delete()
 
 
-@flicks_cmd(pattern="ungmute(?: |$)(.*)")
+@rzydx_cmd(pattern="ungmute(?: |$)(.*)")
 async def ungmoot(un_gmute):
     # Admin or creator check
     chat = await un_gmute.get_chat()
@@ -479,7 +479,7 @@ async def ungmoot(un_gmute):
             )
 
 
-@flicks_cmd(pattern="gmute(?: |$)(.*)")
+@rzydx_cmd(pattern="gmute(?: |$)(.*)")
 async def gspider(gspdr):
     # Admin or creator check
     chat = await gspdr.get_chat()
@@ -519,7 +519,7 @@ async def gspider(gspdr):
             )
 
 
-@flicks_cmd(pattern="zombies(?: |$)(.*)")
+@rzydx_cmd(pattern="zombies(?: |$)(.*)")
 async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
@@ -587,7 +587,7 @@ async def rm_deletedacc(show):
         )
 
 
-@flicks_cmd(pattern="admins$")
+@rzydx_cmd(pattern="admins$")
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -606,7 +606,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@flicks_cmd(pattern="pin( loud|$)")
+@rzydx_cmd(pattern="pin( loud|$)")
 async def pin(msg):
     # Admin or creator check
     chat = await msg.get_chat()
@@ -650,7 +650,7 @@ async def pin(msg):
         )
 
 
-@flicks_cmd(pattern="kick(?: |$)(.*)")
+@rzydx_cmd(pattern="kick(?: |$)(.*)")
 async def kick(usr):
     # Admin or creator check
     chat = await usr.get_chat()
@@ -691,7 +691,7 @@ async def kick(usr):
         )
 
 
-@flicks_cmd(pattern="users$")
+@rzydx_cmd(pattern="users$")
 async def get_users(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -781,7 +781,7 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@flicks_cmd(pattern="userdel$")
+@rzydx_cmd(pattern="userdel$")
 async def get_usersdel(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"
@@ -873,7 +873,7 @@ async def get_userdel_from_id(user, event):
     return user_obj
 
 
-@flicks_cmd(pattern="bots$")
+@rzydx_cmd(pattern="bots$")
 async def get_bots(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "Grup Ini"

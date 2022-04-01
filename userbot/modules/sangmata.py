@@ -1,11 +1,10 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot import bot, CMD_HELP
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
 from asyncio.exceptions import TimeoutError
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
 
 
-@flicks_cmd(pattern="(sa|sg)(?: |$)")
+@rzydx_cmd(pattern="sg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
@@ -17,9 +16,9 @@ async def lastname(steal):
     user_id = message.sender.id
     id = f"/search_id {user_id}"
     if message.sender.bot:
-        await steal.edit("```Balas Ke Pesan Pengguna Yang Sebenarnya.```")
+        await edit_delete(steal, "```Balas Ke Pesan Pengguna Yang Sebenarnya.```")
         return
-    await steal.edit("```Mengambil Informasi Pengguna Tersebut, Mohon Menunggu..```")
+    xx = await edit_or_reply(steal, "```Mengambil Informasi Pengguna Tersebut, Mohon Menunggu..```")
     try:
         async with bot.conversation(chat) as conv:
             try:
@@ -33,7 +32,7 @@ async def lastname(steal):
                 return
             if r.text.startswith("Name"):
                 respond = await conv.get_response()
-                await steal.edit(f"`{r.message}`")
+                await xx.edit(f"`{r.message}`")
                 await steal.client.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id, respond.id]
                 )
@@ -41,23 +40,23 @@ async def lastname(steal):
             if response.text.startswith("No records") or r.text.startswith(
                 "No records"
             ):
-                await steal.edit("```Saya Tidak Menemukan Informasi Pengguna Ini, Pengguna Ini Belum Pernah Mengganti Nama Sebelumnya```")
+                await xx.edit("```Saya Tidak Menemukan Informasi Pengguna Ini, Pengguna Ini Belum Pernah Mengganti Nama Sebelumnya```")
                 await steal.client.delete_messages(
                     conv.chat_id, [msg.id, r.id, response.id]
                 )
                 return
             else:
                 respond = await conv.get_response()
-                await steal.edit(f"```{response.message}```")
+                await xx.edit(f"```{response.message}```")
             await steal.client.delete_messages(
                 conv.chat_id, [msg.id, r.id, response.id, respond.id]
             )
     except TimeoutError:
-        return await steal.edit("`Saya Sedang Sakit Mohon Maaf`")
+        return await xx.edit("`Saya Sedang Sakit Mohon Maaf`")
 
 
 CMD_HELP.update({
     "sangmata":
-        f"`{cmd}sa`|`{cmd}sg`\
+        f"`{cmd}sg`\
           \nUsage: Mendapatkan Riwayat Nama Pengguna."
 })

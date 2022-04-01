@@ -21,7 +21,7 @@ import time
 from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, FLICKS_TEKS_KUSTOM, StartTime, UPSTREAM_REPO_BRANCH, bot
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 from userbot import CMD_HANDLER as cmd
 
 # ================= CONSTANT =================
@@ -60,7 +60,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@flicks_cmd(pattern=r"spc")
+@rzydx_cmd(pattern=r"spc")
 async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -118,7 +118,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-@flicks_cmd(pattern="sysd$")
+@rzydx_cmd(pattern="sysd$")
 async def sysdetails(sysd):
     if not sysd.text[0].isalpha() and sysd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -138,7 +138,7 @@ async def sysdetails(sysd):
             await sysd.edit("`Install neofetch first !!`")
 
 
-@flicks_cmd(pattern="botver$")
+@rzydx_cmd(pattern="botver$")
 async def bot_ver(event):
     if event.text[0].isalpha() or event.text[0] in ("/", "#", "@", "!"):
         return
@@ -166,8 +166,8 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**𝐅𝐥𝐢𝐜𝐤𝐬-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 Versi:** \n "
-            f"heads/Flicks-Userbot-0-x634i7u1"
+            "**⚜-**Rzydx-Userbot Versi:** \n "
+            f"heads/Rzydx-Userbot-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
@@ -177,7 +177,7 @@ async def bot_ver(event):
         )
 
 
-@flicks_cmd(pattern="pip$")
+@rzydx_cmd(pattern="pip$")
 async def pipcheck(pip):
     if pip.text[0].isalpha() or pip.text[0] in ("/", "#", "@", "!"):
         return
@@ -225,12 +225,12 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@flicks_cmd(pattern="(?:falive)\\s?(.)?")
+@rzydx_cmd(pattern="(?:ralive)\\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"\n__**{FLICKS_TEKS_KUSTOM}**__\n"
+        f"\n__**{RZYDX_TEKS_KUSTOM}**__\n"
         f"**╭───────────────────**\n"
         f"**├• 🌚 Owner** \n"
         f"├•   : [{user.first_name}](tg://user?id={user.id}) \n"
@@ -262,21 +262,21 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@flicks_cmd(pattern="(?:flickson)\\s?(.)?")
+@rzydx_cmd(pattern="(?:rzydxon)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"**𝐅𝐥𝐢𝐜𝐤𝐬-𝐔𝐬𝐞𝐫𝐛𝐨𝐭**\n"
+        f"**Rzydx-Userbot**\n"
         f"▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱ \n"
-        f"➣ 🤴 • ᴏᴡɴᴇʀ    :[Fariz](t.me/farizsj) \n"
+        f"➣ 🤴 • ᴏᴡɴᴇʀ    :[ Rzydx ](t.me/Ngapain_Ngetag) \n"
         f"➣ 🖥️ • ꜱʏꜱᴛᴇᴍ.   :`Ubuntu 20.10 `\n"
         f"➣ ⚙️ • ᴛᴇʟᴇᴛʜᴏɴ  :`v.{version.__version__}` \n"
         f"➣ 🐍 • ᴘʏᴛʜᴏɴ.   :`v.{python_version()}` \n"
         f"➣ 👾 • ʙᴏᴛ      :`v.{BOT_VER}` \n"
         f"➣ 📂 • ᴍᴏᴅᴜʟᴇ   :`{len(modules)}` \n"
         f"▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱ \n"
-        f"🔧 : [REPO-FLICKS](https://github.com/fjgaming212/Flicks-Userbot)\n👥 : [FLICKS-TEAM](t.me/FlicksSupport)\n👤 : [OWNER](t.me/FJ_GAMING)\n"
+        f"🔧 : [REPO-RZYDX](https://github.com/Rzydx/Rzydx-Userbot)\n👥 : [RZYDX-TEAM](t.me/margamodedisini)\n👤 : [OWNER](t.me/Ngapain_Ngetag)\n"
     )
     if ALIVE_LOGO:
         try:
@@ -298,13 +298,13 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@flicks_cmd(pattern="(?:alive|on)\\s?(.)?")
+@rzydx_cmd(pattern="(?:alive|on)\\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f"**The Flicks Userbot** \n"
-        f"{FLICKS_TEKS_KUSTOM} \n\n"
+        f"**Rzydx-Userbot** \n"
+        f"{RZYDX_TEKS_KUSTOM} \n\n"
         f"┏━━━━━━━━━━━━━━━━━━━ \n"
         f"┣  **Master**   : [{user.first_name}](tg://user?id={user.id}) \n"
         f"┣  **Username** : @{user.username} \n"
@@ -314,7 +314,7 @@ async def redis(alive):
         f"┣  **Branch**   :` {UPSTREAM_REPO_BRANCH} `\n"
         f"┣  **Bot Ver**  :` v.{BOT_VER} `\n"
         f"┣  **Modules**  :` {len(modules)} Modules `\n"
-        f"┣  **Github**   : [Userbot](https://github.com/fjgaming212/Flicks-Userbot) \n"
+        f"┣  **Github**   : [Userbot](https://github.com/Rzydx/Rzydx-Userbot) \n"
         f"┗━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
@@ -336,7 +336,7 @@ async def redis(alive):
         await alive.delete()
 
 
-@flicks_cmd(pattern="aliveu$")
+@rzydx_cmd(pattern="aliveu$")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -349,7 +349,7 @@ async def amireallyaliveuser(username):
     await username.edit("`" f"{output}" "`")
 
 
-@flicks_cmd(pattern="resetalive$")
+@rzydx_cmd(pattern="resetalive$")
 async def amireallyalivereset(ureset):
     global DEFAULTUSER  # global statement
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
@@ -367,7 +367,7 @@ CMD_HELP.update({
 })
 CMD_HELP.update({
     "alive":
-    f"Cmd: `{cmd}alive` or `{cmd}flickson` or `{cmd}on` or `{cmd}falive` or `{cmd}xalive"
+    f"Cmd: `{cmd}alive` or `{cmd}rzydxon` or `{cmd}on` or `{cmd}ralive` or `{cmd}xalive"
     "\n↳ : To see whether your bot is working or not."
     f"\n\nCmd: `{cmd}aliveu` <text>"
     "\n↳ : Changes the 'user' in alive to the text you want."

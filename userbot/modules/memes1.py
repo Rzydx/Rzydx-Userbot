@@ -1,4 +1,3 @@
-
 """  Some Modules Imported by @Nitesh_231 :) & Again @heyworld roks *_* """
 import os
 import re
@@ -15,7 +14,6 @@ from validators.url import url
 from userbot import bot, CMD_HELP
 from userbot import TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import register
-
 
 EMOJI_PATTERN = re.compile(
     "["

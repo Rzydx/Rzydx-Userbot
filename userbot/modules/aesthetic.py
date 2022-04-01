@@ -1,6 +1,6 @@
 from telethon import events
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import rzydx_cmd
 
 PRINTABLE_ASCII = range(0x21, 0x7F)
 
@@ -15,7 +15,7 @@ def aesthetify(string):
         yield chr(c)
 
 
-@flicks_cmd(pattern="ae(?: |$)(.*)")
+@rzydx_cmd(pattern="ae(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

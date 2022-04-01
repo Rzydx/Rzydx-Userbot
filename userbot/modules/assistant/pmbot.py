@@ -178,7 +178,7 @@ async def bot_broadcast(event):
     await br_cast.edit(b_info, parse_mode="html")
 
 
-@flicks_cmd(pattern="botuser$")
+@rzydx_cmd(pattern="botuser$")
 async def ban_starters(event):
     "To get list of users who started bot."
     ulist = get_all_starters()
@@ -252,7 +252,7 @@ async def ban_botpms(event):
     await event.reply(msg)
 
 
-@flicks_cmd(pattern="bblist$")
+@rzydx_cmd(pattern="bblist$")
 async def ban_starters(event):
     "To get list of users who are banned in bot."
     ulist = get_all_bl_users()
@@ -295,7 +295,7 @@ async def bot_start(event):
     await info_msg.edit(uinfo)
 
 
-@flicks_cmd(pattern="(set|reset) pmbot(?: |$)(\\w*)")
+@rzydx_cmd(pattern="(set|reset) pmbot(?: |$)(\\w*)")
 async def setpmbot(event):
     try:
         import userbot.modules.sql_helper.globals as sql

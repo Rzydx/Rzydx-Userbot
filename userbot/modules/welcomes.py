@@ -1,10 +1,9 @@
 from datetime import datetime
 
 from pytz import timezone
-from userbot import CMD_HELP, bot, LOGS, CLEAN_WELCOME, BOTLOG_CHATID
+from userbot.utils import rzydx_cmd
+from userbot import CMD_HELP, bot, LOGS, CLEAN_WELCOME, BOTLOG_CHATID, CMD_HANDLER as cmd
 from telethon.events import ChatAction
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
 
 
 @bot.on(ChatAction)
@@ -102,7 +101,7 @@ async def welcome_to_chat(event):
             update_previous_welcome(event.chat_id, current_message.id)
 
 
-@flicks_cmd(pattern="setwelcome(?: |$)(.*)")
+@rzydx_cmd(pattern="setwelcome(?: |$)(.*)")
 async def save_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import add_welcome_setting
@@ -138,7 +137,7 @@ async def save_welcome(event):
         await event.edit(success.format('Disini'))
 
 
-@flicks_cmd(pattern="checkwelcome$")
+@rzydx_cmd(pattern="checkwelcome$")
 async def show_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import get_current_welcome_settings
@@ -159,7 +158,7 @@ async def show_welcome(event):
         await event.reply(cws.reply)
 
 
-@flicks_cmd(pattern="rmwelcome$")
+@rzydx_cmd(pattern="rmwelcome$")
 async def del_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import rm_welcome_setting
@@ -173,14 +172,14 @@ async def del_welcome(event):
 
 CMD_HELP.update({
     "welcome":
-    f">`{cmd}setwelcome` <pesan welcome> atau balas ke pesan ketik `{cmd}setwelcome`"
+    f">`{cmd}.setwelcome` <pesan welcome> atau balas ke pesan ketik `.setwelcome`"
     "\nUsage: Menyimpan pesan welcome digrup."
     "\n\nFormat Variabel yang bisa digunakan dipesan welcome:"
     "\n`{mention}, {title}, {count}, {first}, {last}, {fullname}, "
     "{userid}, {username}, {my_first}, {my_fullname}, {my_last}, "
     "{my_mention}, {my_username}`"
-    f"\n\n>`{cmd}checkwelcome`"
+    "\n\n>`.checkwelcome`"
     "\nUsage: Check pesan welcome yang anda simpan."
-    f"\n\n>`{cmd}rmwelcome`"
+    f"\n\n>`{cmd}.rmwelcome`"
     "\nUsage: Menghapus pesan welcome yang anda simpan."
 })

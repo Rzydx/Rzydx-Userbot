@@ -7,9 +7,9 @@ from telethon import events
 from telethon.tl.types import User
 
 from userbot import CMD_HELP, LOGS, bot
-from userbot.modules.sql_helper.tede_chatbot_sql import is_tede, rem_tede, set_tede
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.utils import edit_or_reply, rzydx_cmd
+from userbot.modules.sql_helper.tede_chatbot_sql import is_tede, rem_tede, set_tede
 
 translator = Translator()
 LANGUAGE = "id"
@@ -35,18 +35,18 @@ async def chat_bot_toggle(event):
     if status == "on":
         if not is_tede(chat_id):
             set_tede(chat_id)
-            return await event.edit("ChatBot Diaktifkan!")
+            return await edit_or_reply(event, "ChatBot Diaktifkan!")
         await event.edit("ChatBot Sudah Diaktifkan.")
     elif status == "off":
         if is_tede(chat_id):
             rem_tede(chat_id)
-            return await event.edit("ChatBot Dinonaktifkan!")
+            return await edit_or_reply(event, "ChatBot Dinonaktifkan!")
         await event.edit("ChatBot Sudah Dinonaktifkan.")
     else:
-        await event.edit("**Usage:** `.chatbot` <on/off>")
+        await edit_or_reply(event, "**Usage:** `.chatbot` <on/off>")
 
 
-@flicks_cmd(pattern="chatbot(?: |$)(.*)")
+@rzydx_cmd(pattern="chatbot(?: |$)(.*)")
 async def on_apa_off(event):
     await chat_bot_toggle(event)
 

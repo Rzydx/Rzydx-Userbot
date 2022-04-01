@@ -8,8 +8,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 import os
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import flicks_cmd
+from userbot.events import register
 
 
 EMOJI_PATTERN = re.compile(
@@ -33,7 +32,7 @@ def deEmojify(inputString: str) -> str:
     return re.sub(EMOJI_PATTERN, '', inputString)
 
 
-@flicks_cmd(pattern="waifu(?: |$)(.*)")
+@register(outgoing=True, pattern="^.waifu(?: |$)(.*)")
 async def waifu(animu):
     #"""Generate random waifu sticker with the text!"""
 
@@ -62,7 +61,7 @@ async def waifu(animu):
     await animu.delete()
 
 
-@flicks_cmd(pattern="hz(:? |$)(.*)?")
+@register(outgoing=True, pattern=r'^.hz(:? |$)(.*)?')
 async def _(hazmat):
     await hazmat.edit("`Sending information...`")
     level = hazmat.pattern_match.group(2)
@@ -133,8 +132,8 @@ async def _(hazmat):
 
 CMD_HELP.update({
     "waifu":
-    f"`{cmd}waifu` text\
+    "`.waifu` text\
 \nUsage: for custom stickers.\
-\n\n`{cmd}hz` or `{cmd}hz [flip, x2, rotate (degree), background (number), black]`\
+\n\n`.hz` or `.hz [flip, x2, rotate (degree), background (number), black]`\
 \nUsage: Reply to a image / sticker to suit up!."
 })
