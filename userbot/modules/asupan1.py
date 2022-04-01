@@ -28,6 +28,7 @@ async def _(event):
     except Exception:
         await event.edit("Silahkan Masuk Ke Bot Asistant, Lalu Klik start.")
 
+
 @rzydx_cmd(pattern=r"cedesah$")
 async def _(event):
     try:
