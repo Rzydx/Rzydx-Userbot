@@ -1,21 +1,31 @@
-from asyncio import sleep
+from time import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import flicks_cmd
+from userbot import CMD_HELP
+from userbot import CMD_HANDLER as cmd
+
+# Sudah di ubah menjadi cmd handler
+# Fixes by team Flick-Userbot
 
 
-@rzydx_cmd(pattern="allban(?: |$)(.*)")
+@flicks_cmd(pattern="allban(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
     admin = nikal.admin_rights
     creator = nikal.creator
     if not admin and not creator:
-        await edit_or_reply(event, "Anda Tidak Mempunyai Hak")
+        await event.edit("`Anda Tidak Mempunyai Hak Disini`")
         return
-    await edit_or_reply(event, "Tidak Melakukan Apa-apa")
-# Thank for Dark_Cobra
+    await event.edit("**Berjalan.**")
+    sleep(3)
+    await event.edit("**Berjalan..**")
+    sleep(3)
+    await event.edit("**Berjalan...**")
+    sleep(3)
+    await event.edit("**Berjalan....**")
+
     everyone = await event.client.get_participants(event.chat_id)
     for user in everyone:
         if user.id == chutiya.id:
@@ -23,14 +33,15 @@ async def testing(event):
         try:
             await event.client(EditBannedRequest(event.chat_id, int(user.id), ChatBannedRights(until_date=None, view_messages=True)))
         except Exception as e:
-            await edit_or_reply(event, str(e))
+            await event.edit(str(e))
         await sleep(.5)
-    await edit_delete(event, "Tidak Ada yang Terjadi di sini🙃🙂")
+    await event.edit("**Perintah berhasil di jalankan**\n\n__Semua member telah terblokir__ 🙂")
 
 CMD_HELP.update(
     {
-        "allban": f"**Plugin : **`allban`\
-    \n\n**Syntax : **`{cmd}allban`\
-    \n**Function : **ban all members in 1 cmnd"
+        "allban": f"**• Plugin Allban •**\
+        \n\n  •  **Perintah :** `{cmd}allban`\
+        \n  •  **Function :** Blokir semua member dengan 1 perintah\n\n**!!! WARNING !!!**\
+    "
     }
 )

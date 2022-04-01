@@ -11,15 +11,16 @@ from asyncio.exceptions import TimeoutError
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import flicks_cmd
 
 
-@register(outgoing=True, pattern=r"^\.wall(?: |$)(.*)")
+@flicks_cmd(pattern="wall(?: |$)(.*)")
 async def _(event):
     try:
         query = event.pattern_match.group(1)
         await event.edit("`Mohon Menunggu, Saya Sedang Mencari Wallpaper.....`")
-        async with bot.conversation("@tdapibot") as conv:
+        async with bot.conversation("@SaitamaRobot") as conv:
             try:
                 query1 = await conv.send_message(f"/wall {query}")
                 asyncio.sleep(3)
@@ -57,5 +58,8 @@ async def _(event):
         return await event.edit("`Saya Tidak Menemukan Wallpaper Yang Anda Cari`")
 
 
-CMD_HELP.update({"wallpaper": ">`.wall <query>`"
-                 "\nUsage: Mencari Wallpaper Bagus."})
+CMD_HELP.update({
+    "wallpaper":
+    f">`{cmd}wall` <query>"
+    "\nUsage: Mencari Wallpaper Bagus."
+})

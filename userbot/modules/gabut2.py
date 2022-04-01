@@ -1,6 +1,6 @@
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import rzydx_cmd
+from userbot.utils import flicks_cmd
 # ================= CONSTANT =================
 #                FROM RAM-UBOT
 # ============================================
@@ -13,7 +13,7 @@ async def _(typew):
     await typew.delete()
 
 
-@rzydx_cmd(pattern="atg(?: |$)(.*)")
+@flicks_cmd(pattern="atg(?: |$)(.*)")
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇.... NYEBUT KONTOL!!!!", reply_to=typew.reply_to_msg_id)
@@ -27,7 +27,7 @@ async def _(typew):
     await typew.delete()
 
 
-@rzydx_cmd(pattern="ast(?: |$)(.*)")
+@flicks_cmd(pattern="ast(?: |$)(.*)")
 async def _(typew):
     await typew.client.send_message(
         typew.chat_id, "𝐀𝐒𝐓𝐀𝐆𝐇𝐅𝐈𝐑𝐔𝐋𝐋𝐀𝐇......", reply_to=typew.reply_to_msg_id)

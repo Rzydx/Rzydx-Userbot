@@ -2,13 +2,13 @@ import json
 import urllib.request
 
 
-from userbot.utils import rzydx_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.events import register
+from userbot import CMD_HELP
 
 
 # Port By @VckyouuBitch From GeezProject
 # Buat Kamu Yang Hapus Credits. Intinya Kamu Anjing:)
-@rzydx_cmd(pattern="ip(?: |$)(.*)")
+@register(outgoing=True, pattern="^.ip(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -39,8 +39,8 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "fakeaddress": f"**IP HACK**\
-\n\n**Syntax : **`{cmd}ip <ip address>`\
+        "fakeaddress": "**IP HACK**\
+\n\n**Syntax : **`.ip <ip address>`\
 \n**Usage :** Memberikan detail tentang alamat ip."
     }
 )

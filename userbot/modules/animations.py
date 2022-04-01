@@ -6,7 +6,7 @@ from PIL import Image
 from validators.url import url
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
+from userbot.utils import flicks_cmd
 
 EMOJI_PATTERN = re.compile(
     "["
@@ -113,7 +113,7 @@ async def purge():
         pass
 
 
-@rzydx_cmd(pattern="trump(?: |$)(.*)")
+@flicks_cmd(pattern="trump(?: |$)(.*)")
 async def trump(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -134,7 +134,7 @@ async def trump(event):
     await purge()
 
 
-@rzydx_cmd(pattern="qg(?: |$)(.*)")
+@flicks_cmd(pattern="qg(?: |$)(.*)")
 async def qg(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -155,7 +155,7 @@ async def qg(event):
     await purge()
 
 
-@rzydx_cmd(pattern="cmm(?: |$)(.*)")
+@flicks_cmd(pattern="cmm(?: |$)(.*)")
 async def cmm(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -176,7 +176,7 @@ async def cmm(event):
     await purge()
 
 
-@rzydx_cmd(pattern="kanna(?: |$)(.*)")
+@flicks_cmd(pattern="kanna(?: |$)(.*)")
 async def kanna(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -197,7 +197,7 @@ async def kanna(event):
     await purge()
 
 
-@rzydx_cmd(pattern="tweet(?: |$)(.*)")
+@flicks_cmd(pattern="tweet(?: |$)(.*)")
 async def tweet(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)

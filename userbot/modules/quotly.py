@@ -1,26 +1,28 @@
-# Ported by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Ultroid - UserBot
+# Copyright (C) 2021-2022 TeamUltroid
+#
+# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# PLease read the GNU Affero General Public License in
+# <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
-from os import remove
+# Recode by Fariz <farizjs>
+# <https://github.com/farizjs/Flicks-Userbot>
+# <t.me/TheFlicksUserbot>
+
+import os
 from random import choice
 
-from telethon.tl.functions.users import GetFullUserRequest
-
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, rzydx_cmd
-from userbot.utils.misc import create_quotly
-
-from .carbon import all_col
+from userbot import CMD_HANDLER as cmd, CMD_HELP
+from userbot.utils import all_col, flicks_cmd
+from userbot.utils.quotly_helper import create_quotly
 
 
-@rzydx_cmd(pattern="q( (.*)|$)")
-async def quotly(event):
+@flicks_cmd(pattern="q( (.*)|$)")
+async def quott_(event):
     match = event.pattern_match.group(1).strip()
     if not event.is_reply:
-        return await edit_delete(event, "**Mohon Balas ke Pesan**")
-    msg = await edit_or_reply(event, "`Processing...`")
+        return await event.edit("`Mohon Balas ke Pesan...`")
+    msg = await event.edit("`Sedang Memproses...`")
     reply = await event.get_reply_message()
     replied_to, reply_ = None, None
     if match:
@@ -57,7 +59,7 @@ async def quotly(event):
     if match:
         if match[0].startswith("@") or match[0].isdigit():
             try:
-                match_ = await event.client(GetFullUserRequest(match[0]))
+                match_ = await event.client.parse_id(match[0])
                 user = await event.client.get_entity(match_)
             except ValueError:
                 pass
@@ -69,24 +71,15 @@ async def quotly(event):
     try:
         file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
     except Exception as er:
-        return await msg.edit(f"**ERROR:** `{er}`")
-    message = await reply.reply("Sticker by Rzydx-Userbot", file=file)
-    remove(file)
+        return await msg.edit((f"**ERROR:** `{er}`"))
+    message = await reply.reply("Quotly by Flicks Userbot", file=file)
+    os.remove(file)
     await msg.delete()
     return message
 
 
-CMD_HELP.update(
-    {
-        "quotly": f"**Plugin : **`quotly`\
-        \n\n  •  **Syntax :** `{cmd}q`\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan random background.\
-        \n\n  •  **Syntax :** `{cmd}q` <angka>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom jumlah pesan yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}q` <warna>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom warna background yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}q` <username>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom username user tele yang diberikan.\
-    "
-    }
-)
+CMD_HELP.update({
+    "quotly":
+    f"Perintah: `{cmd}q`\
+\n↳ : Mengubah Pesan Menjadi sticker."
+})

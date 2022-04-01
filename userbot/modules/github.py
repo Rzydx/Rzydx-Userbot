@@ -1,9 +1,9 @@
 import aiohttp
-from userbot.utils import edit_or_reply, rzydx_cmd
-from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot import CMD_HELP, CMD_HANDLER as i
+from userbot.utils import flicks_cmd
 
 
-@rzydx_cmd(pattern="git (.*)")
+@flicks_cmd(pattern="git (.*)")
 async def github(event):
     URL = f"https://api.github.com/users/{event.pattern_match.group(1)}"
     await event.get_chat()
@@ -28,11 +28,11 @@ async def github(event):
             )
 
             if not result.get("repos_url", None):
-                return await edit_or_reply(event, REPLY)
+                return await event.edit(REPLY)
             async with session.get(result.get("repos_url", None)) as request:
                 result = request.json
                 if request.status == 404:
-                    return await edit_or_reply(event, REPLY)
+                    return await event.edit(REPLY)
 
                 result = await request.json()
 
@@ -41,10 +41,11 @@ async def github(event):
                 for nr in range(len(result)):
                     REPLY += f"[{result[nr].get('name', None)}]({result[nr].get('html_url', None)})\n"
 
-                await edit_or_reply(event, REPLY)
+                await event.edit(REPLY)
 
 
 CMD_HELP.update({
-    "github": f"{cmd}git <nama pengguna>"
-    "\nPenjelasan: Seperti .whois tetapi untuk nama pengguna GitHub."
+    "github":
+    f">`{i}git <username>`"
+    f"\nUsage: Seperti `{i}info` tetapi untuk nama pengguna GitHub."
 })

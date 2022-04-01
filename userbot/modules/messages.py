@@ -8,12 +8,12 @@ from asyncio import sleep
 
 from telethon.errors import rpcbaseerrors
 
-from userbot import CMD_HELP, DEVS, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, rzydx_cmd
+from userbot import CMD_HELP
+from userbot import DEVS
 from userbot.events import register
 
 
-@rzydx_cmd(pattern="purge$")
+@register(outgoing=True, pattern=r"^\.purge$")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
@@ -30,7 +30,7 @@ async def fastpurger(purg):
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        return await edit_or_reply(purg, "`Mohon Balas Ke Pesan ✨ `")
+        return await purg.edit("`Mohon Balas Ke Pesan ⛧ `")
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
@@ -47,8 +47,8 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@rzydx_cmd(pattern="purgeme")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
+@register(outgoing=True, pattern=r"^\.purgeme")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme$")
 async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
@@ -62,21 +62,20 @@ async def purgeme(delme):
 
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "`Berhasil Menghapus Pesan,` " + str(count) + " `Pesan Telah Dihapus ✨`",
+        "`Berhasil Menghapus Pesan,` " + str(count) + " `Pesan Telah Dihapus ⛧`",
     )
     """
     if BOTLOG:
         await delme.client.send_message(
             BOTLOG_CHATID,
-            "`Telah Menghapus Pesan,` " + str(count) + " Pesan Telah Dihapus ✨`")
+            "`Telah Menghapus Pesan,` " + str(count) + " Pesan Telah Dihapus ⛧`")
     """
     await sleep(2)
     i = 1
     await smsg.delete()
 
 
-@rzydx_cmd(pattern="del$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cdel$")
+@register(outgoing=True, pattern=r"^\.del$")
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
@@ -86,10 +85,10 @@ async def delete_it(delme):
             """
             if BOTLOG:
                 await delme.client.send_message(
-                    BOTLOG_CHATID, "`Berhasil Menghapus Pesan ✨`")
+                    BOTLOG_CHATID, "`Berhasil Menghapus Pesan ⛧`")
             """
         except rpcbaseerrors.BadRequestError:
-            await edit_or_reply(delme, "`Tidak Bisa Menghapus Pesan`")
+            await delme.edit("`Tidak Bisa Menghapus Pesan`")
             """
             if BOTLOG:
                 await delme.client.send_message(
@@ -97,7 +96,7 @@ async def delete_it(delme):
             """
 
 
-@rzydx_cmd(pattern="edit")
+@register(outgoing=True, pattern=r"^\.edit")
 async def editer(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -117,7 +116,7 @@ async def editer(edit):
    """
 
 
-@rzydx_cmd(pattern="sd")
+@register(outgoing=True, pattern=r"^\.sd")
 async def selfdestruct(destroy):
     message = destroy.text
     counter = int(message[4:6])
@@ -129,19 +128,19 @@ async def selfdestruct(destroy):
     """
     if BOTLOG:
         await destroy.client.send_message(BOTLOG_CHATID,
-                                          "`✨ SD Berhasil Dilakukan ✨`")
+                                          "`⛧ SD Berhasil Dilakukan ⛧`")
     """
 
 
-CMD_HELP.update({"purge": f">`{cmd}purge`"
+CMD_HELP.update({"purge": ">`.purge`"
                  "\nUsage: Membersihkan semua pesan mulai dari pesan yang dibalas.",
-                 "purgeme": f">`{cmd}purgeme <angka>`"
+                 "purgeme": ">`.purgeme <angka>`"
                  "\nUsage: Menghapus jumlah pesan anda, yang mau anda hapus.",
-                 "del": f">`{cmd}del`"
+                 "del": ">`.del`"
                  "\nUsage: Menghapus pesan, balas ke pesan.",
-                 "edit": f">`{cmd}edit <pesan baru>`"
+                 "edit": ">`.edit <pesan baru>`"
                  "\nUsage: Ganti pesan terakhir Anda dengan <pesan baru>.",
-                 "sd": f">`{cmd}sd <x> <pesan>`"
+                 "sd": ">`.sd <x> <pesan>`"
                  "\nUsage: Membuat pesan yang hancur sendiri dalam x detik."
                  "\nJaga agar detik di bawah 100 karena bot Anda akan tidur.",
                  })

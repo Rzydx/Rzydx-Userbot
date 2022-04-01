@@ -15,9 +15,8 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeVideo
 
-from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, LASTFM_USERNAME, bot, lastfm
-from userbot.utils import rzydx_cmd
+from userbot.events import register
 from userbot.utils import chrome, progress
 
 
@@ -34,7 +33,7 @@ async def getmusicvideo(cat):
     os.system(command)
 
 
-@rzydx_cmd(pattern="songn (?:(now)|(.*) - (.*))")
+@register(outgoing=True, pattern=r"^\.songn (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -75,7 +74,7 @@ async def _(event):
         return await event.edit("`Error: `@WooMaiBot` is not responding!.`")
 
 
-@rzydx_cmd(pattern="songl(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.songl(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -107,7 +106,7 @@ async def _(event):
         return await event.edit("`Error: `@MusicsHunterBot` is not responding!.`")
 
 
-@rzydx_cmd(pattern="songf (?:(now)|(.*) - (.*))")
+@register(outgoing=True, pattern=r"^\.songf (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -122,7 +121,7 @@ async def _(event):
         song = event.pattern_match.group(3)
     track = str(artist) + " - " + str(song)
     chat = "@SpotifyMusicDownloaderBot"
-    await event.edit("```Getting Your Music```")
+    await event.edit("```Getting Your  Music```")
     try:
         async with bot.conversation(chat) as conv:
             await asyncio.sleep(2)
@@ -151,7 +150,7 @@ async def _(event):
         )
 
 
-@rzydx_cmd(pattern="vsong(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.vsong(?: |$)(.*)")
 async def _(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
@@ -220,15 +219,15 @@ async def _(event):
         return
 
 
-CMD_HELP.update({"getmusic": f">`.songn <Artist - Song Title>`"
+CMD_HELP.update({"getmusic": ">`.songn <Artist - Song Title>`"
                  "\nUsage: Download music by name (@WooMaiBot)"
-                 f"\n\n>`{cmd}songl <Spotify/Deezer Link>`"
+                 "\n\n>`.songl <Spotify/Deezer Link>`"
                  "\nUsage: Download music by link (@MusicsHunterBot)"
-                 f"\n\n>`{cmd}songf <Artist - Song Title>`"
+                 "\n\n>`.songf <Artist - Song Title>`"
                  "\nUsage: Download music by name (@SpotifyMusicDownloaderBot)"
-                 f"\n\n>`{cmd}songn now`"
+                 "\n\n>`.songn now`"
                  "\nUsage: Download current LastFM scrobble with @WooMaiBot"
-                 f"\n\n>`{cmd}songf now`"
+                 "\n\n>`.songf now`"
                  "\nUsage: Download current LastFM scrobble with @SpotifyMusicDownloaderBot"
-                 f"\n\n>`{cmd}vsong` <Artist - Song Title>"
+                 "\n\n>`.vsong` <Artist - Song Title>"
                  "\nUsage: Finding and uploading videoclip.\n"})

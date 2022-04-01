@@ -1,45 +1,45 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
-from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.events import register
+from userbot import bot, CMD_HELP
 
 
-@rzydx_cmd(pattern="getid(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.id(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await edit_delete(event, "`Mohon Reply Ke Pesan`")
+        await event.edit("`Mohon Reply Ke Pesan`")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.text:
-        await edit_delete(event, "```Mohon Balas Ke Reply```")
+        await event.edit("```Mohon Balas Ke Reply```")
         return
     chat = "@getidsbot"
     reply_message.sender
     if reply_message.sender.bot:
-        await edit_delete(event, "`Mohon Reply Ke Pesan`")
+        await event.edit("`Mohon Reply Ke Pesan`")
         return
-    xx = await edit_or_reply(event, "`Mencari ID.......`")
+    await event.edit("`Mencari ID.......`")
     async with bot.conversation(chat) as conv:
         try:
             response = conv.wait_event(
                 events.NewMessage(
                     incoming=True,
-                    from_users=5169252959))
+                    from_users=186675376))
             await bot.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
             await event.reply("`Bot Sedang Error`")
             return
         if response.text.startswith("Forward"):
-            await xx.edit("`Mohon Maaf, Orang Ini Tidak Mempunyai ID`")
+            await event.edit("`Mohon Maaf, Orang Ini Tidak Mempunyai ID`")
         else:
-            await xx.edit(f"{response.message.message}")
+            await event.edit(f"{response.message.message}")
 
 
 CMD_HELP.update({
     "getid":
-    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getid`"
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.id`"
     "\n↳ : Balas Ke Pesan Pengguna Untuk Mendapatkan ID Nya."
 })

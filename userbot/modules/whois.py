@@ -15,14 +15,14 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, rzydx_cmd
+from userbot.utils import flicks_cmd
 
 
-@rzydx_cmd(pattern="info(?: |$)(.*)")
+@flicks_cmd(pattern="info(?: |$)(.*)")
 async def who(event):
 
-    x = await edit_or_reply(event,
-                            "`Mengambil Informasi Pengguna Ini...`")
+    await event.edit(
+        "`Mengambil Informasi Pengguna Ini...`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -32,7 +32,7 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return edit_delete(event, "`Saya Tidak Mendapatkan Informasi Apapun.`")
+        return event.edit("`Saya Tidak Mendapatkan Informasi Apapun.`")
 
     message_id_to_reply = event.message.reply_to_msg_id
 
@@ -50,10 +50,10 @@ async def who(event):
 
         if not photo.startswith("http"):
             os.remove(photo)
-        await x.delete()
+        await event.delete()
 
     except TypeError:
-        await x.edit(caption, parse_mode="html")
+        await event.edit(caption, parse_mode="html")
 
 
 async def get_user(event):
@@ -147,7 +147,7 @@ async def fetch_info(replied_user, event):
 
 
 CMD_HELP.update({
-    "info":
+    "whois":
     f">`{cmd}info` <username> Atau Balas Ke Pesan Pengguna"
     "\nUsage: Mendapatkan Informasi Pengguna."
 })

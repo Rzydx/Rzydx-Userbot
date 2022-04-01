@@ -1,17 +1,14 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-#
-# ReCode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+"""A Plugin to tagall in the chat for @UniBorg and cmd is `.all`"""
 
 import asyncio
 import random
 import re
 
-from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
+from userbot import CMD_HELP, bot
+from userbot.events import register
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
@@ -24,7 +21,7 @@ class FlagContainer:
     is_active = False
 
 
-@rzydx_cmd(pattern="mention(?: |$)(.*)")
+@register(outgoing=True, pattern="^.mention$")
 async def _(event):
     if event.fwd_from:
         return
@@ -37,18 +34,15 @@ async def _(event):
     await bot.send_message(chat, mentions, reply_to=event.message.reply_to_msg_id)
 
 
-@rzydx_cmd(pattern="emojitag(?: |$)(.*)")
+@register(outgoing=True, pattern="^.emojitag$")
 async def _(event):
     if event.fwd_from or FlagContainer.is_active:
         return
     try:
         FlagContainer.is_active = True
 
-        text = None
         args = event.message.text.split(" ", 1)
-        if len(args) > 1:
-            text = args[1]
-
+        text = args[1] if len(args) > 1 else None
         chat = await event.get_input_chat()
         await event.delete()
 
@@ -83,18 +77,15 @@ async def _(event):
         FlagContainer.is_active = False
 
 
-@rzydx_cmd(pattern="all(?: |$)(.*)")
+@register(outgoing=True, pattern="^.all$")
 async def _(event):
     if event.fwd_from or FlagContainer.is_active:
         return
     try:
         FlagContainer.is_active = True
 
-        text = None
         args = event.message.text.split(" ", 1)
-        if len(args) > 1:
-            text = args[1]
-
+        text = args[1] if len(args) > 1 else None
         chat = await event.get_input_chat()
         await event.delete()
 
@@ -129,16 +120,13 @@ async def _(event):
         FlagContainer.is_active = False
 
 
-CMD_HELP.update(
-    {
-        "tag": f"**Plugin : **`tag`\
-        \n\n  •  **Syntax :** `{cmd}mention`\
-        \n  •  **Function : **Untuk Menmention semua anggota yang ada di group tanpa menyebut namanya.\
-        \n\n  •  **Syntax :** `{cmd}all` <text>\
-        \n  •  **Function : **Untuk Mengetag semua anggota Maksimal 3.000 orang yg akan ditag di grup untuk mengurangi flood wait telegram.\
-        \n\n  •  **Syntax :** `{cmd}emojitag` <text>\
-        \n  •  **Function : **Untuk Mengetag semua anggota di grup dengan random emoji berbeda.\
-        \n\n  •  **NOTE :** Untuk Memberhentikan Tag ketik `{cmd}restart`\
-    "
-    }
-)
+CMD_HELP.update({
+    "tag_all":
+    "`.all`\
+\nUsage: Untuk Mengetag semua anggota yang ada di group.\
+\n\n`.mention`\
+\nUsage: Untuk Menmention semua anggota yang ada di group tanpa menyebut namanya.\
+\n\n`.emojitag`\
+\nUsage: Untuk Mengetag semua anggota di grup dengan random emoji berbeda.\
+\n\n **NOTE :** Untuk Memberhentikan Tag ketik `.restart`."
+})

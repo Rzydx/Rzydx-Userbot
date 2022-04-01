@@ -25,7 +25,7 @@ from telethon.tl.types import (DocumentAttributeAnimated,
 from telethon.utils import is_image, is_video
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
+from userbot.utils import flicks_cmd
 
 jikan = Jikan()
 
@@ -194,7 +194,7 @@ def replace_text(text):
         "")
 
 
-@rzydx_cmd(pattern="anime ?(.*)")
+@flicks_cmd(pattern="anime ?(.*)")
 async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
@@ -270,7 +270,7 @@ async def anime(event):
     await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@rzydx_cmd(pattern="manga ?(.*)")
+@flicks_cmd(pattern="manga ?(.*)")
 async def manga(event):
     query = event.pattern_match.group(1)
     await event.edit("`Searching Manga...`")
@@ -318,7 +318,7 @@ async def manga(event):
         await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@rzydx_cmd(pattern="a(kaizoku|kayo) ?(.*)")
+@flicks_cmd(pattern="a(kaizoku|kayo) ?(.*)")
 async def site_search(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(2)
@@ -367,7 +367,7 @@ async def site_search(event):
             await event.edit(result, parse_mode="HTML")
 
 
-@rzydx_cmd(pattern="char ?(.*)")
+@flicks_cmd(pattern="char ?(.*)")
 async def character(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(1)
@@ -416,7 +416,7 @@ async def character(event):
     )
 
 
-@rzydx_cmd(pattern="upcoming ?(.*)")
+@flicks_cmd(pattern="upcoming ?(.*)")
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
     later = jikan.season_later()
@@ -430,7 +430,7 @@ async def upcoming(message):
         await message.edit(rep, parse_mode="html")
 
 
-@rzydx_cmd(pattern="scanime ?(.*)")
+@flicks_cmd(pattern="scanime ?(.*)")
 async def get_anime(message):
     try:
         query = message.pattern_match.group(1)
@@ -535,7 +535,7 @@ async def get_anime(message):
     await message.client.send_file(message.chat_id, file=main_poster, caption=captions)
 
 
-@rzydx_cmd(pattern="smanga ?(.*)")
+@flicks_cmd(pattern="smanga ?(.*)")
 async def manga(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -551,7 +551,7 @@ async def manga(message):
     )
 
 
-@rzydx_cmd(pattern="sanime ?(.*)")
+@flicks_cmd(pattern="sanime ?(.*)")
 async def anime(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -573,7 +573,7 @@ async def anime(message):
         )
 
 
-@rzydx_cmd(pattern="whatanime")
+@flicks_cmd(pattern="whatanime")
 async def whatanime(e):
     media = e.media
     if not media:
@@ -672,7 +672,7 @@ CMD_HELP.update({
     \nUsage: Return with character information.\
     \n\n`{cmd}upcoming`\
     \nUsage: Returns with Upcoming Anime information.\
-    \n\n`{cmd}scanime` <anime> or {cmd}sanime <anime>\
+    \n\n`{cmd}scanime` <anime> or .sanime <anime>\
     \nUsage: Search anime.\
     \n\n`{cmd}smanga` <manga>\
     \nUsage: Search manga.\

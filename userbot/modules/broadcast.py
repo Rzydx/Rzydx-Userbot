@@ -1,5 +1,7 @@
 # Credit by https://github.com/sandy1709/catuserbot
 # Ported by @X_ImFine
+# Recode by @VckyouuBitch
+# From Geez - Project
 
 import base64
 from asyncio import sleep
@@ -7,13 +9,13 @@ from asyncio import sleep
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS
-from userbot import CMD_HANDLER as cmd
-from userbot.utils import rzydx_cmd
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.utils import parse_pre
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import flicks_cmd
 
 
-@rzydx_cmd(pattern="sendto ?(.*)")
+@flicks_cmd(pattern="sendto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -65,7 +67,7 @@ async def catbroadcast_send(event):
         )
 
 
-@rzydx_cmd(pattern="fwdto ?(.*)")
+@flicks_cmd(pattern="fwdto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -117,7 +119,7 @@ async def catbroadcast_send(event):
         )
 
 
-@rzydx_cmd(pattern="addto ?(.*)")
+@flicks_cmd(pattern="addto ?(.*)")
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -153,7 +155,7 @@ async def catbroadcast_add(event):
             )
 
 
-@rzydx_cmd(pattern="rmfrom ?(.*)")
+@flicks_cmd(pattern="rmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -189,7 +191,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@rzydx_cmd(pattern="clist ?(.*)")
+@flicks_cmd(pattern="list ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -229,7 +231,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@rzydx_cmd(pattern="clistall ?(.*)")
+@flicks_cmd(pattern="listall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -245,7 +247,7 @@ async def catbroadcast_list(event):
     await event.efit(resultext)
 
 
-@rzydx_cmd(pattern="frmfrom ?(.*)")
+@flicks_cmd(pattern="frmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -302,7 +304,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@rzydx_cmd(pattern="delc ?(.*)")
+@flicks_cmd(pattern="delc ?(.*)")
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return
@@ -337,9 +339,9 @@ CMD_HELP.update(
         \n  **Usage : **Ini akan menambahkan obrolan / pengguna / saluran ini ke kategori nama yang diberikan. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}rmfrom` <category name>\
         \n  **Usage : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}clist` <category_name>\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}list` <category_name>\
         \n  **Usage : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
-        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}clistall`\
+        \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}listall`\
         \n  **Usage : **Akan menampilkan daftar semua nama kategori. \
         \n\n  **𝘾𝙤𝙢𝙢𝙖𝙣𝙙 :** `{cmd}frmfrom` <category_name/chat_id>\
         \n  **Usage : **Untuk memaksa menghapus chat_id yang diberikan dari nama kategori yang diberikan berguna ketika Anda meninggalkan obrolan itu atau melarang Anda di sana \
