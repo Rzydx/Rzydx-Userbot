@@ -44,7 +44,7 @@ def flicks_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global flicks_reg
+        global rzydx_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
@@ -58,11 +58,11 @@ def flicks_cmd(
             flicks_reg = re.compile(flicks_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = flicks_ + command
+                cmd1 = rzydx_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (flicks_ +
+                    (rzydx_ +
                      pattern).replace(
                         "$",
                         "").replace(
@@ -85,9 +85,9 @@ def flicks_cmd(
         if not disable_edited:
             bot.add_event_handler(
                 func, events.MessageEdited(
-                    **args, outgoing=True, pattern=flicks_reg))
+                    **args, outgoing=True, pattern=rzydx_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=flicks_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=rzydx_reg)
         )
         if allow_sudo:
             if not disable_edited:
@@ -112,7 +112,7 @@ def flicks_cmd(
     return decorator
 
 
-def flicks_handler(
+def rzydx_handler(
     **args,
 ):
     def decorator(func):

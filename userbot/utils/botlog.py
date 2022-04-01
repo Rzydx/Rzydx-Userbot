@@ -55,7 +55,7 @@ async def verifyLoggerGroup():
     else:
         descript = "Jangan hapus grup ini atau ubah ke grup (Jika Anda mengubah grup semua potongan sebelumnya, selamat datang akan hilang.)"
         _, groupid = await create_supergroup(
-            "Flicks-Userbot BotLog Group", bot, BOT_USERNAME, descript
+            "Rzydx-Userbot BotLog Group", bot, BOT_USERNAME, descript
         )
 
         heroku_var["BOTLOG_CHATID"] = groupid
