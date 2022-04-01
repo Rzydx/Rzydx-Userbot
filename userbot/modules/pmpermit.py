@@ -39,10 +39,10 @@ DEF_UNAPPROVED_MSG = (
     " ••••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••• \n"
     f"৯•** Sabar Tod Tunggu Majikan Gua On ** \n"
     f"৯•** Lu Jangan Nyepam Kek Para Jamet Kontol **\n"
-    f"৯•** Ntar Lu Bisa Ganggu Tuan ** {ALIVE_NAME}\n"
+    f"৯•** Ntar Lu Bisa Ganggu Tuan ** {ALIVE_NAME} \n"
     f"৯•** Kalo Lu Masih Aja Nyepam, Ntar Mampus Lu Terblokir Otomatis **\n"
     " ••••╼═⍟═════════════⍟═╾•••• \n"
-    f"➠ 𝐎𝐰𝐧𝐞𝐫 : {owner} \n"
+    f"➠ 𝐎𝐰𝐧𝐞𝐫 : {ALIVE_NAME} \n"
     f"➠ 𝐏𝐞𝐬𝐚𝐧 𝐎𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐁𝐲 𝐑𝐳𝐲𝐝𝐱 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
     " •••••╼═══════⍟═══════╾••••• ")
 
