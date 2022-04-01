@@ -23,7 +23,6 @@ from userbot import (
     LOGS,
     PM_AUTO_BAN,
     PM_LIMIT,
-    PMPERMIT_PIC,
     ALIVE_NAME,
     DEVS,
 )
