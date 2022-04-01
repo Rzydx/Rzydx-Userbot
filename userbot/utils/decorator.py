@@ -21,7 +21,7 @@ from userbot import (
 )
 
 
-def flicks_cmd(
+def rzydx_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,
@@ -51,11 +51,11 @@ def flicks_cmd(
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            flicks_reg = sudo_reg = re.compile(pattern)
+            rzydx_reg = sudo_reg = re.compile(pattern)
         else:
-            flicks_ = "\\" + CMD_HANDLER
+            rzydx_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            re.compile(flicks_ + pattern)
+            re.compile(rzydx_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
                 cmd1 = rzydx_ + command
