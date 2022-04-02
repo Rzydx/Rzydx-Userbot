@@ -1,29 +1,24 @@
-# Credits: @mrconfused
-# Recode by @farizjs
-# FROM Flicks-Userbot <https://github.com/farizjs/Flicks-Userbot>
-# t.me/TheFlicksUserbot
+# ported from paperplaneExtended by avinashreddy3108 for media support
 import re
 
-from telethon.utils import get_display_name
 from telethon import events
+from telethon.utils import get_display_name
 
-from userbot.utils import edit_or_reply, rzydx_cmd
-from .sql_helper.filter_sql import (
+from userbot import BLACKLIST_CHAT, BOTLOG_CHATID
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, bot
+from userbot.events import rzydx_cmd
+from userbot.modules.sql_helper.filter_sql import (
     add_filter,
     get_filters,
     remove_all_filters,
     remove_filter,
 )
-from userbot import BOTLOG, BOTLOG_CHATID, bot, CMD_HELP, CMD_HANDLER as cmd
-
-user = bot.get_me()
-OWNER_ID = user.id
+from userbot.utils import edit_delete, edit_or_reply
 
 
 @bot.on(events.NewMessage(incoming=True))
-async def filter_incoming_handler(event):  # sourcery no-metrics
-    if event.sender_id == OWNER_ID:
-        return
+async def filter_incoming_handler(event):
     name = event.raw_text
     filters = get_filters(event.chat_id)
     if not filters:
@@ -31,6 +26,8 @@ async def filter_incoming_handler(event):  # sourcery no-metrics
     a_user = await event.get_sender()
     chat = await event.get_chat()
     me = await event.client.get_me()
+    if event.sender_id == me.id:
+        return
     title = get_display_name(await event.get_chat()) or "this chat"
     participants = await event.client.get_participants(chat)
     count = len(participants)
@@ -81,21 +78,26 @@ async def filter_incoming_handler(event):  # sourcery no-metrics
             )
 
 
-@rzydx_cmd(pattern="filter (.*)")
+@bot.on(rzydx_cmd(outgoing=True, pattern="filter (.*)"))
 async def add_new_filter(event):
-    "To save the filter"
-    keyword = event.pattern_match.group(1)
-    string = event.text.partition(keyword)[2]
+    if event.chat_id in BLACKLIST_CHAT:
+        return await edit_or_reply(
+            event, "**Perintah ini Dilarang digunakan di Group ini**"
+        )
+    value = event.pattern_match.group(1).split(None, 1)
+    keyword = value[0]
+    try:
+        string = value[1]
+    except IndexError:
+        string = None
     msg = await event.get_reply_message()
     msg_id = None
     if msg and msg.media and not string:
-        if BOTLOG:
+        if BOTLOG_CHATID:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"#FILTER\
-            \nCHAT ID: {event.chat_id}\
-            \nPEMICU: {keyword}\
-            \n\nPesan berikut disimpan sebagai data balasan filter untuk obrolan, mohon JANGAN dihapus !!",
+                f"**#FILTER\nID OBROLAN:** {event.chat_id}\n**TRIGGER:** `{keyword}`"
+                "\n\n**Pesan Berikut Disimpan Sebagai Data Balasan Filter Untuk Obrolan, Mohon Jangan Menghapusnya**",
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
@@ -107,67 +109,70 @@ async def add_new_filter(event):
         else:
             await edit_or_reply(
                 event,
-                "__Menyimpan media sebagai balasan ke filter memerlukan __ `BOTLOG_CHATID` __untuk disetel.__",
+                "**Untuk menyimpan media ke filter membutuhkan** `BOTLOG_CHATID` **untuk disetel.**",
             )
             return
     elif msg and msg.text and not string:
         string = msg.text
     elif not string:
-        return await edit_or_reply(event, "__Apa yang harus saya lakukan ?__")
-    success = "`Filter` **{}** `{} successfully`"
+        return await edit_or_reply(event, "Apa yang harus saya lakukan ?")
+    success = "**Berhasil {} Filter** `{}` **Disini**"
     if add_filter(str(event.chat_id), keyword, string, msg_id) is True:
-        return await edit_or_reply(event, success.format(keyword, "added"))
+        return await edit_or_reply(event, success.format("Menyimpan", keyword))
     remove_filter(str(event.chat_id), keyword)
     if add_filter(str(event.chat_id), keyword, string, msg_id) is True:
-        return await edit_or_reply(event, success.format(keyword, "Updated"))
-    await edit_or_reply(event, f"Kesalahan saat menyetel filter untuk {keyword}")
+        return await edit_or_reply(event, success.format("Mengupdate", keyword))
+    await edit_or_reply(event, f"**ERROR saat menyetel filter untuk** `{keyword}`")
 
 
-@rzydx_cmd(pattern="filters$")
+@bot.on(rzydx_cmd(outgoing=True, pattern="filters$"))
 async def on_snip_list(event):
-    "To list all filters in that chat."
-    OUT_STR = "Tidak ada filter dalam obrolan ini."
+    OUT_STR = "**Tidak Ada Filter Apapun Disini.**"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if OUT_STR == "Tidak ada filter dalam obrolan ini.":
-            OUT_STR = "Filter aktif dalam obrolan ini:\n"
-        OUT_STR += "👉 `{}`\n".format(filt.keyword)
+        if OUT_STR == "**Tidak Ada Filter Apapun Disini.**":
+            OUT_STR = "**✥ Daftar Filter Yang Aktif Disini:**\n"
+        OUT_STR += "• `{}`\n".format(filt.keyword)
     await edit_or_reply(
         event,
         OUT_STR,
-        caption="Filter yang Tersedia di Obrolan Saat Ini",
+        caption="Daftar Filter Yang Aktif Disini",
         file_name="filters.text",
     )
 
 
-@rzydx_cmd(pattern="stop ([\\s\\S]*)")
+@bot.on(rzydx_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
 async def remove_a_filter(event):
-    "Stops the specified keyword."
     filt = event.pattern_match.group(1)
     if not remove_filter(event.chat_id, filt):
-        await event.edit("Filter` {} `tidak ada.".format(filt))
+        await event.edit("**Filter** `{}` **Tidak Ada Disini**.".format(filt))
     else:
-        await event.edit("Filter `{} `berhasil dihapus".format(filt))
+        await event.edit("**Berhasil Menghapus Filter** `{}` **Disini**".format(filt))
 
 
-@rzydx_cmd(pattern="rmfilters$")
+@bot.on(rzydx_cmd(outgoing=True, pattern="rmallfilters$"))
 async def on_all_snip_delete(event):
-    "To delete all filters in that group."
     filters = get_filters(event.chat_id)
     if filters:
         remove_all_filters(event.chat_id)
-        await edit_or_reply(event, "filter dalam obrolan saat ini berhasil dihapus")
+        await edit_delete(
+            event, "**Berhasil Menghapus semua filter yang ada dalam obrolan ini**"
+        )
     else:
-        await edit_or_reply(event, "Tidak ada filter di grup ini")
+        await edit_delete(event, "**Tidak Ada Filter Apapun Disini.**")
 
-CMD_HELP.update({
-    "filter":
-    f"`{cmd}filters`\
-    \nUsage: Melihat filter userbot yang aktif di obrolan.\
-    \n\n`{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik .filter <keyword>\
-    \nUsage: Membuat filter di obrolan.\
-    \nBot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat.\
-    \nBisa dipake ke media/sticker/vn/file.\
-    \n\n`{cmd}rmfilters` <keyword>\
-    \nUsage: Untuk Nonaktifkan Filter."
-})
+
+CMD_HELP.update(
+    {
+        "filter": f"**Plugin : **`filter`\
+        \n\n  •  **Syntax :** `{cmd}filters`\
+        \n  •  **Function : **Melihat filter userbot yang aktif di obrolan.\
+        \n\n  •  **Syntax :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `.filter` <keyword>\
+        \n  •  **Function : **Membuat filter di obrolan, Bot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat. Bisa dipakai ke media/sticker/vn/file.\
+        \n\n  •  **Syntax :** `{cmd}stop` <keyword>\
+        \n  •  **Function : **Untuk Nonaktifkan Filter yang terpasang di grup.\
+        \n\n  •  **Syntax :** `{cmd}rmallfilters`\
+        \n  •  **Function : **Menghapus semua filter yang ada di grup.\
+    "
+    }
+)
