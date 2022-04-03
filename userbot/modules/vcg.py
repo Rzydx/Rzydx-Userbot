@@ -115,7 +115,7 @@ async def change_title(e):
 @rzydx_cmd(pattern="joinvc(?: |$)(.*)")
 @register(pattern=r"^\.joinvcs(?: |$)(.*)", sudo=True)
 async def _(event):
-    Man = await edit_or_reply(event, "`Processing...`")
+    await edit_or_reply(event, "`Processing...`")
     if len(event.text.split()) > 1:
         chat_id = event.text.split()[1]
         try:
@@ -153,7 +153,7 @@ async def _(event):
 @rzydx_cmd(pattern="leavevc(?: |$)(.*)")
 @register(pattern=r"^\.leavevcs(?: |$)(.*)", sudo=True)
 async def vc_end(event):
-    Man = await edit_or_reply(event, "`Processing...`")
+    await edit_or_reply(event, "`Processing...`")
     if len(event.text.split()) > 1:
         chat_id = event.text.split()[1]
         try:
