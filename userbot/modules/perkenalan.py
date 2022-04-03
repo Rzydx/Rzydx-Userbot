@@ -27,7 +27,6 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-
 @rzydx_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
