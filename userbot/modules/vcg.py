@@ -183,8 +183,6 @@ CMD_HELP.update(
          \n↳ : `Mengubah tittle/judul Obrolan Suara.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
          \n↳ : Invite semua member yang berada di group."
-        \n\n  • ** Syntax: ** `{cmd}joinvc` atau `{cmd}joinvc` < chatid / username gc > n  • ** Function: **Untuk Bergabung ke voice chat group
-         \n\n  • ** Syntax: ** `{cmd}leavevc` atau `{cmd}leavevc` < chatid / username gc > n  • ** Function: **Untuk Turun dari voice chat group
-        "
+
     }
 )
