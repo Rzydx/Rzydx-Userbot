@@ -27,6 +27,18 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
+@rzydx_cmd(pattern='maull(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(3)
+    await typew.edit("`𝐖𝐎𝐘 𝐊𝐎𝐍𝐓𝐎𝐋 𝐀𝐘𝐎𝐊 𝐊𝐄𝐍𝐀𝐋𝐀𝐍`")
+    sleep(3)
+    await typew.edit("`𝐍𝐀𝐌𝐀 𝐆𝐔𝐄 𝐌𝐀𝐔𝐋𝐋, 𝐀𝐒𝐊𝐎𝐓 𝐁𝐄𝐊𝐀𝐒𝐈`")
+    sleep(1)
+    await typew.edit("`𝐒𝐀𝐋𝐀𝐌 𝐊𝐄𝐍𝐀𝐋 𝐘𝐀 𝐍𝐆𝐄𝐍𝐓𝐎𝐓 😁`")
+# Create by myself @localheart
+
+
 @rzydx_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
