@@ -163,6 +163,27 @@ async def hndlrmenu(event):
     )
 
 
+@callback(data=re.compile(b"multiclient"))
+async def menuclient(event):
+    await event.edit(
+        "**Silahkan Pilih VAR yang ingin anda Setting**",
+        buttons=[
+            [
+                Button.inline("sᴛʀɪɴɢ_sᴇssɪᴏɴ", data="strone"),
+            ],
+            [
+                Button.inline("sᴛʀɪɴɢ 2", data="strtwo"),
+                Button.inline("sᴛʀɪɴɢ 3", data="strtri"),
+            ],
+            [
+                Button.inline("sᴛʀɪɴɢ 4", data="strfor"),
+                Button.inline("sᴛʀɪɴɢ 5", data="strfiv"),
+            ],
+            [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
+        ],
+    )
+
+
 @callback(data=re.compile(b"alivemenu"))
 async def alivemenu(event):
     await event.edit(
@@ -186,6 +207,7 @@ async def inlinemenu(event):
         "**Silahkan Pilih VAR yang ingin anda Setting**",
         buttons=[
             [
+                Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
                 Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
@@ -237,7 +259,7 @@ async def users(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="userbot/files/20211115_142004.jpg",
+                thumb="userbot/files/IMG_20220330_212611_797.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
@@ -638,8 +660,8 @@ async def infor(event):
         f"**Master** - {OWNER} \
                 \n**Id** - {OWNER_ID} \
                 \n**Profile** - [Link](tg://user?id={OWNER_ID}) \
-                \n\n**Repo** - [Github](github.com/farizjs/Flicks-userbot) \
-                \nPowerd By 💕 @TheFlicksUserbot",
+                \n\n**Repo** - [Github](github.com/Rzydx/Rzydx-userbot) \
+                \nPowerd By 💕 @RzydxProject",
         buttons=[
             [
                 custom.Button.inline(

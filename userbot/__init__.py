@@ -100,6 +100,13 @@ SUDO_USERS = {
         "SUDO_USERS",
         "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
+BLACKLIST_GCAST = {int(x) for x in os.environ.get("BLACKLIST_GCAST", "").split()}
+
+# For Blacklist Group Support
+BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
+if not BLACKLIST_CHAT:
+    BLACKLIST_CHAT = [-1001473548283]
+
 # =====================================================================
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_ID") or os.environ.get(
@@ -107,7 +114,11 @@ API_KEY = int(os.environ.get("API_ID") or os.environ.get(
 API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
-STRING_SESSION = os.environ.get("STRING_SESSION", "")
+STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_2 = os.environ.get("STRING_2", None)
+STRING_3 = os.environ.get("STRING_3", None)
+STRING_4 = os.environ.get("STRING_4", None)
+STRING_5 = os.environ.get("STRING_5", None)
 
 # Userbot Session String
 VC_SESSION = os.environ.get("VC_SESSION", "")
@@ -328,6 +339,119 @@ API_URL = os.environ.get("API_URL", "http://antiddos.systems")
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
+# Jangan di hapus Nanti ERROR
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        blacklistman = []
+        break
+    blacklistman = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
+
+ch = str(b64decode("QEx1bmF0aWMwZGU="))[2:13]
+gc = str(b64decode("QFNoYXJpbmdVc2VyYm90"))[2:17]
+
+while 0 < 6:
+    _WHITELIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/whitelist.json"
+    )
+    if _WHITELIST.status_code != 200:
+        if 0 != 5:
+            continue
+        WHITELIST = []
+        break
+    WHITELIST = _WHITELIST.json()
+    break
+
+del _WHITELIST
+
+# 'bot' variable
+if STRING_SESSION:
+    session = StringSession(str(STRING_SESSION))
+else:
+    session = "ManUserBot"
+try:
+    bot = TelegramClient(
+        session=session,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py = PyTgCalls(bot)
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
+
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    MAN2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(MAN2)
+else:
+    call_py2 = None
+    MAN2 = None
+
+
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    MAN3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(MAN3)
+else:
+    call_py3 = None
+    MAN3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    MAN4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(MAN4)
+else:
+    call_py4 = None
+    MAN4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    MAN5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(MAN5)
+else:
+    call_py5 = None
+    MAN5 = None
 
 # Init Mongo
 MONGOCLIENT = MongoClient(MONGO_URI, 27017, serverSelectionTimeoutMS=1)
