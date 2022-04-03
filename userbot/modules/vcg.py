@@ -1,35 +1,36 @@
-# Copyright (C) 2021 TeamUltroid
-#
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
-#
-# Ported by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
-#
-# Kalo mau ngecopas, jangan hapus credit ya goblok
+# Thanks Full To Team Ultroid
+# Fiks By Kyy @IDnyaKosong
 
-from pytgcalls import StreamType
-from pytgcalls.exceptions import AlreadyJoinedError
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
-from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot.events import register
+from telethon.tl import types
+from telethon.utils import get_display_name
+
+from userbot import owner
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import edit_delete, edit_or_reply, rzydx_cmd
+from userbot.events import register
+
+NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
 
 
-async def get_call(event):
-    mm = await event.client(getchat(event.chat_id))
-    xx = await event.client(getvc(mm.full_chat.call, limit=1))
-    return xx.call
+def vcmention(user):
+    full_name = get_display_name(user)
+    if not isinstance(user, types.User):
+        return full_name
+    return f"[{full_name}](tg://user?id={user.id})"
+
+
+async def get_call(kyy):
+    kyym = await kyy.client(getchat(kyy.chat_id))
+    hehe = await kyy.client(getvc(kyym.full_chat.call, limit=1))
+    return hehe.call
 
 
 def user_list(l, n):
@@ -40,55 +41,53 @@ def user_list(l, n):
 @rzydx_cmd(pattern="startvc$")
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
-    me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
         return
     try:
         await c.client(startvc(c.chat_id))
-        await edit_or_reply(c, "`Voice Chat Started...`")
+        await edit_or_reply(c, "`Memulai Obrolan Suara`")
     except Exception as ex:
-        await edit_delete(c, f"**ERROR:** `{ex}`")
+        await edit_or_reply(c, f"**ERROR:** `{ex}`")
 
 
 @rzydx_cmd(pattern="stopvc$")
 @register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
-    me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
         return
     try:
         await c.client(stopvc(await get_call(c)))
-        await edit_or_reply(c, "`Voice Chat Stopped...`")
+        await edit_or_reply(c, "`Mematikan Obrolan Suara`")
     except Exception as ex:
         await edit_delete(c, f"**ERROR:** `{ex}`")
 
 
 @rzydx_cmd(pattern="vcinvite")
-async def _(c):
-    xxnx = await edit_or_reply(c, "`Inviting Members to Voice Chat...`")
+async def _(rzydx):
+    await edit_or_reply(rzydx, "`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in c.client.iter_participants(c.chat_id):
+    async for x in rzydx.client.iter_participants(rzydx.chat_id):
         if not x.bot:
             users.append(x.id)
-    botman = list(user_list(users, 6))
-    for p in botman:
+    hmm = list(user_list(users, 6))
+    for p in hmm:
         try:
-            await c.client(invitetovc(call=await get_call(c), users=p))
+            await rzydx.client(invitetovc(call=await get_call(rzydx), users=p))
             z += 6
         except BaseException:
             pass
-    await xxnx.edit(f"`{z}` **Orang Berhasil diundang ke VCG**")
+    await edit_or_reply(rzydx, f"`Menginvite {z} Member`")
 
 
 @rzydx_cmd(pattern="vctitle(?: |$)(.*)")
@@ -122,7 +121,7 @@ async def _(event):
         try:
             chat_id = await event.client.get_peer_id(int(chat_id))
         except Exception as e:
-            return await Man.edit(f"**ERROR:** `{e}`")
+            return await rzydx.edit(f"**ERROR:** `{e}`")
     else:
         chat_id = event.chat_id
     file = "./userbot/resources/audio-man.mp3"
@@ -137,18 +136,18 @@ async def _(event):
                 ),
                 stream_type=StreamType().local_stream,
             )
-            await Man.edit(
+            await rzydx.edit(
                 f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`"
             )
         except AlreadyJoinedError:
             await call_py.leave_group_call(chat_id)
             await edit_delete(
-                Man,
+                rzydx,
                 "**ERROR:** `Karena akun sedang berada di obrolan suara`\n\n• Silahkan coba `.joinvc` lagi",
                 45,
             )
         except Exception as e:
-            await Man.edit(f"**INFO:** `{e}`")
+            await rzydx.edit(f"**INFO:** `{e}`")
 
 
 @rzydx_cmd(pattern="leavevc(?: |$)(.*)")
@@ -160,35 +159,34 @@ async def vc_end(event):
         try:
             chat_id = await event.client.get_peer_id(int(chat_id))
         except Exception as e:
-            return await Man.edit(f"**ERROR:** `{e}`")
+            return await rzydx.edit(f"**ERROR:** `{e}`")
     else:
         chat_id = event.chat_id
     if chat_id:
         try:
             await call_py.leave_group_call(chat_id)
             await edit_delete(
-                Man,
+                rzydx,
                 f"❏ **Berhasil Turun dari Obrolan Suara**\n└ **Chat ID:** `{chat_id}`",
             )
         except Exception as e:
-            await Man.edit(f"**INFO:** `{e}`")
+            await rzydx.edit(f"**INFO:** `{e}`")
 
 
 CMD_HELP.update(
     {
-        "vctools": f"**Plugin : **`vctools`\
-        \n\n  •  **Syntax :** `{cmd}startvc`\
-        \n  •  **Function : **Untuk Memulai voice chat group\
-        \n\n  •  **Syntax :** `{cmd}stopvc`\
-        \n  •  **Function : **Untuk Memberhentikan voice chat group\
-        \n\n  •  **Syntax :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>\
-        \n  •  **Function : **Untuk Bergabung ke voice chat group\
-        \n\n  •  **Syntax :** `{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>\
-        \n  •  **Function : **Untuk Turun dari voice chat group\
-        \n\n  •  **Syntax :** `{cmd}vctitle` <title vcg>\
-        \n  •  **Function : **Untuk Mengubah title/judul voice chat group\
-        \n\n  •  **Syntax :** `{cmd}vcinvite`\
-        \n  •  **Function : **Mengundang Member group ke voice chat group (anda harus sambil bergabung ke OS/VCG)\
+        "vcg": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}startvc`\
+         \n↳ : Memulai Obrolan Suara dalam Group.\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}stopvc`\
+         \n↳ : `Menghentikan Obrolan Suara Pada Group.`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vctittle <tittle vcg>`\
+         \n↳ : `Mengubah tittle/judul Obrolan Suara.`\
+         \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
+         \n↳ : Invite semua member yang berada di group."
+         \n\n  •  **Syntax :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>\
+         \n  •  **Function : **Untuk Bergabung ke voice chat group\
+         \n\n  •  **Syntax :** `{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>\
+         \n  •  **Function : **Untuk Turun dari voice chat group\
     "
     }
 )
