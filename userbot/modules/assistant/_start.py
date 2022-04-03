@@ -163,27 +163,6 @@ async def hndlrmenu(event):
     )
 
 
-@callback(data=re.compile(b"multiclient"))
-async def menuclient(event):
-    await event.edit(
-        "**Silahkan Pilih VAR yang ingin anda Setting**",
-        buttons=[
-            [
-                Button.inline("sᴛʀɪɴɢ_sᴇssɪᴏɴ", data="strone"),
-            ],
-            [
-                Button.inline("sᴛʀɪɴɢ 2", data="strtwo"),
-                Button.inline("sᴛʀɪɴɢ 3", data="strtri"),
-            ],
-            [
-                Button.inline("sᴛʀɪɴɢ 4", data="strfor"),
-                Button.inline("sᴛʀɪɴɢ 5", data="strfiv"),
-            ],
-            [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
-        ],
-    )
-
-
 @callback(data=re.compile(b"alivemenu"))
 async def alivemenu(event):
     await event.edit(
