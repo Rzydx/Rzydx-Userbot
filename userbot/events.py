@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, CMD_LIST, DEVS, MAN2, MAN3, MAN4, MAN5, bot
+from userbot import CMD_HANDLER, CMD_LIST, DEVS, bot
 
 
 def man_cmd(pattern=None, command=None, **args):
