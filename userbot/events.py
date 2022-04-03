@@ -250,22 +250,6 @@ def register(**args):
             if not disable_edited:
                 bot.add_event_handler(wrapper, events.MessageEdited(**args))
             bot.add_event_handler(wrapper, events.NewMessage(**args))
-        if MAN2:
-            if not disable_edited:
-                MAN2.add_event_handler(wrapper, events.MessageEdited(**args))
-            MAN2.add_event_handler(wrapper, events.NewMessage(**args))
-        if MAN3:
-            if not disable_edited:
-                MAN3.add_event_handler(wrapper, events.MessageEdited(**args))
-            MAN3.add_event_handler(wrapper, events.NewMessage(**args))
-        if MAN4:
-            if not disable_edited:
-                MAN4.add_event_handler(wrapper, events.MessageEdited(**args))
-            MAN4.add_event_handler(wrapper, events.NewMessage(**args))
-        if MAN5:
-            if not disable_edited:
-                MAN5.add_event_handler(wrapper, events.MessageEdited(**args))
-            MAN5.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 
     return decorator
