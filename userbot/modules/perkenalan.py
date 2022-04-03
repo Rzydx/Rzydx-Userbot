@@ -3,7 +3,7 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import rzydx_cmd
 
 
-@rzydx_cmd(pattern='Rzydx(?: |$)(.*)')
+@rzydx_cmd(pattern='rzydx(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -13,6 +13,19 @@ async def typewriter(typew):
     sleep(1)
     await typew.edit("`Umurku Sembilan Belas, Tapi Aku Tidak Malas, Salam Kenal:)`")
 # Create by myself @localheart
+
+
+@rzydx_cmd(pattern='jhor(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    sleep(3)
+    await typew.edit("`Yo Halo Semua Perkenalkan, Nama Gua jhor`")
+    sleep(3)
+    await typew.edit("`Biasa Di Panggil Bang Jhor`")
+    sleep(1)
+    await typew.edit("`Tingga Di Jakarta Barat, Salam Kenal Ya:)`")
+# Create by myself @localheart
+
 
 
 @rzydx_cmd(pattern='sayang(?: |$)(.*)')
@@ -40,8 +53,8 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Rzydx`\
-    \n↳ : perkenalan Rzydx\
+    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rzydx`\
+    \n↳ : perkenalan rzydx\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
