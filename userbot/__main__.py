@@ -63,6 +63,10 @@ async def check_alive():
     except Exception as e:
         LOGS.info(str(e))
     try:
+        await bot(JoinChannelRequest("@Buduh"))
+    except BaseException:
+        pass
+    try:
         await bot(JoinChannelRequest("@RzydxProject"))
     except BaseException:
         pass

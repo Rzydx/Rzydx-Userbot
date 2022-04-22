@@ -60,7 +60,7 @@ async def sleepybot(time):
 @rzydx_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Mematikan Flicks-Userbot....`")
+    await event.edit("`Mematikan Rzydx-Userbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
@@ -71,7 +71,7 @@ async def killdabot(event):
 
 @rzydx_cmd(pattern="restart$")
 async def killdabot(event):
-    await event.edit("`Restarting Flicks-Userbot...`")
+    await event.edit("`Restarting Rzydx-Userbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -88,7 +88,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
-        "\n[Flicks-Userbot](https://github.com/fjgaming212/Flicks-Userbot/blob/Flicks-Userbot/README.md)"
+        "\n[Rzydx-Userbot](https://github.com/Rzydx/Rzydx-Userbot/blob/Rzydx-Userbot/README.md)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 

@@ -211,7 +211,7 @@ async def redis(pong):
     await pong.edit("**PONGGGG!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(f"**FLICKS-USERBOT**\n :` %s`ms\n**Bot Uptime** : `{uptime}`🕛" % (duration))
+    await pong.edit(f"**RZYDX-USERBOT**\n :` %s`ms\n**Bot Uptime** : `{uptime}`🕛" % (duration))
 
 
 @rzydx_cmd(pattern="speed")
@@ -238,7 +238,7 @@ async def speedtst(spd):
                    f"`{result['ping']}` \n"
                    "✧ **ISP:** "
                    f"`{result['client']['isp']}` \n"
-                   "✧ **BOT:**Flicks-Userbot")
+                   "✧ **BOT:**Rzydx-Userbot")
 
 
 def speed_convert(size):

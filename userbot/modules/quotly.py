@@ -72,7 +72,7 @@ async def quott_(event):
         file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
     except Exception as er:
         return await msg.edit((f"**ERROR:** `{er}`"))
-    message = await reply.reply("Quotly by Flicks Userbot", file=file)
+    message = await reply.reply("Quotly by Rzydx Userbot", file=file)
     os.remove(file)
     await msg.delete()
     return message

@@ -42,7 +42,7 @@ async def autopilot():
         r = await bot(
             CreateChannelRequest(
                 title="ᴍʏ ʀᴢʏᴅx ʟᴏɢs",
-                about="ᴍʏ ɢʀᴜᴘ ʟᴏɢ ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ.\n\n @RzydxProject @margamodedisini",
+                about="ᴍʏ ɢʀᴜᴘ ʟᴏɢ ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ.\n\n Join @RzydxProject X @Buduh",
                 megagroup=True,
             ),
         )
