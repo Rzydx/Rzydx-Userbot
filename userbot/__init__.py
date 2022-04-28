@@ -1,10 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.d (the "License");
-# you may not use this file except in compliance with the License.
-#
-# inline credit @keselekpermen69 & @farizjs
-# Chatbot and button from Man-Userbot
 """ Userbot initialization. """
 
 import logging
@@ -352,7 +345,7 @@ BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 # Jangan di hapus Nanti ERROR
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/Rzydx/Reforestation/master/manblacklist.json"
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
@@ -422,11 +415,85 @@ for binary, path in binaries.items():
 
 # 'bot' variable
 if STRING_SESSION:
-    # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+    session = StringSession(str(STRING_SESSION))
 else:
-    # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", API_KEY, API_HASH)
+    session = "Rzydx-UserBot"
+try:
+    bot = TelegramClient(
+        session=session,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py = PyTgCalls(bot)
+except Exception as e:
+    print(f"STRING_SESSION - {e}")
+    sys.exit()
+
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    RZYDX2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(RZYDX2)
+else:
+    call_py2 = None
+    RZYDX2 = None
+
+
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    RZYDX3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(RZYDX3)
+else:
+    call_py3 = None
+    RZYDX3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    RZYDX4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(RZYDX4)
+else:
+    call_py4 = None
+    RZYDX4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    RZYDX5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(RZYDX5)
+else:
+    call_py5 = None
+    RZYDX5 = None
 
 
 if BOT_TOKEN is not None:
@@ -922,44 +989,105 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                              ]
                              )
 
-        @ tgbot.on(
+
+        @tgbot.on(events.CallbackQuery(data=b"rzydx_inline"))
+        async def about(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                await event.edit(f"""
+Voice chat group menu untuk [{user.first_name}](tg://user?id={user.id})
+""",
+                                 buttons=[
+                                     [
+                                         Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ ⚙️",
+                                                       data="vcplugin"),
+                                         Button.inline("ᴠᴄ ᴛᴏᴏʟs ⚙️",
+                                                       data="vctools")],
+                                     [custom.Button.inline(
+                                         "ʙᴀᴄᴋ", data="gcback")],
+                                 ]
+                                 )
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"rzydx_inline")
+                data=re.compile(rb"vcplugin")
             )
         )
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid:
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
-                    """
-  •  Syntax : .play <Judul Lagu/Link YT>
-  •  Function : Untuk Memutar Lagu di voice chat group dengan akun kamu
+                    f"""
+✘ **Commands available in vcplugin** ✘
 
-  •  Syntax : .vplay <Judul Video/Link YT>
-  •  Function : Untuk Memutar Video di voice chat group dengan akun kamu
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}play` <Judul Lagu/Link YT>
+  ↳ : Untuk Memutar Lagu di voice chat group dengan akun kamu
 
-  •  Syntax : .end
-  •  Function : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vplay` <Judul Video/Link YT>
+  ↳ : Untuk Memutar Video di voice chat group dengan akun kamu
 
-  •  Syntax : .skip
-  •  Function : Untuk Melewati video/lagu yang sedang di putar
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}end`
+  ↳ : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group
 
-  •  Syntax : .pause
-  •  Function : Untuk memberhentikan video/lagu yang sedang diputar
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}skip`
+  ↳ : Untuk Melewati video/lagu yang sedang di putar
 
-  •  Syntax : .resume
-  •  Function : Untuk melanjutkan pemutaran video/lagu yang sedang diputar
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}pause`
+  ↳ : Untuk memberhentikan video/lagu yang sedang diputar
 
-  •  Syntax : .volume 1-200
-  •  Function : Untuk mengubah volume (Membutuhkan Hak admin)
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}resume`
+  ↳ : Untuk melanjutkan pemutaran video/lagu yang sedang diputar
 
-  •  Syntax : .playlist
-  •  Function : Untuk menampilkan daftar putar Lagu/Video
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}volume` 1-200
+  ↳ : Untuk mengubah volume (Membutuhkan Hak admin)
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}playlist`
+  ↳ : Untuk menampilkan daftar putar Lagu/Video
 """)
                 await event.edit(
                     text,
                     file=rzydxlogo,
                     link_preview=True,
-                    buttons=[Button.inline("Back", data="gcback")])
+                    buttons=[Button.inline("ʙᴀᴄᴋ", data="rzydx_inline")])
+            else:
+                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"vctools")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                text = (
+                    f"""
+✘ **Commands available in vctools** ✘
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}startvc`
+  ↳ : Untuk Memulai voice chat group
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}stopvc`
+  ↳ : Untuk Memberhentikan voice chat group
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vctitle` <title vcg>
+  ↳ : Untuk Mengubah title/judul voice chat group
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vcinvite`
+  ↳ : Mengundang Member group ke voice chat group
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}joinvc`
+  ↳ : Melakukan Fake voice chat group
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}leavevc`
+  ↳ : Memberhentikan Fake voice chat group
+""")
+                await event.edit(
+                    text,
+                    file=rzydxlogo,
+                    link_preview=True,
+                    buttons=[Button.inline("ʙᴀᴄᴋ", data="rzydx_inline")])
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
