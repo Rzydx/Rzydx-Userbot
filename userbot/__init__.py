@@ -815,7 +815,7 @@ with bot:
             result = None
             query = event.text
             if event.query.user_id == uid and query.startswith(
-                    "@margamodedisini"):
+                    "@Rzydx_Userbot"):
                 result = builder.photo(
                     file=rzydxlogo,
                     link_preview=False,

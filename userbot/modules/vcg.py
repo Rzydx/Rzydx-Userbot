@@ -50,7 +50,7 @@ async def start_voice(c):
         return
     try:
         await c.client(startvc(c.chat_id))
-        await edit_or_reply(c, "`Memulai Obrolan Suara`")
+        await edit_or_reply(c, "`Gerbang Dosa Telah Dibuka...`")
     except Exception as ex:
         await edit_or_reply(c, f"**ERROR:** `{ex}`")
 
@@ -67,7 +67,7 @@ async def stop_voice(c):
         return
     try:
         await c.client(stopvc(await get_call(c)))
-        await edit_or_reply(c, "`Mematikan Obrolan Suara`")
+        await edit_or_reply(c, "`Gerbang Dosa Telah Ditutup...`")
     except Exception as ex:
         await edit_delete(c, f"**ERROR:** `{ex}`")
 

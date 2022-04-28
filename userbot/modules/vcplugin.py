@@ -517,7 +517,7 @@ async def leavevc(event):
             await call_py.leave_group_call(chat_id)
         except (NotInGroupCallError, NoActiveGroupCall):
             pass
-        await xnxx.edit("**Dah Gua Turunin Tuh Kontol ** `{}`".format(str(event.chat_id)))
+        await xnxx.edit("**Dah Gua Turunin Tuh Kontoll Di Os ** `{}`".format(str(event.chat_id)))
     else:
         await edit_delete(event, f"**Sorry {owner} not on Voice Chat**")
 
