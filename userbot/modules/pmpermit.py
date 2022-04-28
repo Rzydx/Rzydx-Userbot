@@ -35,7 +35,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 
 DEF_UNAPPROVED_MSG = (
     " •••••╼═══════⍟═══════╾••••• \n"
-    " 𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗧𝗛𝗘 𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
+    "           𝗣𝗥𝗜𝗩𝗔𝗖𝗬 𝗠𝗘𝗦𝗦𝗔𝗚𝗘 \n"
     " ••••╼═⍟═♨️ʀᴢʏᴅx-ᴜsᴇʀʙᴏᴛ♨️═⍟═╾•••• \n"
     f"৯•** Sabar Tod Tunggu Majikan Gua On ** \n"
     f"৯•** Lu Jangan Nyepam Kek Para Jamet Kontol **\n"
