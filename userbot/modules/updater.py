@@ -98,7 +98,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
                               )
         else:
             await edit_delete(event,
-                              "`Rzydx-Userbot Udah Di Kentot🛃,Sabar Gua Restart Dulu Tod`"
+                              "`Rzydx-Userbot Udah Di Kentot,Sabar Gua Restart Dulu Tod`"
                               )
 
         if BOTLOG:

@@ -73,21 +73,21 @@ async def stop_voice(c):
 
 
 @rzydx_cmd(pattern="vcinvite")
-async def _(rzydx):
-    await edit_or_reply(rzydx, "`Sedang Menginvite Member...`")
+async def _(kyy):
+    await edit_or_reply(kyy, "`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in rzydx.client.iter_participants(rzydx.chat_id):
+    async for x in kyy.client.iter_participants(kyy.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await rzydx.client(invitetovc(call=await get_call(rzydx), users=p))
+            await kyy.client(invitetovc(call=await get_call(kyy), users=p))
             z += 6
         except BaseException:
             pass
-    await edit_or_reply(rzydx, f"`Menginvite {z} Member`")
+    await edit_or_reply(kyy, f"`Menginvite {z} Member`")
 
 
 @rzydx_cmd(pattern="vctitle(?: |$)(.*)")
@@ -112,67 +112,6 @@ async def change_title(e):
         await edit_delete(e, f"**ERROR:** `{ex}`")
 
 
-@rzydx_cmd(pattern="joinvc(?: |$)(.*)")
-@register(pattern=r"^\.joinvcs(?: |$)(.*)", sudo=True)
-async def _(event):
-    await edit_or_reply(event, "`Processing...`")
-    if len(event.text.split()) > 1:
-        chat_id = event.text.split()[1]
-        try:
-            chat_id = await event.client.get_peer_id(int(chat_id))
-        except Exception as e:
-            return await rzydx.edit(f"**ERROR:** `{e}`")
-    else:
-        chat_id = event.chat_id
-    file = "./userbot/resources/audio-man.mp3"
-    if chat_id:
-        try:
-            await call_py.join_group_call(
-                chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file,
-                    ),
-                ),
-                stream_type=StreamType().local_stream,
-            )
-            await rzydx.edit(
-                f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`"
-            )
-        except AlreadyJoinedError:
-            await call_py.leave_group_call(chat_id)
-            await edit_delete(
-                rzydx,
-                "**ERROR:** `Karena akun sedang berada di obrolan suara`\n\n• Silahkan coba `.joinvc` lagi",
-                45,
-            )
-        except Exception as e:
-            await rzydx.edit(f"**INFO:** `{e}`")
-
-
-@rzydx_cmd(pattern="leavevc(?: |$)(.*)")
-@register(pattern=r"^\.leavevcs(?: |$)(.*)", sudo=True)
-async def vc_end(event):
-    await edit_or_reply(event, "`Processing...`")
-    if len(event.text.split()) > 1:
-        chat_id = event.text.split()[1]
-        try:
-            chat_id = await event.client.get_peer_id(int(chat_id))
-        except Exception as e:
-            return await rzydx.edit(f"**ERROR:** `{e}`")
-    else:
-        chat_id = event.chat_id
-    if chat_id:
-        try:
-            await call_py.leave_group_call(chat_id)
-            await edit_delete(
-                rzydx,
-                f"❏ **Berhasil Turun dari Obrolan Suara**\n└ **Chat ID:** `{chat_id}`",
-            )
-        except Exception as e:
-            await rzydx.edit(f"**INFO:** `{e}`")
-
-
 CMD_HELP.update(
     {
         "vcg": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}startvc`\
@@ -183,6 +122,5 @@ CMD_HELP.update(
          \n↳ : `Mengubah tittle/judul Obrolan Suara.`\
          \n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}vcinvite`\
          \n↳ : Invite semua member yang berada di group."
-
     }
 )
