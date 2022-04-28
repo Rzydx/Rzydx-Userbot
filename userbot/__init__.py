@@ -5,25 +5,38 @@ import os
 import time
 import re
 import redis
+import random
+import pybase64
+import sys
 
+from asyncio import get_event_loop
+from base64 import b64decode
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 from math import ceil
+from pathlib import Path
 
+from git import Repo
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
+from pytgcalls import PyTgCalls
 from pymongo import MongoClient
 from datetime import datetime
 from redis import StrictRedis
 from dotenv import load_dotenv
 from requests import get
 from telethon import Button
-from telethon.errors import UserIsBlockedError
 from telethon.sync import TelegramClient, custom, events
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
+from telethon.tl.functions.channels import JoinChannelRequest as GetSec
+from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
+from telethon.sync import TelegramClient, custom, events
 from telethon import Button, events, functions, types
+from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
+from telethon import version
 
 from .storage import Storage
 
@@ -34,26 +47,43 @@ def STORAGE(n):
 
 redis_db = None
 
-load_dotenv("config.env")
+LOOP = get_event_loop()
+repo = Repo()
+branch = repo.active_branch.name
 
-StartTime = time.time()
 
-CMD_LIST = {}
-# for later purposes
-CMD_HELP = {}
-INT_PLUG = ""
-LOAD_PLUG = {}
+# Global Variables
 COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
 ENABLE_KILLME = True
 LASTMSG = {}
+CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
 ZALG_LIST = {}
+CMD_LIST = {}
+CMD_HELP = {}
+SUDO_LIST = {}
+INT_PLUG = ""
+LOAD_PLUG = {}
 
+load_dotenv("config.env")
+
+StartTime = time.time()
 
 # Bot Logs setup:
+logging.basicConfig(
+    format="[%(name)s] - [%(levelname)s] - %(message)s",
+    level=logging.INFO,
+)
+logging.getLogger("asyncio").setLevel(logging.ERROR)
+logging.getLogger("pytgcalls").setLevel(logging.ERROR)
+logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
+LOGS = getLogger(__name__)
+
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 if CONSOLE_LOGGER_VERBOSE:
@@ -62,9 +92,8 @@ if CONSOLE_LOGGER_VERBOSE:
         level=DEBUG,
     )
 else:
-    basicConfig(
-        format=". %(asctime)s . - . %(name)s . - . %(levelname)s . - . %(message)s .",
-        level=INFO)
+    basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+                level=INFO)
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 8:
