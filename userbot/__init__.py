@@ -989,7 +989,6 @@ Rzydx-Userbot [v{BOT_VER}](https://github.com/Rzydx/Rzydx-Userbot)
                              ]
                              )
 
-
         @tgbot.on(events.CallbackQuery(data=b"rzydx_inline"))
         async def about(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
