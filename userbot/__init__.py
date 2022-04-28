@@ -32,6 +32,12 @@ from telethon.sessions import StringSession
 from telethon import Button, events, functions, types
 from telethon.utils import get_display_name
 
+from .storage import Storage
+
+
+def STORAGE(n):
+    return Storage(Path("data") / n)
+
 
 redis_db = None
 
