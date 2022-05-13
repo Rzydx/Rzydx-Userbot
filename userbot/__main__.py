@@ -67,7 +67,7 @@ async def check_alive():
     except BaseException:
         pass
     try:
-        await bot(JoinChannelRequest("@RzydxProject"))
+        await bot(JoinChannelRequest("@NiskalaSupport"))
     except BaseException:
         pass
     try:
